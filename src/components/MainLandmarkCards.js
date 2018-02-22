@@ -8,7 +8,7 @@ class MainLandmarkCards extends Component {
         return (
             <section className="landmarksMain">
                 <h2>Highlighted Landmarks</h2>
-                <LandmarkCards max="5" onlyHighlighted={true} />
+                <LandmarkCards max="5" onlyHighlighted={false} />
             </section>
         );
     }

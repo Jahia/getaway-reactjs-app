@@ -5,15 +5,15 @@ class DestinationCard extends Component {
     render() {
         const destination = this.props.destination;
         const photoUrls = destination.photoUrls;
-        const destinationName = destination.name;
-        const destinationCountry= destination.country;
+        const name = destination.name;
+        const country= destination.country;
 
-        if(destination && destinationName && destinationCountry && photoUrls && photoUrls.length > 0) {
+        if(destination && name && country && photoUrls && photoUrls.length > 0) {
             return (
                 <div className="destination-card">
                     <img className="destination-photo" src={photoUrls[0]} />
-                    <div className="destination-name">{destinationName}</div>
-                    <div className="destination-country">{destinationCountry}</div>
+                    <div className="destination-name">{name}</div>
+                    <div className="destination-country">{country}</div>
                 </div>
             )
         } else {

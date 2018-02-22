@@ -1,0 +1,13 @@
+section.landmarksMain {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+section.landmarksMain h2 {
+    font-size: 18px;
+    opacity: .67;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border-bottom: 2px dotted #ccc;
+}

@@ -1,0 +1,106 @@
+span.rt-val {
+    color: #e7711b;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+span.rt-bg {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAQAAAAYCMGrAAAA+klEQVR4AcWV4cbtMBBFF0MIVUopoVSrhDDv/3gf/RFRpzdNOty1HiBO99mzeYWgCMZMKCPGrCgrxiSUhCkDeukxJKCXAUMiehkxw6FZhxEzmp0x4kCzByYISqlYdal0supS6WrVpdLEK0YSamJiJOPY0c/uOG4s6CcXfuKJaJcRzyNCQJsNiF1sRTR1hP11NNJ8RCrONOPRf+r7J+TZgQ5CNfMOYvW/2YxDqzqA/57+gVY9eiakrnyZEGXDsaE3p/4JScwPX3rtnZATDxnPWT7X16XAHaH8HWNrlxJD9TyGti5tCM84zpZe+RxNjeX9tZqLaGoMxN/P/wHP5Vw+8ZxnEQAAAABJRU5ErkJggg==);
+    background-repeat: repeat-x;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    background-size: 14px 13px;
+    height: 13px;
+    top: 1px;
+    width: 69px;
+}
+
+span.rt-bg span {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAMAAACF3/kSAAAARVBMVEUAAADncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvncRvQdmh2AAAAFnRSTlMAEDAg71CgQJDg8HBvYMDPv4/fr3+fs8YwdQAAANlJREFUeF6Nk9uOgCAMBS0g4hVve/7/UzdrE2NXqJ3neSmHad4QqDEyo7WqEdGqDhiMZgfA2dQEINnUHkBvMj3+8BZ1vNTRoi6XuhhMAkOWqZjZMhUTLVMxpcHagG8CfyC/4ov1fuYTOufjFrcr4i7/Dm2osZHxulAKgkrXrZXRppc5NTUcJE5LRdJpqUiSloqkV1OReC0VyailIlnUVCSkp4LDH2Awq6mE6TFc1FLJPJHLnI0y1XZH/nO5bW2q0P2PLlWmOkhOksuDOb5HchZ/15hd6YD9Mdgvr0crAhbtroEAAAAASUVORK5CYII=);
+    background-repeat: repeat-x;
+    display: block;
+    background-size: 14px 13px;
+    height: 13px;
+    top: 1px;
+    width: 0;
+}
+
+.rt-bg span[data-rating='0.3'],
+.rt-bg span[data-rating='0.4'],
+.rt-bg span[data-rating='0.5'],
+.rt-bg span[data-rating='0.6'] {
+    width: 7px;
+}
+
+.rt-bg span[data-rating='0.7'],
+.rt-bg span[data-rating='0.8'],
+.rt-bg span[data-rating='0.9'],
+.rt-bg span[data-rating='1'],
+.rt-bg span[data-rating='1.1'],
+.rt-bg span[data-rating='1.2'] {
+    width: 13px;
+}
+
+.rt-bg span[data-rating='1.3'],
+.rt-bg span[data-rating='1.4'],
+.rt-bg span[data-rating='1.5'],
+.rt-bg span[data-rating='1.6'] {
+    width: 21px;
+}
+
+.rt-bg span[data-rating='1.7'],
+.rt-bg span[data-rating='1.8'],
+.rt-bg span[data-rating='1.9'],
+.rt-bg span[data-rating='2'],
+.rt-bg span[data-rating='2.1'],
+.rt-bg span[data-rating='2.2'] {
+    width: 27px;
+}
+
+.rt-bg span[data-rating='2.3'],
+.rt-bg span[data-rating='2.4'],
+.rt-bg span[data-rating='2.5'],
+.rt-bg span[data-rating='2.6'] {
+    width: 35px;
+}
+
+.rt-bg span[data-rating='2.7'],
+.rt-bg span[data-rating='2.8'],
+.rt-bg span[data-rating='2.9'],
+.rt-bg span[data-rating='3'],
+.rt-bg span[data-rating='3.1'],
+.rt-bg span[data-rating='3.2'] {
+    width: 41px;
+}
+
+.rt-bg span[data-rating='3.3'],
+.rt-bg span[data-rating='3.4'],
+.rt-bg span[data-rating='3.5'],
+.rt-bg span[data-rating='3.6'] {
+    width: 48px;
+}
+
+.rt-bg span[data-rating='3.7'],
+.rt-bg span[data-rating='3.8'],
+.rt-bg span[data-rating='3.9'],
+.rt-bg span[data-rating='4'],
+.rt-bg span[data-rating='4.1'],
+.rt-bg span[data-rating='4.2'] {
+    width: 56px;
+}
+
+.rt-bg span[data-rating='4.3'],
+.rt-bg span[data-rating='4.4'],
+.rt-bg span[data-rating='4.5'],
+.rt-bg span[data-rating='4.6'] {
+    width: 63px;
+}
+
+.rt-bg span[data-rating='4.7'],
+.rt-bg span[data-rating='4.8'],
+.rt-bg span[data-rating='4.9'],
+.rt-bg span[data-rating='5'] {
+    width: 69px;
+}

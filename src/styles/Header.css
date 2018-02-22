@@ -1,0 +1,9 @@
+.headerMain .logo-container {
+    height: 68px;
+    background: #220B38;
+}
+
+.headerMain .logo-container img {
+    height: 36px;
+    padding: 16px;
+}
