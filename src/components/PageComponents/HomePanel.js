@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import '../../styles/PageComponents/HomePage.css';
+import '../../styles/PageComponents/HomePanel.css';
 import Banner from "../Banner";
 import Header from "../Header";
 import MainDestinationCards from "../MainDestinationCards";
 import MainLandmarkCards from "../MainLandmarkCards";
 import Footer from "../Footer";
 
-class HomePage extends Component {
+class HomePanel extends Component {
     render() {
         return (
-            <body className="getawayMain">
+            <body className = "getawayMain">
                 <Header/>
                 <Banner/>
                 <MainDestinationCards/>
@@ -20,4 +20,4 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage
+export default HomePanel

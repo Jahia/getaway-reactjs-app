@@ -12,10 +12,10 @@ class LandmarkCard extends Component {
 
         if(landmark && name && destination && photoUrls && photoUrls.length > 0) {
             return (
-                <div className="landmark-card">
-                    <img className="landmark-photo" src={photoUrls[0]}/>
-                    <div className="landmark-name">{name}</div>
-                    <div className="landmark-destination">{destination}</div>
+                <div className = "landmark-card">
+                    <img className = "landmark-photo" src = {photoUrls[0]}/>
+                    <div className = "landmark-name">{name}</div>
+                    <div className = "landmark-destination">{destination}</div>
                     <SimpleRating value = {rating} />
                 </div>
             )

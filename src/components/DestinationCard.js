@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/DestinationCard.css';
 
 class DestinationCard extends Component {
@@ -10,10 +11,11 @@ class DestinationCard extends Component {
 
         if(destination && name && country && photoUrls && photoUrls.length > 0) {
             return (
-                <div className="destination-card">
-                    <img className="destination-photo" src={photoUrls[0]} />
-                    <div className="destination-name">{name}</div>
-                    <div className="destination-country">{country}</div>
+                <div className = "destination-card">
+                    <img className = "destination-photo" src = {photoUrls[0]} />
+                    <div className = "destination-name">{name}</div>
+                    <div className = "destination-country">{country}</div>
+                    <Link to = {`/destination/${destination.name}`}>Destination Link test</Link>
                 </div>
             )
         } else {

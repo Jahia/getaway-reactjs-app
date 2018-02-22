@@ -6,9 +6,9 @@ class MainDestinationCards extends Component {
 
     render() {
         return (
-            <section className="destinationsMain">
+            <section className = "destinationsMain">
                 <h2>Highlighted Destinations</h2>
-                <DestinationCards max="5" onlyHighlighted={true} />
+                <DestinationCards max = "5" onlyHighlighted = {true} />
             </section>
         );
     }

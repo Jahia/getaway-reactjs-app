@@ -43,7 +43,7 @@ class DestinationCards extends HighlightedList {
 
     render() {
         return (
-            <div className="destination-card-container">
+            <div className = "destination-card-container">
                 {super.render()}
             </div>
         );

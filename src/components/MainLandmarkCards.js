@@ -6,9 +6,9 @@ class MainLandmarkCards extends Component {
 
     render() {
         return (
-            <section className="landmarksMain">
+            <section className = "landmarksMain">
                 <h2>Highlighted Landmarks</h2>
-                <LandmarkCards max="5" onlyHighlighted={false} />
+                <LandmarkCards max = "5" onlyHighlighted = {false} />
             </section>
         );
     }

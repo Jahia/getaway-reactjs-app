@@ -53,7 +53,7 @@ class LandmarkCards extends HighlightedList {
 
     render() {
         return (
-            <div className="landmark-card-container">
+            <div className = "landmark-card-container">
                 {super.render()}
             </div>
         );

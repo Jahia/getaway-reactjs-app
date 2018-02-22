@@ -4,7 +4,7 @@ import '../styles/Footer.css';
 class Footer extends Component {
     render() {
         return (
-            <section className="footerMain">tst</section>
+            <section className = "footerMain">tst</section>
         )
     }
 }

@@ -6,10 +6,10 @@ class SimpleRating extends Component {
         let value = this.props.value;
         if(value) {
             return (
-                <div className="landmark-rating">
-                    <span className="rt-val">{value}</span>
-                    <span className="rt-bg">
-                    <span data-rating={value}></span>
+                <div className = "landmark-rating">
+                    <span className = "rt-val">{value}</span>
+                    <span className = "rt-bg">
+                    <span data-rating = {value}></span>
                 </span>
                 </div>
             )
