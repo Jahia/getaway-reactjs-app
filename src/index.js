@@ -5,9 +5,38 @@ import './index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
+import { ApolloProvider } from 'react-apollo'
+import { ApolloClient } from 'apollo-client'
+import { ApolloLink } from 'apollo-client-preset'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+
+const httpLink = new HttpLink({
+    uri: 'http://localhost:8080/getaway'
+});
+
+const middlewareAuthLink = new ApolloLink((operation, forward) => {
+    operation.setContext({
+        headers: {
+            'X-GETAWAY': 'getaway',
+            'Accept': 'application/json'
+        }
+    });
+    return forward(operation);
+});
+
+const httpLinkWithBasicAuth = middlewareAuthLink.concat(httpLink);
+
+const client = new ApolloClient({
+    link: httpLinkWithBasicAuth,
+    cache: new InMemoryCache()
+});
+
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <ApolloProvider client = {client}>
+            <App />
+        </ApolloProvider>
     </BrowserRouter>,
     document.getElementById('root'));
 registerServiceWorker();

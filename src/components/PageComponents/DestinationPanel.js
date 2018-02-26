@@ -9,12 +9,12 @@ class DestinationPanel extends Component {
         const destinationName = this.props.match.params.destinationName;
         if(destinationName) {
             return (
-                <body className="getawayDestination">
+                <section className="getawayDestination">
                     <Header/>
                     <Banner/>
                     {destinationName}
                     <Footer/>
-                </body>
+                </section>
             )
         }
     }

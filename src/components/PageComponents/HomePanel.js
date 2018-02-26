@@ -9,13 +9,13 @@ import Footer from "../Footer";
 class HomePanel extends Component {
     render() {
         return (
-            <body className = "getawayMain">
+            <section className = "getawayMain">
                 <Header/>
                 <Banner/>
                 <MainDestinationCards/>
                 <MainLandmarkCards/>
                 <Footer/>
-            </body>
+            </section>
         )
     }
 }

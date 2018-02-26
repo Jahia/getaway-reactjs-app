@@ -5,7 +5,7 @@ import HighlightedList from "./HighlightedList";
 
 class LandmarkCards extends HighlightedList {
 
-    retrieveElements() {
+    /*
         // getAway format. We will implement a mapper to convert from the external format
         let landmarks = [{
                 name: "Louvre Museum",
@@ -36,9 +36,7 @@ class LandmarkCards extends HighlightedList {
                 rating: 4.4,
                 isHighlighted: true
             }];
-
-        return landmarks;
-    }
+    */
 
     /**
      * Renders a landmark card

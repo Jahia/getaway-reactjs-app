@@ -9,7 +9,16 @@ class DestinationCard extends Component {
         const name = destination.name;
         const country= destination.country;
 
-        if(destination && name && country && photoUrls && photoUrls.length > 0) {
+        // TODO review this
+        //if(destination && name && country && photoUrls && photoUrls.length > 0) {
+        if(destination && name) {
+            return (
+                <div className = "destination-card">
+                    <div className = "destination-name">{name}</div>
+                    <Link to = {`/destination/${destination.name}`}>Destination Link test</Link>
+                </div>
+            )
+            /*
             return (
                 <div className = "destination-card">
                     <img className = "destination-photo" src = {photoUrls[0]} />
@@ -18,6 +27,7 @@ class DestinationCard extends Component {
                     <Link to = {`/destination/${destination.name}`}>Destination Link test</Link>
                 </div>
             )
+            */
         } else {
             console.log("The destination object isn't correctly set");
         }

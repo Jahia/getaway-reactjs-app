@@ -2,10 +2,26 @@ import React, { Component } from 'react'
 import '../styles/DestinationCards.css';
 import DestinationCard from "./DestinationCard";
 import HighlightedList from "./HighlightedList";
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
+
+// TODO: inject this.props.onlyHighlighted instead of hardcoded "true" value
+const HIGHLIGHTED_DESTINATIONS = gql`
+{
+  jcr {
+    nodesByQuery(query: "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents') and [highlight] = 'true'", limit: 4) {
+      nodes {
+        name:displayName(language: "en")
+        isHighlighted:property(name:"highlight") { value }
+      }
+    }
+  }
+}       
+    `
 
 class DestinationCards extends HighlightedList {
 
-    retrieveElements() {
+    /*
         // getAway format. We will implement a mapper to convert from the external format
         let destinations = [{
                 name: "New York",
@@ -26,9 +42,7 @@ class DestinationCards extends HighlightedList {
                 photoUrls: ["https://www.1dasia.com/wp-content/uploads/2017/11/f0pwad_wide-mr.jpg", ""],
                 isHighlighted: true
             }];
-
-        return destinations;
-    }
+     */
 
     /**
      * Renders a destination card
@@ -50,4 +64,4 @@ class DestinationCards extends HighlightedList {
     }
 }
 
-export default DestinationCards
+export default graphql(HIGHLIGHTED_DESTINATIONS, { name: 'data' })(DestinationCards)
