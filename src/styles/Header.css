@@ -1,9 +1,26 @@
 .headerMain .logo-container {
-    height: 68px;
-    background: #220B38;
+	height: 68px;
+	background: #220B38;
+}
+
+@media screen and (max-width: 840px) {
+
+	.headerMain .logo-container {
+		height: 58px;
+	}
+
 }
 
 .headerMain .logo-container img {
-    height: 36px;
-    padding: 16px;
+	height: 36px;
+	padding: 16px;
+}
+
+@media screen and (max-width: 840px) {
+
+	.headerMain .logo-container img {
+		height: 30px;
+		padding: 14px 16px;
+	}
+
 }
