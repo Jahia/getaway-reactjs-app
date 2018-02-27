@@ -7,7 +7,7 @@ class DestinationCard extends Component {
         const destination = this.props.destination;
         const photoUrls = destination.photo;
         const name = destination.name;
-        const country= destination.country.value;
+        const country= destination.country;
 
         // TODO review this
         //if(destination && name && country && photoUrls && photoUrls.length > 0) {

@@ -12,7 +12,7 @@ const HIGHLIGHTED_DESTINATIONS = gql`
     nodesByQuery(query: "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents') and [highlight] = 'true'", limit: 4) {
       nodes {
         name:displayName(language: "en")
-        country:property(name:"country") { value }
+        country
         photo: property(name: "photos") {
           files:refNodes {
             path
