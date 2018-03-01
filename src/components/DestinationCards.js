@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../styles/DestinationCards.css';
 import DestinationCard from "./DestinationCard";
 import HighlightedList from "./HighlightedList";
-import { graphql } from 'react-apollo'
+import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 
-// TODO: inject this.props.onlyHighlighted instead of hardcoded "true" value
-const HIGHLIGHTED_DESTINATIONS = gql`
-{
+const GQL_QUERY = gql`
+query DestinationQuery($query: String!, $limit: Int, $language: String){
   jcr {
-    nodesByQuery(query: "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents') and [highlight] = 'true'", limit: 4) {
+    nodesByQuery(query: $query, limit: $limit) {
       nodes {
-        name:displayName(language: "en")
+        name:displayName(language: $language)
         country
         photo: property(name: "photos") {
           files:refNodes {
@@ -22,32 +21,28 @@ const HIGHLIGHTED_DESTINATIONS = gql`
     }
   }
 }       
-    `
+    `;
+
+function mapPropsToOptions(props) {
+    let options = {
+        skip: false,
+        variables: {
+            query: "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents') and [highlight] = '" + props.onlyHighlighted + "'",
+            limit: props.max,
+            language: "en"
+        }
+    };
+    console.log("Options: " + JSON.stringify(options));
+    return options
+}
+
+function mapResultsToProps(results) {
+    if (results && results.destinations && results.destinations.jcr && results.destinations.jcr.nodesByQuery && results.destinations.jcr.nodesByQuery.nodes)
+        return {elements: results.destinations.jcr.nodesByQuery.nodes};
+    return null;
+}
 
 class DestinationCards extends HighlightedList {
-
-    /*
-        // getAway format. We will implement a mapper to convert from the external format
-        let destinations = [{
-                name: "New York",
-                country: "United States",
-                photoUrls: ["http://womenonaroll.com/wp-content/uploads/2015/03/Statue-of-Liberty.jpg", ""],
-                isHighlighted: true
-            },
-            {
-                name: "Rio de Janeiro",
-                country: "Brazil",
-                photoUrls: ["https://fthmb.tqn.com/j1tWM38cCKpO5EFCyiJ2Irvfn4M=/960x0/filters:no_upscale()/beaches-in-rio-de-janeiro--455181473-5978b0d7aad52b0011a9a69f.jpg",
-                    ""],
-                isHighlighted: false
-            },
-            {
-                name: "Tokyo",
-                country: "Japan",
-                photoUrls: ["https://www.1dasia.com/wp-content/uploads/2017/11/f0pwad_wide-mr.jpg", ""],
-                isHighlighted: true
-            }];
-     */
 
     /**
      * Renders a destination card
@@ -55,18 +50,24 @@ class DestinationCards extends HighlightedList {
      * @param {Number} i - The index of the destination card in the list
      */
     renderElement(destination, i) {
-        if(destination) {
-            return (<DestinationCard destination={destination} key={i} />);
+        if (destination) {
+            return (<DestinationCard destination={destination} key={i}/>);
         }
     }
 
     render() {
-        return (
-            <div className = "destination-card-container">
-                {super.render()}
-            </div>
-        );
+        if (this.props.elements)
+            return (
+                <div className="destination-card-container">
+                    {super.render()}
+                </div>
+            );
+        return "Loading destinations ...";
     }
 }
 
-export default graphql(HIGHLIGHTED_DESTINATIONS, { name: 'data' })(DestinationCards)
+export default graphql(GQL_QUERY, {
+    name: 'destinations',
+    props: mapResultsToProps,
+    options: mapPropsToOptions
+})(DestinationCards)

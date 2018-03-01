@@ -12,10 +12,9 @@ class HighlightedList extends Component {
     }
 
     render() {
-        const data = this.props.data;
+        const elements = this.props.elements;
 
-        if(data && data.jcr && data.jcr.nodesByQuery && data.jcr.nodesByQuery.nodes) {
-            let elements = data.jcr.nodesByQuery.nodes;
+        if(elements) {
             // if the list of elements to rendered is limited
             let maxElems = this.props.max && this.props.max < elements.length ?
                 this.props.max : elements.length;
