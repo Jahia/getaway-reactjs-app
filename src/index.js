@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 import './index.css';
-import App from './components/App';
+import App from './presentationComponents/App';
 import registerServiceWorker from './registerServiceWorker';
 
 import { ApolloProvider } from 'react-apollo'
@@ -25,10 +25,10 @@ const middlewareAuthLink = new ApolloLink((operation, forward) => {
     return forward(operation);
 });
 
-const httpLinkWithBasicAuth = middlewareAuthLink.concat(httpLink);
+const httpLinkWithHeaders = middlewareAuthLink.concat(httpLink);
 
 const client = new ApolloClient({
-    link: httpLinkWithBasicAuth,
+    link: httpLinkWithHeaders,
     cache: new InMemoryCache()
 });
 

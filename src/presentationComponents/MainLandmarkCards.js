@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+ import React, { Component } from 'react'
 import '../styles/MainLandmarkCards.css';
 import LandmarkCards from "./LandmarkCards";
 

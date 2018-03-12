@@ -6,7 +6,7 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 
 const GQL_QUERY = gql`
-query DestinationQuery($query: String!, $limit: Int, $language: String){
+query DestinationQuery($query: String!, $limit: Int, $language: String) {
   jcr {
     nodesByQuery(query: $query, limit: $limit) {
       nodes {
@@ -20,8 +20,7 @@ query DestinationQuery($query: String!, $limit: Int, $language: String){
       }
     }
   }
-}       
-    `;
+}`;
 
 function mapPropsToOptions(props) {
     var query = "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents')";
@@ -39,16 +38,17 @@ function mapPropsToOptions(props) {
 }
 
 function mapResultsToProps(results) {
-    if (results && results.destinations && results.destinations.jcr && results.destinations.jcr.nodesByQuery && results.destinations.jcr.nodesByQuery.nodes)
+    if (results && results.destinations && results.destinations.jcr
+        && results.destinations.jcr.nodesByQuery && results.destinations.jcr.nodesByQuery.nodes)
         return {elements: results.destinations.jcr.nodesByQuery.nodes};
     return null;
 }
 
 class DestinationCards extends HighlightedList {
 
-    /**
+    /*
      * Renders a destination card
-     * @param {DestinationCard} destination - The destination card to render
+     * @param {Object} destination - The destination object to render
      * @param {Number} i - The index of the destination card in the list
      */
     renderElement(destination, i) {
@@ -58,12 +58,15 @@ class DestinationCards extends HighlightedList {
     }
 
     render() {
-        if (this.props.elements)
+
+        if (this.props.elements) {
             return (
-                <div className="destination-card-container">
+                <div className = "destination-card-container">
                     {super.render()}
                 </div>
             );
+        }
+
         return "Loading destinations ...";
     }
 }

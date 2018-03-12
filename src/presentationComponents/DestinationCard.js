@@ -13,7 +13,7 @@ class DestinationCard extends Component {
         //if(destination && name && country && photoUrls && photoUrls.length > 0) {
         if(destination && name) {
             // TODO review this (hardcoded DX hostname)
-            const photo = "http://localhost:8080/files/live"+photoUrls.files[0].path
+            const photo = "http://localhost:8080/files/live" + photoUrls.files[0].path
             return (
                 <div className = "destination-card">
                     <img className = "destination-photo" src = {photo} />

@@ -13,7 +13,7 @@ class HighlightedList extends Component {
 
     render() {
         const elements = this.props.elements;
-
+        //  should normally be checked in the extending class but it is safer to keep it here too.
         if(elements) {
             // if the list of elements to rendered is limited
             let maxElems = this.props.max && this.props.max < elements.length ?

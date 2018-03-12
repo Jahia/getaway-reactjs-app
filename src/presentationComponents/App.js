@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import logo from '../logo.svg';
 import '../styles/App.css';
-import DestinationPanel from "./PageComponents/DestinationPanel";
-import HomePanel from "./PageComponents/HomePanel";
+import DestinationPanel from "./pageComponents/DestinationPanel";
+import HomePanel from "./pageComponents/HomePanel";
 
 class App extends Component {
   render() {
