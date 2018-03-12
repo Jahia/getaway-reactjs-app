@@ -2,16 +2,26 @@ import Landmark from "../beans/Landmark";
 
 class GooglePlacesMapper {
 
+    /**
+     * Retrieves a Getaway landmark from a Google place object.
+     * @param {Object} place - A Google place object
+     * @return The corresponding Getaway landmark
+     */
     retrieveLandmark(place) {
         if(place) {
             const name = place.name;
             const photoUrls = this.retrievePhotoUrls(place);
-            const destination = this.retrieveDestination(place);
+            const locationName = this.retrieveLocationName(place);
             const rating = place.rating;
-            return new Landmark(name, destination, photoUrls, rating);
+            return new Landmark(name, locationName, photoUrls, rating);
         }
     }
 
+    /**
+     * Retrieves the photo URLs from a Google place object.
+     * @param {Object} place - A Google place object
+     * @return The photo URLs
+     */
     retrievePhotoUrls(place) {
         if(place.photos && place.photos.length > 0) {
             const photos = place.photos;
@@ -23,7 +33,12 @@ class GooglePlacesMapper {
         return null;
     }
 
-    retrieveDestination(place) {
+    /**
+     * Retrieves the Getaway location's name from a Google place object.
+     * @param {Object} place - A Google place object
+     * @return the Getaway location's name
+     */
+    retrieveLocationName(place) {
         const addressDetails = place.address_components;
         if(addressDetails) {
             for(let i = 0; i < addressDetails.length; i++) {

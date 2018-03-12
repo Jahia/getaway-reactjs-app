@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/DestinationCards.css';
 import DestinationCard from "./DestinationCard";
-import HighlightedList from "./HighlightedList";
+import HorizontalList from "./HorizontalList";
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -44,7 +44,7 @@ function mapResultsToProps(results) {
     return null;
 }
 
-class DestinationCards extends HighlightedList {
+class DestinationCards extends HorizontalList {
 
     /*
      * Renders a destination card

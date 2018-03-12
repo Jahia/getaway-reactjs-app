@@ -1,13 +1,11 @@
 
 class Landmark {
-    constructor(name, destination, photoUrls, rating) {
+    constructor(name, locationName, photoUrls, rating) {
         this.name = name;
-        this.destination = destination;
+        this.locationName = locationName;
         this.photoUrls = photoUrls;
         this.rating = rating;
     }
 }
 
 export default Landmark
-
-

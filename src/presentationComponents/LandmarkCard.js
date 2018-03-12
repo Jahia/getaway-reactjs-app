@@ -7,15 +7,15 @@ class LandmarkCard extends Component {
         const landmark = this.props.landmark;
         const photoUrls = landmark.photoUrls;
         const name = landmark.name;
-        const destination = landmark.destination;
+        const locationName = landmark.locationName;
         const rating = landmark.rating;
 
-        if(landmark && name && destination && photoUrls && photoUrls.length > 0) {
+        if(landmark && name && locationName && photoUrls && photoUrls.length > 0) {
             return (
                 <div className = "landmark-card">
                     <img className = "landmark-photo" src = {photoUrls[0]}/>
                     <div className = "landmark-name">{name}</div>
-                    <div className = "landmark-destination">{destination}</div>
+                    <div className = "landmark-destination">{locationName}</div>
                     <SimpleRating value = {rating} />
                 </div>
             )

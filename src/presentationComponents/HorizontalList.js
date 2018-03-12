@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class HighlightedList extends Component {
+class HorizontalList extends Component {
 
     /**
      * Renders an element
@@ -31,4 +31,4 @@ class HighlightedList extends Component {
     }
 }
 
-export default HighlightedList
+export default HorizontalList
