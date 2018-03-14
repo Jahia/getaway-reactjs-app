@@ -9,12 +9,12 @@ import HomePanel from "./pageComponents/HomePanel";
 class App extends Component {
   render() {
     return (
-      <div className = "App">
+      <component>
           <Switch>
               <Route exact path = "/" component = {HomePanel} />
               <Route exact path = "/destination/:destinationName" component = {DestinationPanel} />
           </Switch>
-      </div>
+      </component>
     );
   }
 }

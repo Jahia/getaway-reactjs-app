@@ -6,10 +6,10 @@ class DestinationDetails extends Component {
 
     render() {
         return (
-            <section className="component">
+            <component>
                 <DestinationInfo />
                 <DestinationOutline />
-            </section>
+            </component>
         )
     }
 }

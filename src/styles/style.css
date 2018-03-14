@@ -11,6 +11,20 @@ body {
 }
 
 
+
+/* ======= Component tag ======= */
+
+component {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border:0;
+	outline:0;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+
 /* ======= Header ======= */
 
 .headerMain .logo-container {
@@ -59,6 +73,7 @@ body {
 
 	.getawayMain .topSection {
 		height: 300px;
+		background-position: initial;
 	}
 
 }
@@ -66,7 +81,7 @@ body {
 @media screen and (max-width: 520px) {
 
 	.getawayMain .topSection {
-		height: 270px;
+		height: 200px;
 	}
 
 }
@@ -92,7 +107,7 @@ body {
 @media screen and (max-width: 520px) {
 
 	.topSection .header-shadow-overlay {
-		height: 270px;
+		height: 200px;
 	}
 
 }
@@ -105,6 +120,24 @@ body {
 	width: 100%;
 	font-weight: 500;
 	font-size: 150px;
+}
+
+@media screen and (max-width: 840px) {
+
+	.topSection h1 {
+		top: 120px;
+		font-size: 90px;
+	}
+
+}
+
+@media screen and (max-width: 700px) {
+
+	.topSection h1 {
+		padding: 0 8px;
+		box-sizing: border-box;
+	}
+
 }
 
 .topSection h3 {
@@ -127,29 +160,15 @@ body {
 
 }
 
-@media screen and (max-width: 840px) {
-
-	.topSection h1 {
-		top: 120px;
-		font-size: 90px;
-	}
-
-}
-
-@media screen and (max-width: 700px) {
-
-	.topSection h1 {
-		padding: 0 8px;
-		box-sizing: border-box;
-	}
-
-}
-
 @media screen and (max-width: 520px) {
 
 	.topSection h1 {
-		top: 160px;
+		top: 70px;
 		padding: 0 16px;
+	}
+
+	.topSection h3 {
+		top: 180px;
 	}
 
 }
@@ -162,28 +181,6 @@ section.destinationInfo {
 	margin: 0 auto;
 }
 
-/* Headline */
-section.destinationInfo h2 {
-	font-size: 24px;
-	opacity: .87;
-	font-weight: 400;
-	margin: 16px 0;
-	margin-top: 30px;
-	text-align: center;
-	line-height: 38px;
-	width: 100%;
-}
-
-@media screen and (max-width: 840px) {
-
-	section.destinationInfo h2 {
-		margin-top: 40px;
-		padding: 0 16px;
-		box-sizing: border-box;
-	}
-
-}
-
 .info-container {
 	width: 100%;
 	box-sizing: border-box;
@@ -192,6 +189,14 @@ section.destinationInfo h2 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+
+	.info-container {
+		display: block;
+	}
+
 }
 
 .info-container .info-element {
@@ -206,6 +211,15 @@ section.destinationInfo h2 {
 	.info-container .info-element {
 		padding-right: 0;
 		padding: 0 26px;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+
+	.info-container .info-element {
+		width: calc(50% - 54px);
+		display: inline-block;
 	}
 
 }
@@ -282,6 +296,28 @@ section.destinationInfo h2 {
 
 }
 
+/* Headline */
+section.destinationInfo h2 {
+	font-size: 24px;
+	opacity: .87;
+	font-weight: 400;
+	margin: 16px 0;
+	margin-top: 30px;
+	text-align: center;
+	line-height: 38px;
+	width: 100%;
+}
+
+@media screen and (max-width: 840px) {
+
+	section.destinationInfo h2 {
+		margin-top: 40px;
+		padding: 0 16px;
+		box-sizing: border-box;
+	}
+
+}
+
 
 /* Travel outline section */
 
@@ -303,7 +339,7 @@ section.outlineMain {
 	margin-bottom: 20px;
 }
 
-/**/
+/* More button */
 .read-more {
 	position: relative;
 	text-decoration: none;
@@ -312,6 +348,7 @@ section.outlineMain {
 	align-items: center;
 	justify-content: center;
 }
+
 .read-more .trigger {
 	display: block;
 	position: absolute;
@@ -325,6 +362,7 @@ section.outlineMain {
 	font-size: 16px;
 	font-weight: 500;
 }
+
 .read-more .outline-text {
 	position: relative;
 	overflow: hidden;
@@ -332,6 +370,7 @@ section.outlineMain {
 	margin-bottom: 30px;
 	transition: max-height 500ms ease;
 }
+
 .read-more .outline-text::before {
 	content: '';
 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 50%, white 100%);
@@ -341,9 +380,11 @@ section.outlineMain {
 	height: 78.4px;
 	transition: opactiy 500ms ease, visibility 500ms ease;
 }
+
 .read-more.expanded .outline-text {
 	max-height: 6000px;
 }
+
 .read-more.expanded .outline-text::before,
 .read-more.expanded .trigger {
 	opacity: 0;
@@ -400,7 +441,7 @@ section.destinationLandmarks h2 {
 		width: calc(50% - 34px);
 		margin-bottom: 30px;
 	}
-	
+
 	.landmark-card-container .landmark-card:last-child {
 		width: calc(100% - 34px);
 		margin-bottom: 40px;
@@ -544,7 +585,7 @@ span.rt-bg span {
 }
 
 
-/**/
+/* Landmark Map */
 
 #map {
 	height: 300px;
