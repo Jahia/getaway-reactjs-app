@@ -10,6 +10,7 @@ query DestinationQuery($query: String!, $limit: Int, $language: String) {
   jcr {
     nodesByQuery(query: $query, limit: $limit) {
       nodes {
+        id:uuid
         name:displayName(language: $language)
         country
         photo: property(name: "photos") {

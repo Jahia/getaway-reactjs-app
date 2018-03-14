@@ -19,7 +19,7 @@ class DestinationCard extends Component {
                     <img className = "destination-photo" src = {photo} />
                     <div className = "destination-name">{name}</div>
                     <div className = "destination-country">{country}</div>
-                    <Link to = {`/destination/${destination.name}`}>Destination Link test</Link>
+                    <Link to = {`/destination/${destination.id}`}>Destination Link test</Link>
                 </div>
             )
             /*

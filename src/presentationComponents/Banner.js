@@ -4,15 +4,26 @@ import { Link } from 'react-router-dom'
 
 class Banner extends Component {
     render() {
-        return (
+        const destination = this.props.destinationName;
+        const country = this.props.destinationCountry;
+        if (destination && country)
+            return (
             <section className = "topSection">
                 <div className = "header-shadow-overlay"></div>
-                <h1>Find your next vacation idea among these places handpicked just for you!</h1>
-                <div className = "cta-container">
-                    <Link to = "/">Take me somewhere!</Link>
-                </div>
+                <h1>{destination}</h1>
+                <h3>{country}</h3>
             </section>
         );
+        else
+            return (
+                <section className = "topSection">
+                    <div className = "header-shadow-overlay"></div>
+                    <h1>Find your next vacation idea among these places handpicked just for you!</h1>
+                    <div className = "cta-container">
+                        <Link to = "/">Take me somewhere!</Link>
+                    </div>
+                </section>
+            );
     }
 }
 

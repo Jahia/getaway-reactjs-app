@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import logo from '../logo.svg';    /* TODO seems unused */
 import '../styles/style.css';     /* TODO review this */
 /* import '../styles/App.css';  TODO review this */
-import DestinationPanel from "./pageComponents/DestinationPanel";
+import DestinationPanel from "../components/DestinationDetails/DestinationPanel";
 import HomePanel from "./pageComponents/HomePanel";
 
 class App extends Component {
