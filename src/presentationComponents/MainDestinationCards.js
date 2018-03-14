@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/MainDestinationCards.css';
+/* import '../styles/MainDestinationCards.css';  TODO review this */
 import DestinationCards from "./DestinationCards";
 
 class MainDestinationCards extends Component {

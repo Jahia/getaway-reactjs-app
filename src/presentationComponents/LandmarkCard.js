@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/LandmarkCard.css';
+/* import '../styles/LandmarkCard.css'; TODO review this */
 import SimpleRating from "./SimpleRating";
 
 class LandmarkCard extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/LandmarkCard.css';
+/* import '../styles/LandmarkCard.css'; TODO review this */
 import HorizontalList from "./HorizontalList";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo/index";

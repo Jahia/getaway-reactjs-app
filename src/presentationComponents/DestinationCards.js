@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/DestinationCards.css';
+/* import '../styles/DestinationCards.css'; TODO review this */
 import DestinationCard from "./DestinationCard";
 import HorizontalList from "./HorizontalList";
 import {graphql} from 'react-apollo'

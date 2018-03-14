@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/SimpleRating.css';
+/* import '../styles/SimpleRating.css'; TODO review this */
 
 class SimpleRating extends Component {
     render() {

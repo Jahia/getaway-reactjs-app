@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/Banner.css';
+/*import '../styles/Banner.css'; TODO review this */
 
 class Banner extends Component {
     render() {
