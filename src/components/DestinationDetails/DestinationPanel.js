@@ -14,6 +14,10 @@ query DestinationDetailsQuery($uuid: String!, $language: String) {
         nodeById(uuid: $uuid) {
           name:displayName(language: $language)
           country
+          area:property(name: "area") {value}
+          elevation:property(name: "elevation") {value}
+          populationCount:property(name: "populationCount") {value}
+          populationDate:property(name: "populationDate") {value}
         }
     }
 }`;
@@ -49,7 +53,11 @@ class DestinationPanel extends Component {
                     <Header/>
                     <Banner destinationName={destinationName}
                             destinationCountry={this.props.elements.country}/>
-                    <DestinationDetails/>
+                    <DestinationDetails area={this.props.elements.area}
+                                        elevation={this.props.elements.elevation}
+                                        populationCount={this.props.elements.populationCount}
+                                        populationDate={this.props.elements.populationDate}
+                    />
                     <Footer/>
                 </section>
             )
