@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 /* import '../../styles/PageComponents/HomePanel.css'; TODO review this */
+import '../../styles/style-home.css';
 import Banner from "../Banner";
 import Header from "../Header";
 import MainDestinationCards from "../MainDestinationCards";

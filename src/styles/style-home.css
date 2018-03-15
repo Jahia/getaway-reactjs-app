@@ -1,0 +1,495 @@
+/* ======= Header ======= */
+
+.headerMain .logo-container {
+    height: 68px;
+    background: #220B38;
+}
+
+@media screen and (max-width: 840px) {
+
+    .headerMain .logo-container {
+        height: 58px;
+    }
+
+}
+
+.headerMain .logo-container img {
+    height: 36px;
+    padding: 16px;
+}
+
+@media screen and (max-width: 840px) {
+
+    .headerMain .logo-container img {
+        height: 30px;
+        padding: 14px 16px;
+    }
+
+}
+
+
+/* ======= Top banner section ======= */
+
+.getawayMain .topSection {
+    background: url("http://www.godsavethepoints.com/wp-content/uploads/2017/11/rio-de-janeiro.jpg");
+    width: 100%;
+    height: 340px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 840px) {
+
+    .getawayMain .topSection {
+        height: 300px;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+
+    .getawayMain .topSection {
+        height: 270px;
+    }
+
+}
+
+
+.topSection .header-shadow-overlay {
+    background: linear-gradient(113deg, rgba(249, 123, 92, 0.64) 6%,rgba(176, 77, 230, 0.64) 97%);
+    height: 340px;
+    width: 100%;
+    position: absolute;
+    top: 68px;
+}
+
+@media screen and (max-width: 840px) {
+
+    .topSection .header-shadow-overlay {
+        height: 300px;
+        top: 58px;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+
+    .topSection .header-shadow-overlay {
+        height: 270px;
+    }
+
+}
+
+.topSection h1 {
+    color: #fff;
+    text-align: center;
+    top: 175px;
+    position: absolute;
+    width: 100%;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 840px) {
+
+    .topSection h1 {
+        top: 150px;
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .topSection h1 {
+        font-size: 18px;
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+
+    .topSection h1 {
+        top: 120px;
+        padding: 0 16px;
+    }
+
+}
+
+.topSection .cta-container {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 220px;
+    text-align: center;
+    position: absolute;
+    top: 255px;
+}
+
+@media screen and (max-width: 840px) {
+
+    .topSection .cta-container {
+        top: 220px;
+    }
+
+}
+
+.topSection .cta-container a {
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 5px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 520px) {
+
+    .topSection .cta-container a {
+        background: white;
+        color: #220b38;
+        font-size: 14px;
+    }
+
+}
+
+
+/* Highlighted Destinations */
+
+section.destinationsMain {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+section.destinationsMain h2 {
+    font-size: 18px;
+    opacity: .67;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border-bottom: 2px dotted #ccc;
+}
+
+@media screen and (max-width: 1080px) {
+
+    section.destinationsMain h2 {
+        margin: 16px 16px 8px 16px;
+    }
+
+}
+
+.destination-card-container .destination-card {
+    display: inline-block;
+    width: calc(33% - 32px);
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: 16px 16px 30px 16px;
+    text-align: center;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 8px;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+@media screen and (max-width: 840px) {
+
+    .destination-card-container .destination-card {
+        width: calc(50% - 34px);
+    }
+
+    .destination-card-container .destination-card:last-child {
+        width: calc(100% - 34px);
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+
+    .destination-card-container .destination-card {
+        width: calc(100% - 34px);
+    }
+
+}
+
+.destination-card-container .destination-card:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.destination-card-container .destination-card:not(:last-child):after {
+    content: "";
+    background: #220B38;
+    opacity: .42;
+    border-radius: 10px;
+    position: absolute;
+    right: -20px;
+    height: 30px;
+    width: 4px;
+    top: 96px;
+}
+
+@media screen and (max-width: 840px) {
+
+    .destination-card-container .destination-card:not(:last-child):after {
+        display: none;
+    }
+
+    .destination-card-container .destination-card:first-child:after {
+        display: block;
+        content: "";
+        background: #220B38;
+        opacity: .42;
+        border-radius: 10px;
+        position: absolute;
+        right: -20px;
+        height: 30px;
+        width: 4px;
+        top: 96px;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+
+    .destination-card-container .destination-card:first-child:after {
+        display: none;
+    }
+
+}
+
+.destination-card .destination-photo {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+}
+
+.destination-card .destination-name {
+    color: #220B38;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.destination-card .destination-country {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Highlighted Landmarks */
+
+section.landmarksMain {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+section.landmarksMain h2 {
+    font-size: 18px;
+    opacity: .67;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border-bottom: 2px dotted #ccc;
+}
+
+@media screen and (max-width: 1080px) {
+
+    section.landmarksMain h2 {
+        margin: 16px 16px 8px 16px;
+    }
+
+}
+
+.landmark-card-container .landmark-card {
+    display: inline-block;
+    width: calc(25% - 35px);
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: 15px 16px 30px 16px;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 8px;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+@media screen and (max-width: 840px) {
+
+    .landmark-card-container .landmark-card {
+        width: calc(50% - 34px);
+        margin-bottom: 40px;
+    }
+
+}
+
+@media screen and (max-width: 440px) {
+
+    .landmark-card-container .landmark-card {
+        width: calc(100% - 34px);
+        margin-bottom: 30px;
+    }
+
+}
+
+.landmark-card-container .landmark-card:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.landmark-card .landmark-photo {
+    object-fit: cover;
+    height: 152px;
+    width: 152px;
+    border-radius: 50%;
+}
+
+.landmark-card .landmark-name {
+    color: #220B38;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.landmark-card .landmark-destination {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Rating */
+span.rt-val {
+    color: #ffbc00;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+span.rt-bg {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAQAAAAYCMGrAAAA+klEQVR4AcWV4cbtMBBFF0MIVUopoVSrhDDv/3gf/RFRpzdNOty1HiBO99mzeYWgCMZMKCPGrCgrxiSUhCkDeukxJKCXAUMiehkxw6FZhxEzmp0x4kCzByYISqlYdal0supS6WrVpdLEK0YSamJiJOPY0c/uOG4s6CcXfuKJaJcRzyNCQJsNiF1sRTR1hP11NNJ8RCrONOPRf+r7J+TZgQ5CNfMOYvW/2YxDqzqA/57+gVY9eiakrnyZEGXDsaE3p/4JScwPX3rtnZATDxnPWT7X16XAHaH8HWNrlxJD9TyGti5tCM84zpZe+RxNjeX9tZqLaGoMxN/P/wHP5Vw+8ZxnEQAAAABJRU5ErkJggg==);
+    background-repeat: repeat-x;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    background-size: 14px 13px;
+    height: 13px;
+    top: 1px;
+    width: 69px;
+}
+
+span.rt-bg span {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAMAAACF3/kSAAAASFBMVEUAAAD/////vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vAD/vADSRdjWAAAAF3RSTlMAABAgMEBQYG9wf4+Qn6Cvv8DP3+Dv8AL4XbcAAAD2SURBVHgBjdPrjq0gDIZhLXhA2XgQ/e7/TncWq5NxoA28v58YSqUrI1BX1Pe9QCeMrTQgtNIHTyMdANg26gH4NhoBxCZq8Mm0UJeoa6FHokcDJXyjOp2YTnUamIY6fZg+Ah1v1LvH9FWzV+Vufg6wVOTyOqu9oHfZP2PRqsqV8htQprtH4bJol+Yh+V7nQs7qCmwmrb6tIaODTn1GvU5jRqNKDfKMRl1BnUaPgh4KJZSRTCdwm9nATTINvPX5tbggUn4qp/0u7uRnI1Be1dpx9A+fxoLyqu60yvdv6SUagY26d+YEokBtmidrAWxJXZonb7jcL/0PRX0uSqPrf20AAAAASUVORK5CYII=);
+    background-repeat: repeat-x;
+    display: block;
+    background-size: 14px 13px;
+    height: 13px;
+    top: 1px;
+    width: 0;
+}
+
+.rt-bg span[data-rating='0.3'],
+.rt-bg span[data-rating='0.4'],
+.rt-bg span[data-rating='0.5'],
+.rt-bg span[data-rating='0.6'] {
+    width: 7px;
+}
+
+.rt-bg span[data-rating='0.7'],
+.rt-bg span[data-rating='0.8'],
+.rt-bg span[data-rating='0.9'],
+.rt-bg span[data-rating='1'],
+.rt-bg span[data-rating='1.1'],
+.rt-bg span[data-rating='1.2'] {
+    width: 13px;
+}
+
+.rt-bg span[data-rating='1.3'],
+.rt-bg span[data-rating='1.4'],
+.rt-bg span[data-rating='1.5'],
+.rt-bg span[data-rating='1.6'] {
+    width: 21px;
+}
+
+.rt-bg span[data-rating='1.7'],
+.rt-bg span[data-rating='1.8'],
+.rt-bg span[data-rating='1.9'],
+.rt-bg span[data-rating='2'],
+.rt-bg span[data-rating='2.1'],
+.rt-bg span[data-rating='2.2'] {
+    width: 27px;
+}
+
+.rt-bg span[data-rating='2.3'],
+.rt-bg span[data-rating='2.4'],
+.rt-bg span[data-rating='2.5'],
+.rt-bg span[data-rating='2.6'] {
+    width: 35px;
+}
+
+.rt-bg span[data-rating='2.7'],
+.rt-bg span[data-rating='2.8'],
+.rt-bg span[data-rating='2.9'],
+.rt-bg span[data-rating='3'],
+.rt-bg span[data-rating='3.1'],
+.rt-bg span[data-rating='3.2'] {
+    width: 41px;
+}
+
+.rt-bg span[data-rating='3.3'],
+.rt-bg span[data-rating='3.4'],
+.rt-bg span[data-rating='3.5'],
+.rt-bg span[data-rating='3.6'] {
+    width: 48px;
+}
+
+.rt-bg span[data-rating='3.7'],
+.rt-bg span[data-rating='3.8'],
+.rt-bg span[data-rating='3.9'],
+.rt-bg span[data-rating='4'],
+.rt-bg span[data-rating='4.1'],
+.rt-bg span[data-rating='4.2'] {
+    width: 56px;
+}
+
+.rt-bg span[data-rating='4.3'],
+.rt-bg span[data-rating='4.4'],
+.rt-bg span[data-rating='4.5'],
+.rt-bg span[data-rating='4.6'] {
+    width: 63px;
+}
+
+.rt-bg span[data-rating='4.7'],
+.rt-bg span[data-rating='4.8'],
+.rt-bg span[data-rating='4.9'],
+.rt-bg span[data-rating='5'] {
+    width: 69px;
+}
+
+
+/* Footer section */
+
+section.footerMain {
+    background: #220B38;
+    width: 100%;
+    height: 120px;
+    float: left;
+}
+
+.footerMain .top-bar {
+    background: linear-gradient(113deg, rgb(249, 123, 92) 6%,rgb(176, 77, 230) 97%);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+}

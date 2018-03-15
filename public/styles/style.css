@@ -1,0 +1,25 @@
+
+/* ======= Reset ======= */
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Mukta Mahee', sans-serif;
+}
+
+
+
+/* ======= Component tag ======= */
+
+component {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border:0;
+	outline:0;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
