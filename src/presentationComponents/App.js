@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import logo from '../logo.svg';    /* TODO seems unused */
-/* import '../styles/App.css';  TODO review this */
+import '../styles/App.css';
 import DestinationPanel from "../components/DestinationDetails/DestinationPanel";
 import HomePanel from "./pageComponents/HomePanel";
 

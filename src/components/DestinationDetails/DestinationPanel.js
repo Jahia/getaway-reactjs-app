@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 /* import '../../styles/PageComponents/DestinationPanel.css'; TODO review this */
-import '../../styles/style-destination.css';
+/* import '../../styles/style-destination.css'; */
 import Banner from "../../presentationComponents/Banner";
 import Header from "../../presentationComponents/Header";
 import Footer from "../../presentationComponents/Footer";

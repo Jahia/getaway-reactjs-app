@@ -8,7 +8,7 @@ class Banner extends Component {
         const country = this.props.destinationCountry;
         if (destination && country)
             return (
-            <section className = "topSection">
+            <section className = "topSectionDest">
                 <div className = "header-shadow-overlay"></div>
                 <h1>{destination}</h1>
                 <h3>{country}</h3>
