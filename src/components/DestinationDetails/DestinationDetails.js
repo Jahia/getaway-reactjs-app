@@ -8,8 +8,9 @@ class DestinationDetails extends Component {
         return (
             <component>
                 <DestinationInfo area={this.props.area} elevation={this.props.elevation}
-                populationCount={this.props.populationCount} populationDate={this.props.populationDate}/>
-                <DestinationOutline />
+                                 populationCount={this.props.populationCount} populationDate={this.props.populationDate}
+                                 title={this.props.title}/>
+                <DestinationOutline/>
             </component>
         )
     }
