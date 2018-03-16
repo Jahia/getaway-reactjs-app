@@ -19,12 +19,13 @@ class DestinationCard extends Component {
             "http://localhost:8080/files/live" + photoNode.path
             : null;
         return (
-            <div className="destination-card">
-                <img className="destination-photo" src={photo}/>
-                <div className="destination-name">{name}</div>
-                <div className="destination-country">{country}</div>
-                <Link to={`/destination/${destination.id}`}>Destination Link test</Link>
-            </div>
+            <Link to={`/destination/${destination.id}`}>
+                <div className="destination-card">
+                    <img className="destination-photo" src={photo}/>
+                    <div className="destination-name">{name}</div>
+                    <div className="destination-country">{country}</div>
+                </div>
+            </Link>
         )
     }
 }
