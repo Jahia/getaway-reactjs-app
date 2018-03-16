@@ -2,6 +2,15 @@ import React, {Component} from 'react'
 
 class DestinationOutline extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {expanded: false}
+    }
+
+    readMore() {
+        this.setState({expanded: true})
+    }
+
     render() {
 
         if (!this.props.outline) return null;
@@ -12,7 +21,7 @@ class DestinationOutline extends Component {
 
             </div>*/}
                 <section className="outline-container wrap">
-                    <div className="read-more" onclick="this.classList.add('expanded')">
+                    <div className={'read-more' + (this.state.expanded ? ' expanded' : '')} onClick={this.readMore.bind(this)}>
                         <article className="outline-text">
                             {this.props.outline.value}
                         </article>
