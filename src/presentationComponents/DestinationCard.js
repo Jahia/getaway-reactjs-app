@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
 
 /* import '../styles/DestinationCard.css';  TODO review this */
 
@@ -19,13 +18,11 @@ class DestinationCard extends Component {
             "http://localhost:8080/files/live" + photoNode.path
             : null;
         return (
-            <Link to={`/destination/${destination.id}`}>
-                <div className="destination-card">
-                    <img className="destination-photo" src={photo}/>
-                    <div className="destination-name">{name}</div>
-                    <div className="destination-country">{country}</div>
-                </div>
-            </Link>
+            <div className="destination-card" onClick={() => this.props.changeDestinationCB(destination.id)}>
+                <img className="destination-photo" src={photo}/>
+                <div className="destination-name">{name}</div>
+                <div className="destination-country">{country}</div>
+            </div>
         )
     }
 }

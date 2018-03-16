@@ -54,7 +54,8 @@ class DestinationCards extends HorizontalList {
      */
     renderElement(destination, i) {
         if (destination) {
-            return (<DestinationCard destination={destination} key={i}/>);
+            return (<DestinationCard destination={destination} key={i}
+                                     changeDestinationCB={this.props.changeDestinationCB}/>);
         }
     }
 
@@ -62,7 +63,7 @@ class DestinationCards extends HorizontalList {
 
         if (this.props.elements) {
             return (
-                <div className = "destination-card-container">
+                <div className="destination-card-container">
                     {super.render()}
                 </div>
             );

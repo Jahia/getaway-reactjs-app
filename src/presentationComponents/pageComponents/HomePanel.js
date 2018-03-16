@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 /* import '../../styles/PageComponents/HomePanel.css'; TODO review this */
 /* import '../../styles/style-home.css'; */
 import Banner from "../Banner";
@@ -10,10 +10,10 @@ import Footer from "../Footer";
 class HomePanel extends Component {
     render() {
         return (
-            <section className = "getawayMain">
+            <section className="getawayMain">
                 <Header/>
                 <Banner/>
-                <MainDestinationCards/>
+                <MainDestinationCards changeDestinationCB={this.props.changeDestinationCB}/>
                 <MainLandmarkCards/>
                 <Footer/>
             </section>
