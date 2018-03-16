@@ -9,8 +9,8 @@ class DestinationDetails extends Component {
             <component>
                 <DestinationInfo area={this.props.area} elevation={this.props.elevation}
                                  populationCount={this.props.populationCount} populationDate={this.props.populationDate}
-                                 title={this.props.title}/>
-                <DestinationOutline desc={this.props.desc}/>
+                                 headline={this.props.headline}/>
+                <DestinationOutline outline={this.props.outline}/>
             </component>
         )
     }

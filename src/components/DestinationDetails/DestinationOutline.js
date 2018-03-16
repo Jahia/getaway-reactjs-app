@@ -4,7 +4,7 @@ class DestinationOutline extends Component {
 
     render() {
 
-        if (!this.props.desc) return null;
+        if (!this.props.outline) return null;
         return (
             <section className="outlineMain">
                 {/*<div class="outline-info">
@@ -14,7 +14,7 @@ class DestinationOutline extends Component {
                 <section className="outline-container wrap">
                     <div className="read-more" onclick="this.classList.add('expanded')">
                         <article className="outline-text">
-                            {this.props.desc.value}
+                            {this.props.outline.value}
                         </article>
                         <span className="trigger">Read more</span>
                     </div>

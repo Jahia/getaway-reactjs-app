@@ -12,7 +12,7 @@ class DestinationInfo extends Component {
             population = populationCount > 1000000 ? (populationCount/1000000 + " million") : populationCount;
             if (this.props.populationDate) population += " (" + this.props.populationDate.value + ")"
         }
-        const title = this.props.title ? this.props.title.value : "";
+        const headline = this.props.headline ? "\"" + this.props.headline.value + "\"" : "";
         return (
         /* Destination info */
         <section className="destinationInfo">
@@ -30,7 +30,7 @@ class DestinationInfo extends Component {
                     <i className="material-icons">people</i><b>Population</b><span>{population}</span>
                 </div>
             </div>
-            <h2>"{title}"</h2>
+            <h2>{headline}</h2>
         </section>
         )
     }

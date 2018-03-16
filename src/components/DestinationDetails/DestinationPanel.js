@@ -18,8 +18,8 @@ query DestinationDetailsQuery($uuid: String!, $language: String) {
           elevation:property(name: "elevation") {value}
           populationCount:property(name: "populationCount") {value}
           populationDate:property(name: "populationDate") {value}
-          title:property(name: "title", language: $language) {value}
-          desc:property(name: "description", language: $language) {value}
+          headline:property(name: "headline", language: $language) {value}           
+          outline:property(name: "outline", language: $language) {value}
         }
     }
 }`;
@@ -59,8 +59,8 @@ class DestinationPanel extends Component {
                                         elevation={this.props.elements.elevation}
                                         populationCount={this.props.elements.populationCount}
                                         populationDate={this.props.elements.populationDate}
-                                        title={this.props.elements.title}
-                                        desc={this.props.elements.desc}
+                                        headline={this.props.elements.headline}
+                                        outline={this.props.elements.outline}
                     />
                     <Footer/>
                 </section>
