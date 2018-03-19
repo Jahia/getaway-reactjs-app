@@ -1,4 +1,5 @@
 var GetawayConstants = {
+    dxHost: "http://localhost:8080"
 
 }
 

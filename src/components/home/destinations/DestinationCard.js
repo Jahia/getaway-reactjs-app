@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import GetawayConstants from '../../../utils/GetawayConstants'
 
 /* import '../styles/DestinationCard.css';  TODO review this */
 
@@ -16,7 +17,7 @@ class DestinationCard extends Component {
 
         // TODO review this (hardcoded DX hostname)
         const photo = photoNode ?
-            "http://localhost:8080/files/live" + photoNode.path
+            GetawayConstants.dxHost + "/files/live" + photoNode.path
             : null;
         return (
             <Link to={`/destination/${destination.id}`}>
