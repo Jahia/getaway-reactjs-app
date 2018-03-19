@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 /* import './index.css'; TODO review this */
-import App from './presentationComponents/App';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
 import { ApolloProvider } from 'react-apollo'

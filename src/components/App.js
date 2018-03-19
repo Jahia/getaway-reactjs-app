@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/App.css';
-import DestinationPanel from "../components/DestinationDetails/DestinationPanel";
-import HomePanel from "./pageComponents/HomePanel";
+import DestinationPanel from "./destinationDetails/DestinationPanel";
+import HomePanel from "./home/HomePanel";
 
 class App extends Component {
 

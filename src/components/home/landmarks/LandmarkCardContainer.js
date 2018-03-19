@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import GooglePlacesApiProvider from "../external/GooglePlacesApiProvider";
-import LandmarkCard from "../presentationComponents/LandmarkCard";
+import GooglePlacesApiProvider from "../../external/GooglePlacesApiProvider";
+import LandmarkCard from "./LandmarkCard";
 
 /**
  * Container that is used to retrieve a Landmark's details.

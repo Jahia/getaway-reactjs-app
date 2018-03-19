@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 /* import '../../styles/PageComponents/DestinationPanel.css'; TODO review this */
 /* import '../../styles/style-destination.css'; */
-import Banner from "../../presentationComponents/Banner";
-import Header from "../../presentationComponents/Header";
-import Footer from "../../presentationComponents/Footer";
+import Banner from "../generic/Banner";
+import Header from "../generic/Header";
+import Footer from "../generic/Footer";
 import DestinationDetails from "./DestinationDetails";
 import {graphql} from "react-apollo";
 import gql from "graphql-tag";

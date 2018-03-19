@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import GooglePlacesMapper from "./GooglePlacesMapper";
 import scriptLoader from "react-async-script-loader";
-import LandmarkCard from "../presentationComponents/LandmarkCard";
+import LandmarkCard from "../home/landmarks/LandmarkCard";
 
 /** The Google API's Authentification key */
 const GOOGLE_API_KEY = "AIzaSyBVs-p_AiWF1fOcqBXr5mXqxX5oNcGT6H4";

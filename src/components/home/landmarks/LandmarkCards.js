@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 /* import '../styles/LandmarkCard.css'; TODO review this */
-import HorizontalList from "./HorizontalList";
+import HorizontalList from "../../generic/HorizontalList";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo/index";
-import LandMarkCardContainer from "../containersComponents/LandmarkCardContainer";
+import LandMarkCardContainer from "./LandmarkCardContainer";
 
 const GQL_QUERY = gql`
 query LandmarkQuery($query: String!, $limit: Int){

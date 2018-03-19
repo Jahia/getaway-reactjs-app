@@ -1,4 +1,4 @@
-import Landmark from "../beans/Landmark";
+import Landmark from "../../beans/Landmark";
 
 class GooglePlacesMapper {
 
