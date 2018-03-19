@@ -24,7 +24,7 @@ query DestinationQuery($query: String!, $limit: Int, $language: String) {
 }`;
 
 function mapPropsToOptions(props) {
-    var query = "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents')";
+    let query = "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents')";
     if (props.onlyHighlighted) query += " and [highlight] = 'true'";
     let options = {
         skip: false,
