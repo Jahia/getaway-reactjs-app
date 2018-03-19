@@ -20,7 +20,7 @@ class Banner extends Component {
                     <div className = "header-shadow-overlay"></div>
                     <h1>Find your next vacation idea among these places handpicked just for you!</h1>
                     <div className = "cta-container">
-                        <Link to = "/">Take me somewhere!</Link>
+                        <Link to = {`/destination/${this.props.randomDest}`}>Take me somewhere!</Link>
                     </div>
                 </section>
             );
