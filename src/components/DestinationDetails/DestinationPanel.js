@@ -29,7 +29,7 @@ function mapPropsToOptions(props) {
     let options = {
         skip: false,
         variables: {
-            uuid: props.destination,
+            uuid: props.match.params.destinationName,
             language: "en"
         }
     };
@@ -52,7 +52,7 @@ class DestinationPanel extends Component {
         if (destinationName) {
             return (
                 <section className="getawayMain">
-                    <Header changeDestinationCB={this.props.changeDestinationCB}/>
+                    <Header/>
                     <Banner destinationName={destinationName}
                             destinationCountry={this.props.elements.country}/>
                     <DestinationDetails area={this.props.elements.area}

@@ -1,27 +1,18 @@
 import React, {Component} from 'react';
+import {Route, Switch} from 'react-router-dom'
 import '../styles/App.css';
 import DestinationPanel from "./destinationDetails/DestinationPanel";
 import HomePanel from "./home/HomePanel";
 
 class App extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {destination: null}
-    }
-
-    changeDestination(destID) {
-        this.setState({destination: destID})
-    }
-
     render() {
-        console.log("Destination: ", this.state.destination);
         return (
             <component>
-                {this.state.destination ?
-                    (<DestinationPanel destination={this.state.destination}
-                                       changeDestinationCB={(destID) => this.changeDestination(destID)}/>) :
-                    (<HomePanel changeDestinationCB={(destID) => this.changeDestination(destID)}/>)}
+                <Switch>
+                    <Route exact path="/" component={HomePanel}/>
+                    <Route exact path="/destination/:destinationName" component={DestinationPanel}/>
+                </Switch>
             </component>
         );
     }

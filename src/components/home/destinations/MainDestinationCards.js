@@ -8,7 +8,7 @@ class MainDestinationCards extends Component {
         return (
             <section className="destinationsMain">
                 <h2>Highlighted Destinations</h2>
-                <DestinationCards max="3" onlyHighlighted={true} changeDestinationCB={this.props.changeDestinationCB}/>
+                <DestinationCards max="3" onlyHighlighted={true}/>
             </section>
         );
     }

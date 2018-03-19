@@ -54,8 +54,7 @@ class DestinationCards extends HorizontalList {
      */
     renderElement(destination, i) {
         if (destination) {
-            return (<DestinationCard destination={destination} key={i}
-                                     changeDestinationCB={this.props.changeDestinationCB}/>);
+            return (<DestinationCard destination={destination} key={i}/>);
         }
     }
 

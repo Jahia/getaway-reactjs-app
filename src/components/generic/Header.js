@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {Link} from "react-router-dom";
+
 /* import '../../styles/Header.css'; TODO review this */
 
 class Header extends Component {
@@ -6,8 +8,9 @@ class Header extends Component {
         return (
             <nav className="headerMain">
                 <div className="logo-container">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/346954/getaway.svg" alt="GetAway logo"
-                         onClick={() => this.props.changeDestinationCB(null)}/>
+                    <Link to={`/`}>
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/346954/getaway.svg" alt="GetAway logo"/>
+                    </Link>
                 </div>
             </nav>
         )

@@ -13,7 +13,7 @@ class HomePanel extends Component {
             <section className="getawayMain">
                 <Header changeDestinationCB={this.props.changeDestinationCB}/>
                 <Banner/>
-                <MainDestinationCards changeDestinationCB={this.props.changeDestinationCB}/>
+                <MainDestinationCards/>
                 <MainLandmarkCards/>
                 <Footer/>
             </section>
