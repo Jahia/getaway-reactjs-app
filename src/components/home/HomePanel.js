@@ -11,7 +11,7 @@ class HomePanel extends Component {
     render() {
         return (
             <section className="getawayMain">
-                <Header changeDestinationCB={this.props.changeDestinationCB}/>
+                <Header/>
                 <Banner/>
                 <MainDestinationCards/>
                 <MainLandmarkCards/>
