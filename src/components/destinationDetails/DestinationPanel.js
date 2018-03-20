@@ -20,6 +20,8 @@ query DestinationDetailsQuery($uuid: String!, $language: String) {
           populationDate:property(name: "populationDate") {value}
           headline:property(name: "headline", language: $language) {value}           
           outline:property(name: "outline", language: $language) {value}
+          latitude:property(name: "j:latitude") {value}
+          longitude:property(name: "j:longitude") {value}
         }
     }
 }`;
@@ -61,6 +63,8 @@ class DestinationPanel extends Component {
                                         populationDate={this.props.elements.populationDate}
                                         headline={this.props.elements.headline}
                                         outline={this.props.elements.outline}
+                                        latitude={this.props.elements.latitude}
+                                        longitude={this.props.elements.longitude}
                     />
                     <Footer/>
                 </section>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import LocalTime from "./LocalTime"
 
 class DestinationInfo extends Component {
 
@@ -24,7 +25,9 @@ class DestinationInfo extends Component {
                     <i className="material-icons">terrain</i><b>Elevation</b><span>{elevation}</span>
                 </div>
                 <div className="info-element">
-                    <i className="material-icons">access_time</i><b>Local time</b><span id="destLocalTime"></span>
+                    <i className="material-icons">access_time</i><b>Local time</b><span id="destLocalTime">
+                    <LocalTime latitude={this.props.latitude}
+                               longitude={this.props.longitude} /></span>
                 </div>
                 <div className="info-element">
                     <i className="material-icons">people</i><b>Population</b><span>{population}</span>
@@ -37,3 +40,4 @@ class DestinationInfo extends Component {
 }
 
 export default DestinationInfo
+

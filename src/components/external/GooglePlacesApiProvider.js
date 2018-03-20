@@ -5,7 +5,7 @@ import LandmarkCard from "../home/landmarks/LandmarkCard";
 import GetaywayConstants from "../../utils/GetawayConstants"
 
 /** The URL from where the Google API library can be retrieved */
-const GOOGLE_API_URL = "https://maps.googleapis.com/maps/api/js?key=" + GetaywayConstants.googleApiKey
+const GOOGLE_API_URL = "https://maps.googleapis.com/maps/api/js?key=" + GetaywayConstants.googlePlacesApiKey
     + "&libraries=places";
 
 /** The id of the div in which the Google Maps' details are stored */
