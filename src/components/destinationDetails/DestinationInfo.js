@@ -8,12 +8,12 @@ class DestinationInfo extends Component {
         const elevation = this.props.elevation ? this.props.elevation.value + " m" : "N/A";
         let population = "N/A";
         if(this.props.populationCount) {
-
             const populationCount = this.props.populationCount.value;
             population = populationCount > 1000000 ? (populationCount/1000000 + " million") : populationCount;
             if (this.props.populationDate) population += " (" + this.props.populationDate.value + ")"
         }
         const headline = this.props.headline ? "\"" + this.props.headline.value + "\"" : "";
+
         return (
         /* Destination info */
         <section className="destinationInfo">
