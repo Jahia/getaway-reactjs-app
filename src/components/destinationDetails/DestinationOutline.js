@@ -11,19 +11,17 @@ class DestinationOutline extends Component {
         this.setState({expanded: true})
     }
 
-    render() {
+    createOutlineInnerHTML() {
+        return {__html: this.props.outline.value};
+    }
 
+    render() {
         if (!this.props.outline) return null;
         return (
             <section className="outlineMain">
-                {/*<div class="outline-info">
-                By <b>the GetAway team</b><span></span><time datetime="2017-12-08">Travel date <b>8 December 2017</b></time>
-
-            </div>*/}
                 <section className="outline-container wrap">
                     <div className={'read-more' + (this.state.expanded ? ' expanded' : '')} onClick={this.readMore.bind(this)}>
-                        <article className="outline-text">
-                            {this.props.outline.value}
+                        <article className="outline-text" dangerouslySetInnerHTML={this.createOutlineInnerHTML()}>
                         </article>
                         <span className="trigger">Read more</span>
                     </div>
