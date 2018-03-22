@@ -5,6 +5,7 @@ import Banner from "../generic/Banner";
 import Header from "../generic/Header";
 import Footer from "../generic/Footer";
 import DestinationDetails from "./DestinationDetails";
+import DestiLandmarkCards from "./DestiLandmarkCards";
 import {graphql} from "react-apollo";
 import gql from "graphql-tag";
 
@@ -31,7 +32,7 @@ function mapPropsToOptions(props) {
     let options = {
         skip: false,
         variables: {
-            uuid: props.match.params.destinationName,
+            uuid: props.match.params.destinationUUID,
             language: "en"
         }
     };
@@ -66,6 +67,7 @@ class DestinationPanel extends Component {
                                         latitude={this.props.elements.latitude}
                                         longitude={this.props.elements.longitude}
                     />
+                    <DestiLandmarkCards max = "4" destiUUID={this.props.match.params.destinationUUID} />
                     <Footer/>
                 </section>
             )

@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import Banner from "../generic/Banner";
 import Header from "../generic/Header";
 import MainDestinationCards from "./destinations/MainDestinationCards";
-import MainLandmarkCards from "./landmarks/MainLandmarkCards";
+import HomeLandmarkCards from "./HomeLandmarkCards";
 import Footer from "../generic/Footer";
 
 class HomePanel extends Component {
@@ -14,7 +14,10 @@ class HomePanel extends Component {
                 <Header/>
                 <Banner/>
                 <MainDestinationCards/>
-                <MainLandmarkCards/>
+                { /* fromHighlightedDesti=false as landmarks to display
+                 should not necessarily be landmarks taken from the displayed highlighted destinations */
+                }
+                <HomeLandmarkCards max = "4" fromHighlightedDesti = {false} />
                 <Footer/>
             </section>
         )

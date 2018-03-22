@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import GooglePlacesApiProvider from "../../external/GooglePlacesApiProvider";
+import GooglePlacesApiProvider from "../external/GooglePlacesApiProvider";
 import LandmarkCard from "./LandmarkCard";
 
 /**
@@ -17,7 +17,7 @@ class LandmarkCardContainer extends Component {
      */
     renderLandmark(landmark) {
         if(landmark) {
-            return (<LandmarkCard landmark = {landmark} key = {landmark.name} />);
+            return (<LandmarkCard landmark={landmark} key={landmark.name} />);
         }
     }
 

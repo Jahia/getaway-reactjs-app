@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import GooglePlacesMapper from "./GooglePlacesMapper";
 import scriptLoader from "react-async-script-loader";
-import LandmarkCard from "../home/landmarks/LandmarkCard";
+import LandmarkCard from "../landmarks/LandmarkCard";
 import GetaywayConstants from "../../utils/GetawayConstants"
 
 /** The URL from where the Google API library can be retrieved */
