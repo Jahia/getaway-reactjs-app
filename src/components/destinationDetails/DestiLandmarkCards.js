@@ -64,8 +64,8 @@ class DestiLandmarkCards extends HorizontalList {
     render() {
         if(this.props.elements) {
             return (
-                <section className="landmarksMain">
-                    <h2>Highlighted Landmarks</h2>
+                <section class="destinationLandmarks">
+                    <h2>Landmarks</h2>
                     <div className="landmark-card-container">
                         {super.render()}
                     </div>

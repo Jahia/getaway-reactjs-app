@@ -6,6 +6,12 @@
     margin: 0;
 }
 
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     font-family: 'Mukta Mahee', sans-serif;
 }
@@ -24,7 +30,19 @@ component {
 }
 
 
+/* Main container */
+
+.getawayMain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
 /* ======= Header ======= */
+
+.headerMain {
+    position: relative;
+}
 
 .headerMain .logo-container {
     height: 68px;
@@ -51,6 +69,79 @@ component {
         padding: 14px 16px;
     }
 
+}
+
+/* Search */
+
+.headerMain .search-trigger {
+    color: #fff;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    cursor: pointer;
+}
+
+.headerMain .search-trigger:hover {
+    opacity: .84;
+}
+
+.headerMain .search-trigger i {
+    font-size: 30px;
+}
+
+section.searchSection {
+    background: #383c3e;
+    height: 0;
+    overflow: hidden;
+    transition: height 400ms ease;
+    -o-transition: height 400ms ease;
+    -ms-transition: height 400ms ease;
+    -moz-transition: height 400ms ease;
+    -khtml-transition: height 400ms ease;
+    -webkit-transition: height 400ms ease;
+}
+
+section.searchSection.showSearch {
+    height: 62px;
+    border-bottom: 2px solid #616161;
+}
+
+section.searchSection input[type=text] {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: none;
+    padding: 0 30px;
+    font-size: 20px;
+    outline: none;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+section.searchSection input[type=text]::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.52);
+}
+
+section.searchSection input[type=text]::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.52);
+}
+
+section.searchSection input[type=text]:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.52);
+}
+
+section.searchSection input[type=text]:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.52);
+}
+
+section.searchSection i.clearSearchBarField {
+    position: absolute;
+    right: 24px;
+    top: 21px;
+    color: rgba(255, 255, 255, 0.64);
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 
@@ -594,6 +685,14 @@ span.rt-val {
     margin-right: 4px;
 }
 
+/* Large title for Landmark panel */
+h3.rt-val {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 50px;
+    font-weight: 400;
+    margin-bottom: -16px;
+}
+
 span.rt-bg {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAQAAAAYCMGrAAAA+klEQVR4AcWV4cbtMBBFF0MIVUopoVSrhDDv/3gf/RFRpzdNOty1HiBO99mzeYWgCMZMKCPGrCgrxiSUhCkDeukxJKCXAUMiehkxw6FZhxEzmp0x4kCzByYISqlYdal0supS6WrVpdLEK0YSamJiJOPY0c/uOG4s6CcXfuKJaJcRzyNCQJsNiF1sRTR1hP11NNJ8RCrONOPRf+r7J+TZgQ5CNfMOYvW/2YxDqzqA/57+gVY9eiakrnyZEGXDsaE3p/4JScwPX3rtnZATDxnPWT7X16XAHaH8HWNrlxJD9TyGti5tCM84zpZe+RxNjeX9tZqLaGoMxN/P/wHP5Vw+8ZxnEQAAAABJRU5ErkJggg==);
     background-repeat: repeat-x;
@@ -928,6 +1027,14 @@ section.outlineMain {
     width: 100%;
 }
 
+@media screen and (max-width: 480px) {
+
+    #mapLdmk {
+        height: 280px;
+    }
+
+}
+
 
 /* Footer section */
 
@@ -946,21 +1053,258 @@ section.footerMain {
 }
 
 
-/* Top info section */
+/*  Landmark top section */
 
-.landmark-info-section {
+.landmarkInfoSection {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.landmarkInfoSection .landmark-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+
+    .landmarkInfoSection .landmark-title {
+        display: block;
+        text-align: center;
+    }
 
 }
 
-.landmark-info-section h1 {
-    width: 100%;
+.landmark-title h1 {
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.84);
+    margin: 15px 0;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 480px) {
+
+    .landmark-title h1 {
+        margin-bottom: -20px;
+    }
+
+}
+
+.landmark-title h2 {
+    text-decoration: none;
+    color: rgb(255, 56, 124);
+    font-size: 16px;
+    margin-left: 18px;
+    margin-top: 26px;
+    height: 24px;
+    border: 2px solid #ff387c;
+    padding: 2px 12px;
+    border-radius: 50px;
+    padding-top: 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+
+    .landmark-title h2 {
+        background: #ff387c;
+        color: #fff;
+        margin-left: 0;
+        margin-bottom: 18px;
+        display: inline-block;
+    }
+
+}
+
+.landmarkInfoSection p {
+    width: 720px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 31px;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 720px) {
+
+    .landmarkInfoSection p {
+        width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+}
+
+
+
+/* Landmark Reviews section */
+
+section.landmarkReviewsSection {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+section.landmarkReviewsSection h2 {
+    font-size: 18px;
+    opacity: .67;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border-bottom: 2px dotted #ccc;
+}
+
+@media screen and (max-width: 1080px) {
+
+    section.landmarkReviewsSection h2 {
+        margin: 16px 16px 8px 16px;
+    }
+
+}
+
+
+section.landmarkReviewsSection .review-main {
     text-align: center;
+    margin-top: 8px;
+    margin-bottom: 15px;
 }
 
-.landmark-info-section h1 span {
+section.landmarkReviewsSection .review-main .rt-revq {
+    color: #878787;
+    font-size: 16px;
+}
+
+/* Review card */
+.review-comments-container {
+    margin-bottom: 30px;
+}
+
+.review-comments-container .review-comment-card {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    float: left;
+}
+
+@media screen and (max-width: 680px) {
+
+    .review-comments-container .review-comment-card {
+        width: 100%;
+        float: none;
+    }
 
 }
 
-.landmark-info-section h1 span a {
+.review-comment-card .reviewer-photo img {
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+}
 
+.review-comment-card .reviewer-review {
+    margin-left: 12px;
+}
+
+.review-comment-card .reviewer-review .reviewer-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: -2px;
+}
+
+.review-comment-card .reviewer-review .review-time {
+    color: #999;
+    font-size: 13px;
+    padding-left: 6px;
+}
+
+.review-comment-card .reviewer-review .review-text p {
+    color: #222;
+    font-size: 13px;
+    line-height: 18px;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: pre-wrap;
+    padding-top: 4px;
+}
+
+.more-reviews-btn {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.more-reviews-btn a {
+    color: #2196F3;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+
+/* ERROR PAGE */
+
+section.error-container {
+    text-align: center;
+    margin-bottom: 52px;
+    min-height: calc(100% - 240px);
+}
+
+section.error-container h1 {
+    font-size: 150px;
+    color: #926eb6;
+    padding: 0;
+}
+
+section.error-container h2 {
+    font-size: 32px;
+    color: #ccc;
+    padding: 0;
+    margin-top: -62px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+section.error-container img {
+    width: 520px;
+}
+
+section.error-container .error-separator {
+    background: #f1f1f1;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    margin-top: -54px;
+    left: 0;
+
+}
+
+section.error-container h3 {
+    font-size: 17px;
+    color: #b5b5b5;
+    padding: 0;
+    font-weight: 500;
+    margin-bottom: 40px;
+    margin-top: -10px;
+}
+
+section.error-container a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(113deg, rgb(249, 123, 92) 6%,rgb(176, 77, 230) 97%);
+    text-align: center;
+    padding: 4px 18px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+
+section.error-container a:hover {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
