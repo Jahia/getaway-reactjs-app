@@ -7,7 +7,7 @@ import gql from 'graphql-tag'
 
 const GQL_QUERY = gql`
 query DestinationQuery($query: String!, $limit: Int, $language: String) {
-  jcr {
+  jcr(workspace:LIVE) {
     nodesByQuery(query: $query, limit: $limit) {
       nodes {
         id:uuid

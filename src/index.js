@@ -12,23 +12,11 @@ import {HttpLink} from 'apollo-link-http'
 import {InMemoryCache} from 'apollo-cache-inmemory'
 
 const httpLink = new HttpLink({
-    uri: GetawayConstants.dxHost + '/getaway'
+    uri: GetawayConstants.dxHost + '/modules/graphql'
 });
-
-const middlewareAuthLink = new ApolloLink((operation, forward) => {
-    operation.setContext({
-        headers: {
-            'X-GETAWAY': 'getaway',
-            'Accept': 'application/json'
-        }
-    });
-    return forward(operation);
-});
-
-const httpLinkWithHeaders = middlewareAuthLink.concat(httpLink);
 
 const client = new ApolloClient({
-    link: httpLinkWithHeaders,
+    link: httpLink,
     cache: new InMemoryCache()
 });
 

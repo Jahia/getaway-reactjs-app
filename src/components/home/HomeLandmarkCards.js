@@ -7,7 +7,7 @@ import LandMarkCardContainer from "../landmarks/LandmarkCardContainer";
 
 const GQL_QUERY = gql`
 query LandmarkQuery($query: String!, $limit: Int){
-  jcr {
+  jcr(workspace:LIVE) {
     nodesByQuery(query: $query, limit: $limit) {
       nodes {
         landmarkPlaceIds: property(name: "landmarks") {

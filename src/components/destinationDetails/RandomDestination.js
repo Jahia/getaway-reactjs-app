@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom'
 
 const GQL_QUERY = gql`
 query DestinationsQuery($query: String!) {
-  jcr {
+  jcr(workspace:LIVE) {
     nodesByQuery(query: $query) {
       nodes {
         id:uuid

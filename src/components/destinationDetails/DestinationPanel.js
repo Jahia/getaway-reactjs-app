@@ -11,7 +11,7 @@ import gql from "graphql-tag";
 
 const GQL_QUERY = gql`
 query DestinationDetailsQuery($uuid: String!, $language: String) {
-    jcr {
+    jcr(workspace:LIVE) {
         nodeById(uuid: $uuid) {
           name:displayName(language: $language)
           country
