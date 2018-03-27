@@ -14,7 +14,6 @@ class SimpleRating extends Component {
                 </div>
             )
         } else {
-            console.log("The rating object isn't correctly set");
             return "Not rated yet";
         }
     }

@@ -13,7 +13,8 @@ class GooglePlacesMapper {
             const photoUrls = this.retrievePhotoUrls(place);
             const locationName = this.retrieveLocationName(place);
             const rating = place.rating;
-            return new Landmark(name, locationName, photoUrls, rating);
+            const geoCoords = this.retrieveDestiGeoCoordinates(place);
+            return new Landmark(name, locationName, geoCoords, photoUrls, rating);
         }
     }
 
@@ -50,6 +51,15 @@ class GooglePlacesMapper {
                     }
                 }
             }
+        }
+
+        return null;
+    }
+
+    retrieveDestiGeoCoordinates(place) {
+        const geometry = place.geometry;
+        if(geometry && geometry.location) {
+            return {lat: geometry.location.lat(), long: geometry.location.lng()};
         }
 
         return null;

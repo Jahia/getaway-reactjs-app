@@ -4,6 +4,7 @@ import HorizontalList from "../generic/HorizontalList";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo/index";
 import LandMarkCardContainer from "../landmarks/LandmarkCardContainer";
+import withPlacesApi from "../external/withPlacesApi";
 
 const GQL_QUERY = gql`
 query LandmarkQuery($query: String!, $limit: Int){
@@ -80,4 +81,4 @@ export default graphql(GQL_QUERY, {
     name: 'destinations',
     props: mapResultsToProps,
     options: mapPropsToOptions
-})(LandmarkCards)
+})(withPlacesApi(LandmarkCards));

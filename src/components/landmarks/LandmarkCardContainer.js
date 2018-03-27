@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import GooglePlacesApiProvider from "../external/GooglePlacesApiProvider";
 import LandmarkCard from "./LandmarkCard";
+import withPlacesApi from "../external/withPlacesApi"
+import GooglePlacesMapper from "../external/GooglePlacesMapper";
 
 /**
  * Container that is used to retrieve a Landmark's details.
@@ -10,28 +11,35 @@ import LandmarkCard from "./LandmarkCard";
  */
 class LandmarkCardContainer extends Component {
 
-    /**
-     * Renders the Getaway landmark. Passed to a Provider in order to avoid to couple the container to a particular API.
-     * @param {Object} landmark - The Getaway landmark that needs to be rendered
-     * @return The rendered Getaway landmark
-     */
-    renderLandmark(landmark) {
-        if(landmark) {
-            return (<LandmarkCard landmark={landmark} key={landmark.name} />);
+    constructor(props) {
+        super(props);
+        this.state = { landmark: null};
+    }
+
+    componentDidMount() {
+        const placesApi = this.props.placesApi;
+        const placeId = this.props.landmarkPlaceId;
+        if(placeId) {
+            placesApi.getPlaceDetails(placeId)
+                .then(function(place) {
+                    const googlePlacesMapper = new GooglePlacesMapper();
+                    const landmark = googlePlacesMapper.retrieveLandmark(place);
+                    this.setState({landmark: landmark});
+                }.bind(this))
+                .catch(function() {
+                    console.log("There was an error while calling the Google Places API");
+                });
         }
     }
 
     render() {
-        const placeId = this.props.landmarkPlaceId;
-
-        // the function is passed to the child to decouple the API from the child rendering
-        let landmarkRendering = (<GooglePlacesApiProvider placeId = {placeId} renderLandmark = {this.renderLandmark} />);
-        if(landmarkRendering) {
-            return landmarkRendering;
+        const landmark = this.state.landmark;
+        if(landmark) {
+            return (<LandmarkCard landmark={landmark} key={landmark.name} />)
         }
 
-        return "Loading landmarks ...";
+        return null;
     }
 }
 
-export default LandmarkCardContainer
+export default withPlacesApi(LandmarkCardContainer)

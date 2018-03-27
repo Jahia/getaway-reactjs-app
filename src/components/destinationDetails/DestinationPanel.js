@@ -5,9 +5,11 @@ import Banner from "../generic/Banner";
 import Header from "../generic/Header";
 import Footer from "../generic/Footer";
 import DestinationDetails from "./DestinationDetails";
-import DestiLandmarkCards from "./DestiLandmarkCards";
+import DestiLandmarkContainer from "./landmarks/DestiLandmarkContainer";
+import GooglePlacesApiProvider from "../external/GooglePlacesApiProvider"
 import {graphql} from "react-apollo";
 import gql from "graphql-tag";
+import GoogleApi from "../external/GooglePlacesApi";
 
 const GQL_QUERY = gql`
 query DestinationDetailsQuery($uuid: String!, $language: String) {
@@ -48,11 +50,22 @@ function mapResultsToProps(results) {
     return null;
 }
 
+const placesApi = new GoogleApi();
+
 class DestinationPanel extends Component {
     render() {
         if (!this.props.elements) return "Loading destination ...";
         const destinationName = this.props.elements.name;
+        const destiLatitude = this.props.elements.latitude ? parseFloat(this.props.elements.latitude.value) : null;
+        const destiLongitude = this.props.elements.latitude ? parseFloat(this.props.elements.longitude.value) : null;
+        const destiGeoCoords = {
+            lat: destiLatitude,
+            long:destiLongitude
+        }
+        const destiUUID = this.props.match.params.destinationUUID;
+
         if (destinationName) {
+
             return (
                 <section className="getawayMain">
                     <Header/>
@@ -67,7 +80,10 @@ class DestinationPanel extends Component {
                                         latitude={this.props.elements.latitude}
                                         longitude={this.props.elements.longitude}
                     />
-                    <DestiLandmarkCards max = "4" destiUUID={this.props.match.params.destinationUUID} />
+
+                    <GooglePlacesApiProvider placesApi={placesApi}>
+                        <DestiLandmarkContainer max="5" destiUUID={destiUUID} destiGeoCoords={destiGeoCoords} />
+                    </GooglePlacesApiProvider>
                     <Footer/>
                 </section>
             )

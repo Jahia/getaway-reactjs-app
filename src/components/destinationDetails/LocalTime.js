@@ -39,7 +39,8 @@ class LocalTime extends Component {
         // Current UTC date/time in seconds
         const timestamp = targetDate.getTime() / 1000 + targetDate.getTimezoneOffset() * 60;
 
-        const apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp + '&key=' + GetaywayConstants.googleMapsApiKey;
+        const apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp
+            + '&key=' + GetaywayConstants.googleMapsApiKey;
 
         // Create new XMLHttpRequest object
         const xhr = new XMLHttpRequest();
