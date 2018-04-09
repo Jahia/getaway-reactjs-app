@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
 import LandmarkCard from "./LandmarkCard";
 import withPlacesApi from "../external/withPlacesApi"
 import GooglePlacesMapper from "../external/GooglePlacesMapper";

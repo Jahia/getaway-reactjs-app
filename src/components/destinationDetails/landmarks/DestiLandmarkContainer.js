@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import gql from "graphql-tag";
-import {graphql} from "react-apollo/index";
+import {graphql} from "react-apollo";
 import DestiLandmarkCards from "./DestiLandmarkCards"
 import LandmarkMap from "./LandmarkMap";
 import GooglePlacesMapper from "../../external/GooglePlacesMapper";

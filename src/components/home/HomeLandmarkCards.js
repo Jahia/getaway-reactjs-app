@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 /* import '../styles/LandmarkCard.css'; TODO review this */
 import HorizontalList from "../generic/HorizontalList";
 import gql from "graphql-tag";
-import {graphql} from "react-apollo/index";
+import {graphql} from "react-apollo";
 import LandMarkCardContainer from "../landmarks/LandmarkCardContainer";
 import withPlacesApi from "../external/withPlacesApi";
 
