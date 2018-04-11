@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 /* import '../styles/DestinationCards.css'; TODO review this */
 import DestinationCard from "./DestinationCard";
 import HorizontalList from "../../generic/HorizontalList";
@@ -45,25 +45,25 @@ function mapResultsToProps(results) {
     return null;
 }
 
-class DestinationCards extends HorizontalList {
+class DestinationCards extends Component {
 
     /*
      * Renders a destination card
      * @param {Object} destination - The destination object to render
      * @param {Number} i - The index of the destination card in the list
      */
-    renderElement(destination, i) {
+    renderDestination(destination, i) {
         if (destination) {
             return (<DestinationCard destination={destination} key={i}/>);
         }
     }
 
     render() {
-
-        if (this.props.elements) {
+        const elements = this.props.elements;
+        if(elements) {
             return (
                 <div className="destination-card-container">
-                    {super.render()}
+                    <HorizontalList elements={elements} renderElement={this.renderDestination}/>
                 </div>
             );
         }

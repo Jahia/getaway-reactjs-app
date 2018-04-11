@@ -3,7 +3,7 @@ import HorizontalList from "../../generic/HorizontalList";
 import LandmarkCard from "../../landmarks/LandmarkCard";
 
 
-class DestiLandmarkCards extends HorizontalList {
+class DestiLandmarkCards extends Component {
 
     /**
      * Renders a landmark card
@@ -11,7 +11,7 @@ class DestiLandmarkCards extends HorizontalList {
      * @param {Number} i - The index of the landmark card in the list
      * @return {Object} The landmark card rendered
      */
-    renderElement(landmark, i) {
+    renderLandmark(landmark, i) {
         if(landmark) {
             return (<LandmarkCard landmark={landmark} key={landmark.name} />)
         }
@@ -20,12 +20,13 @@ class DestiLandmarkCards extends HorizontalList {
     }
 
     render() {
-        if(this.props.elements) {
+        const landmarks = this.props.landmarks;
+        if(landmarks) {
             return (
                 <section className="destinationLandmarks">
                     <h2>Landmarks</h2>
                     <div className="landmark-card-container">
-                        {super.render()}
+                        <HorizontalList elements={landmarks} renderElement={this.renderLandmark}/>
                     </div>
                 </section>
             );

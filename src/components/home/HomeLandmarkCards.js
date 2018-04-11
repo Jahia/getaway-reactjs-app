@@ -43,14 +43,14 @@ function mapResultsToProps(results) {
     return null;
 }
 
-class LandmarkCards extends HorizontalList {
+class LandmarkCards extends Component {
 
     /**
      * Renders a landmark card
      * @param {Object} destination - The destination object from which the first landmark will be rendered
      * @param {Number} i - The index of the landmark card in the list
      */
-    renderElement(destination, i) {
+    renderLandmark(destination, i) {
         if(destination) {
             const landmarkPlaceIds = destination.landmarkPlaceIds;
             if(landmarkPlaceIds && landmarkPlaceIds.values && landmarkPlaceIds.values.length > 0) {
@@ -62,12 +62,13 @@ class LandmarkCards extends HorizontalList {
     }
 
     render() {
-        if(this.props.elements) {
+        const elements = this.props.elements;
+        if(elements) {
             return (
                 <section className="landmarksMain">
                     <h2>Highlighted Landmarks</h2>
                     <div className="landmark-card-container">
-                        {super.render()}
+                        <HorizontalList elements={elements} renderElement={this.renderLandmark}/>
                     </div>
                 </section>
             );
