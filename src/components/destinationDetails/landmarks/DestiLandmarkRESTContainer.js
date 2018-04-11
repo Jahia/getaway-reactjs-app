@@ -1,54 +1,10 @@
 import React, { Component } from 'react'
-import gql from "graphql-tag";
-import {graphql} from "react-apollo";
-import DestiLandmarkCards from "./DestiLandmarkCards"
-import LandmarkMap from "./LandmarkMap";
 import GooglePlacesMapper from "../../external/GooglePlacesMapper";
+import DestiLandmarkView from "../../destinationDetails/landmarks/DestiLandmarkView";
 import withPlacesApi from "../../external/withPlacesApi";
 
-const GQL_QUERY = gql`
-query LandmarkQuery($query: String!){
-  jcr {
-    nodesByQuery(query: $query) {
-      nodes {
-        landmarkPlaceIds: property(name: "landmarks") {
-          values
-        }
-      }
-    }
-  }
-}`;
 
-function mapPropsToOptions(props) {
-    var query = "SELECT * FROM [gant:destination] WHERE [jcr:uuid]='" + props.destiUUID + "'";
-
-    let options = {
-        skip: false,
-        variables: {
-            query: query,
-        }
-    };
-    console.log("Options: " + JSON.stringify(options));
-    return options
-}
-
-/**
- * Returns the list of landmarks' place ids retrieved from the selected destination
- * @param {Object} results - The result of the GraphQL RQ
- * @return {Object} - the list of landmarks' place ids retrieved from the selected destination
- */
-function mapResultsToProps(results) {
-    if (results && results.destinations && results.destinations.jcr && results.destinations.jcr.nodesByQuery) {
-        const destiNodes = results.destinations.jcr.nodesByQuery.nodes;
-        if(destiNodes && destiNodes.length > 0 && destiNodes[0].landmarkPlaceIds) {
-            // at this stage, due to the jcr request, only one destination is expected
-            return {elements: destiNodes[0].landmarkPlaceIds.values}
-        }
-    }
-    return null;
-}
-
-class DestiLandmarkContainer extends Component {
+class DestiLandmarkRESTContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -86,11 +42,9 @@ class DestiLandmarkContainer extends Component {
 
     /**
      * Helps to figure out when the GraphQl elements are actually retrieved to the Google Places API
-     * Method is called whenever the state of the props will change.
-     * @param {Object} nextProps - Corresponds to the new state of the props
      */
-    componentWillReceiveProps(nextProps) {
-        const placeIds = nextProps.elements;
+    componentDidMount() {
+        const placeIds = this.props.placeIds;
         const placesPromises = this.buildPlacesPromises(placeIds);
 
         if(placesPromises && placesPromises.length > 0) {
@@ -118,15 +72,11 @@ class DestiLandmarkContainer extends Component {
         const landmarks = this.state.landmarks;
         if(landmarks && !landmarks.loading) {
             if(landmarks.values && landmarks.values.length > 0) {
-                /* max could have been mentioned in the DestiLandmarlCards and LandmarkMap component
-                but it avoids processing the list twice */
+                // max used here if the max is mentioned (the given placeIds list is not already limited)
                 const max = this.props.max;
                 const landmarksToDisplay = max ? landmarks.values.slice(0, max) : landmarks.values;
                 return (
-                    <div>
-                        <DestiLandmarkCards elements={landmarksToDisplay}/>
-                        <LandmarkMap destiGeoCoords={this.props.destiGeoCoords} landmarks={landmarksToDisplay}/>
-                    </div>
+                    <DestiLandmarkView landmarks={landmarksToDisplay} destiGeoCoords={this.props.destiGeoCoords}/>
                 );
             } else {
                 return null;
@@ -137,8 +87,4 @@ class DestiLandmarkContainer extends Component {
     }
 }
 
-export default graphql(GQL_QUERY, {
-    name: 'destinations',
-    props: mapResultsToProps,
-    options: mapPropsToOptions
-})(withPlacesApi(DestiLandmarkContainer))
+export default withPlacesApi(DestiLandmarkRESTContainer)

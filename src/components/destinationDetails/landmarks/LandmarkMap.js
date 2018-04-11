@@ -213,7 +213,7 @@ class LandmarkMap extends Component {
 
     initMap() {
         const destiGeoCoords = this.props.destiGeoCoords;
-        if(destiGeoCoords ){
+        if(destiGeoCoords){
 
             // Latitude and Longitude coordinates of destination
             const destination = this.buildGoogleLocation(destiGeoCoords);
