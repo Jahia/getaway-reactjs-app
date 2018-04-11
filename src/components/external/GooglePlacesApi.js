@@ -60,6 +60,7 @@ class GooglePlacesApi {
         const googleMaps = window.google.maps;
         // as long as the service is not initialize in a React component accessing the DOM will work
         const mapContainer = document.createElement("google_map_container");
+        document.body.appendChild(mapContainer);
         const map = new googleMaps.Map(mapContainer);
         this.placesService = new googleMaps.places.PlacesService(map);
     }

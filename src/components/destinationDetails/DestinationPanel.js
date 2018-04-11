@@ -5,7 +5,7 @@ import Banner from "../generic/Banner";
 import Header from "../generic/Header";
 import Footer from "../generic/Footer";
 import DestinationDetails from "./DestinationDetails";
-import DestiLandmarkGraphQLContainer from "./landmarks/DestiLandmarkGraphQLContainer";
+import {DestiLandmarkContainer} from "./landmarks";
 import {graphql} from "react-apollo";
 import gql from "graphql-tag";
 
@@ -75,7 +75,7 @@ class DestinationPanel extends Component {
                                         outline={this.props.elements.outline}
                                         latitude={this.props.elements.latitude}
                                         longitude={this.props.elements.longitude}/>
-                    <DestiLandmarkGraphQLContainer destiUUID={destiUUID} destiGeoCoords={destiGeoCoords} />
+                    <DestiLandmarkContainer destiUUID={destiUUID} destiGeoCoords={destiGeoCoords} />
                     <Footer/>
                 </section>
             )
