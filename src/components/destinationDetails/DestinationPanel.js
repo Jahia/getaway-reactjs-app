@@ -6,10 +6,8 @@ import Header from "../generic/Header";
 import Footer from "../generic/Footer";
 import DestinationDetails from "./DestinationDetails";
 import DestiLandmarkContainer from "./landmarks/DestiLandmarkContainer";
-import GooglePlacesApiProvider from "../external/GooglePlacesApiProvider"
 import {graphql} from "react-apollo";
 import gql from "graphql-tag";
-import GoogleApi from "../external/GooglePlacesApi";
 
 const GQL_QUERY = gql`
 query DestinationDetailsQuery($uuid: String!, $language: String) {
@@ -50,8 +48,6 @@ function mapResultsToProps(results) {
     return null;
 }
 
-const placesApi = new GoogleApi();
-
 class DestinationPanel extends Component {
     render() {
         if (!this.props.elements) return "Loading destination ...";
@@ -80,10 +76,7 @@ class DestinationPanel extends Component {
                                         latitude={this.props.elements.latitude}
                                         longitude={this.props.elements.longitude}
                     />
-
-                    <GooglePlacesApiProvider placesApi={placesApi}>
-                        <DestiLandmarkContainer max="5" destiUUID={destiUUID} destiGeoCoords={destiGeoCoords} />
-                    </GooglePlacesApiProvider>
+                    <DestiLandmarkContainer max="5" destiUUID={destiUUID} destiGeoCoords={destiGeoCoords} />
                     <Footer/>
                 </section>
             )
