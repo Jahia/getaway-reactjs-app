@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import scriptLoader from "react-async-script-loader";
-import GetaywayConstants from "../../utils/GetawayConstants"
+import GetawayConstants from "../../utils/GetawayConstants"
 import PropTypes from 'prop-types';
 
 /**
@@ -51,5 +51,5 @@ class GooglePlacesApiProvider extends Component {
 }
 
 export default scriptLoader([
-    GetaywayConstants.GOOGLE_API_URL()
+    GetawayConstants.GOOGLE_API_URL()
 ])(GooglePlacesApiProvider)

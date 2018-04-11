@@ -1,6 +1,4 @@
 import React, {Component} from "react";
-import scriptLoader from "react-async-script-loader";
-import GetawayConstants from "../../../utils/GetawayConstants";
 
 class LandmarkMap extends Component {
 
@@ -239,14 +237,9 @@ class LandmarkMap extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        // if the script is loaded but wasn't already loaded
-        if(nextProps.isScriptLoaded && !this.props.isScriptLoaded) {
-            if(nextProps.isScriptLoadSucceed) {
-                this.initMap();
-            }
-        }
-    }
+   componentDidMount() {
+       this.initMap();
+   }
 
     render() {
         return (
@@ -257,6 +250,4 @@ class LandmarkMap extends Component {
     }
 }
 
-export default scriptLoader([
-    GetawayConstants.GOOGLE_API_URL()
-]) (LandmarkMap)
+export default (LandmarkMap)
