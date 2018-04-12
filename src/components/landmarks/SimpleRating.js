@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 class SimpleRating extends Component {
     render() {
-        let value = this.props.value;
+        const value = this.props.value;
         if(value) {
             return (
                 <div className = "landmark-rating">

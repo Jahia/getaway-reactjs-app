@@ -10,7 +10,7 @@ class DestiLandmarkView extends Component {
             return (
                 <div>
                     <DestiLandmarkCards landmarks={landmarks}/>
-                    <LandmarkMap destiGeoCoords={this.props.destiGeoCoords} landmarks={landmarks}/>
+                    <LandmarkMap centerGeoCoords={this.props.destiGeoCoords} landmarks={landmarks}/>
                 </div>
             );
         }

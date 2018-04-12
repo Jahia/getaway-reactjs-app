@@ -11,8 +11,9 @@ class LandmarkCardContainer extends Component {
     render() {
         const landmarkPlaceId = this.props.landmarkPlaceId;
         if(landmarkPlaceId) {
-            return (<LandmarkContainer landmarkPlaceId={landmarkPlaceId} render={this.renderLandmarkDetails}
-                                           key={landmarkPlaceId}/>);
+            return (<LandmarkContainer landmarkPlaceId={landmarkPlaceId} onlyMainFields={true}
+                                       render={this.renderLandmarkDetails}
+                                       key={landmarkPlaceId}/>);
         }
     }
 }

@@ -210,11 +210,11 @@ class LandmarkMap extends Component {
     }
 
     initMap() {
-        const destiGeoCoords = this.props.destiGeoCoords;
-        if(destiGeoCoords){
+        const centerGeoCoords = this.props.centerGeoCoords;
+        if(centerGeoCoords){
 
             // Latitude and Longitude coordinates of destination
-            const destination = this.buildGoogleLocation(destiGeoCoords);
+            const destination = this.buildGoogleLocation(centerGeoCoords);
             console.log("google desti locations: " + JSON.stringify(destination))
 
             const googleMaps = window.google.maps;

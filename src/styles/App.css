@@ -1167,6 +1167,15 @@ section.landmarkReviewsSection .review-main {
     margin-bottom: 15px;
 }
 
+section.landmarkReviewsSection .review-main span.rt-val {
+color: rgba(0, 0, 0, 0.87);
+font-size: 50px;
+font-weight: 400;
+margin-bottom: -16px;
+display: block;
+    margin-right: 0;
+}
+
 section.landmarkReviewsSection .review-main .rt-revq {
     color: #878787;
     font-size: 16px;
@@ -1196,7 +1205,6 @@ section.landmarkReviewsSection .review-main .rt-revq {
 }
 
 .review-comment-card .reviewer-photo img {
-    border-radius: 50%;
     width: 52px;
     height: 52px;
 }

@@ -1,5 +1,4 @@
 /** The id of the DEFAULT div in which the Google Maps' details are stored */
-const GOOGLE_MAP_CONTAINER_ID = 'google_map_container';
 
 class GooglePlacesApi {
 

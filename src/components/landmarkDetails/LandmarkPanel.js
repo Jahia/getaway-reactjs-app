@@ -1,19 +1,39 @@
 import React, {Component} from 'react'
-/* import '../../styles/PageComponents/DestinationPanel.css'; TODO review this */
-/* import '../../styles/style-destination.css'; */
-import {DestiLandmarkContainer} from "./landmarks";
-import {LandmarkMap} from "../landmarks"
+import LandmarkContainer from "../landmarks/LandmarkContainer"
+import LandmarkMap from "../landmarks/LandmarkMap"
+import Footer from "../generic/Footer";
+import Header from "../generic/Header";
+import LandmarkReviews from "./LandmarkReviews";
 
+class LandmarkPanel extends Component {
 
-class LandmarkDetails extends Component {
+    renderLandmarkDetails(landmark) {
+        const geoCoords = landmark.geoCoords;
+        // just because it is expected by the map component
+        const landmarks = [landmark];
+        return (
+            <div>
+                <LandmarkMap centerGeoCoords={geoCoords} landmarks={landmarks}/>
+                <LandmarkReviews globalRating={landmark.rating} reviews={landmark.reviews}/>
+            </div>
+        );
+    }
+
     render() {
+        const landmarkPlaceId = this.props.match.params.externalId;
 
-        if () {
+        if(landmarkPlaceId) {
             return (
-                <LandmarkMap destiGeoCoords={this.props.destiGeoCoords} landmarks={landmarks}/>
-            )
+                <section className="getawayMain">
+                    <Header/>
+                    <LandmarkContainer landmarkPlaceId={landmarkPlaceId} onlyMainFields={false}
+                                       render={this.renderLandmarkDetails}
+                                       key={landmarkPlaceId}/>
+                    <Footer/>
+                </section>
+            );
         }
     }
 }
 
-export default (LandmarkDetails)
+export default (LandmarkPanel)

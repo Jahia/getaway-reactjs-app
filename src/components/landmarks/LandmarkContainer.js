@@ -16,11 +16,19 @@ class LandmarkContainer extends Component {
     componentDidMount() {
         const placesApi = this.props.placesApi;
         const placeId = this.props.landmarkPlaceId;
+        // by default only the main fields are mapped
+        const onlyMainFields = this.props.onlyMainFields;
+
         if(placeId) {
             placesApi.getPlaceDetails(placeId)
                 .then(function(place) {
                     const googlePlacesMapper = new GooglePlacesMapper();
-                    const landmark = googlePlacesMapper.retrieveLandmark(placeId, place);
+                    let landmark = null;
+                    if(onlyMainFields) {
+                        landmark = googlePlacesMapper.retrieveLandmark(placeId, place);
+                    } else {
+                        landmark = googlePlacesMapper.retrieveFullLandmark(placeId, place);
+                    }
                     this.setState({landmark: landmark});
                 }.bind(this))
                 .catch(function() {

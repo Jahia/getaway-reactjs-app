@@ -3,7 +3,7 @@ import Landmark from "../../beans/Landmark";
 class GooglePlacesMapper {
 
     /**
-     * Retrieves a Getaway landmark from a Google place object.
+     * Retrieves the main fields for a Getaway landmark from a Google place object.
      * @param {Object} place - A Google place object
      * @return The corresponding Getaway landmark
      */
@@ -15,6 +15,36 @@ class GooglePlacesMapper {
             const rating = place.rating;
             const geoCoords = this.retrieveDestiGeoCoordinates(place);
             return new Landmark(placeId, name, locationName, geoCoords, photoUrls, rating);
+        }
+    }
+
+    /**
+     * Retrieves the full detailed Getaway landmark from a Google place object.
+     * @param {Object} place - A Google place object
+     * @return The corresponding Getaway landmark
+     */
+    retrieveFullLandmark(placeId, place) {
+        let landmark = this.retrieveLandmark(placeId, place);
+        if(landmark) {
+            landmark.reviews = this.retrieveReviews(place);
+        }
+
+        return landmark;
+    }
+
+    retrieveReviews(place) {
+        if(place && place.reviews) {
+            const googleReviews = place.reviews;
+            return googleReviews.map(googleReview => (
+                 {
+                    authorName: googleReview.author_name,
+                    profilePhotoUrl: googleReview.profile_photo_url,
+                    rating: googleReview.rating,
+                    value: googleReview.text,
+                    timeDesc: googleReview.relative_time_description,
+                    language: googleReview.language
+                }
+            ));
         }
     }
 
