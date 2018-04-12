@@ -62,7 +62,6 @@ class DestinationPanel extends Component {
         const destiUUID = this.props.match.params.destinationUUID;
 
         if (destinationName) {
-
             return (
                 <section className="getawayMain">
                     <Header/>

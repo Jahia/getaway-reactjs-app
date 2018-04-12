@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import HorizontalList from "../../generic/HorizontalList";
 import LandmarkCard from "../../landmarks/LandmarkCard";
 
 
@@ -26,7 +25,7 @@ class DestiLandmarkCards extends Component {
                 <section className="destinationLandmarks">
                     <h2>Landmarks</h2>
                     <div className="landmark-card-container">
-                        <HorizontalList elements={landmarks} renderElement={this.renderLandmark}/>
+                        {landmarks.map(landmark => (this.renderLandmark(landmark)))}
                     </div>
                 </section>
             );

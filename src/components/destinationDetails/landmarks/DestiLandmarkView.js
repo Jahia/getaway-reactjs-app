@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LandmarkMap from "./LandmarkMap";
+import LandmarkMap from "../../landmarks/LandmarkMap";
 import DestiLandmarkCards from "./DestiLandmarkCards"
 
 class DestiLandmarkView extends Component {

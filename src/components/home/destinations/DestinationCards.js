@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 /* import '../styles/DestinationCards.css'; TODO review this */
 import DestinationCard from "./DestinationCard";
-import HorizontalList from "../../generic/HorizontalList";
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -50,20 +49,19 @@ class DestinationCards extends Component {
     /*
      * Renders a destination card
      * @param {Object} destination - The destination object to render
-     * @param {Number} i - The index of the destination card in the list
      */
-    renderDestination(destination, i) {
+    renderDestination(destination) {
         if (destination) {
-            return (<DestinationCard destination={destination} key={i}/>);
+            return (<DestinationCard destination={destination} key={destination.id}/>);
         }
     }
 
     render() {
-        const elements = this.props.elements;
-        if(elements) {
+        const destinations = this.props.elements;
+        if(destinations) {
             return (
                 <div className="destination-card-container">
-                    <HorizontalList elements={elements} renderElement={this.renderDestination}/>
+                    { destinations.map(destination => (this.renderDestination(destination)))}
                 </div>
             );
         }

@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 /* import '../styles/LandmarkCard.css'; TODO review this */
-import HorizontalList from "../generic/HorizontalList";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
-import LandMarkCardContainer from "../landmarks/LandmarkCardContainer";
+import LandmarkCardContainer from "../landmarks/LandmarkCardContainer";
 import withPlacesApi from "../external/withPlacesApi";
 
 const GQL_QUERY = gql`
@@ -48,27 +47,26 @@ class LandmarkCards extends Component {
     /**
      * Renders a landmark card
      * @param {Object} destination - The destination object from which the first landmark will be rendered
-     * @param {Number} i - The index of the landmark card in the list
      */
-    renderLandmark(destination, i) {
+    renderLandmark(destination) {
         if(destination) {
             const landmarkPlaceIds = destination.landmarkPlaceIds;
             if(landmarkPlaceIds && landmarkPlaceIds.values && landmarkPlaceIds.values.length > 0) {
                 // container as it will make some external calls
                 const landmarkPlaceId = landmarkPlaceIds.values[0];
-                return (<LandMarkCardContainer landmarkPlaceId={landmarkPlaceId} key={landmarkPlaceId} />);
+                return (<LandmarkCardContainer landmarkPlaceId={landmarkPlaceId} key={landmarkPlaceId} />);
             }
         }
     }
 
     render() {
-        const elements = this.props.elements;
-        if(elements) {
+        const destinations = this.props.elements;
+        if(destinations) {
             return (
                 <section className="landmarksMain">
                     <h2>Highlighted Landmarks</h2>
                     <div className="landmark-card-container">
-                        <HorizontalList elements={elements} renderElement={this.renderLandmark}/>
+                        { destinations.map(destination => (this.renderLandmark(destination)))}
                     </div>
                 </section>
             );

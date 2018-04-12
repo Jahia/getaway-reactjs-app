@@ -7,14 +7,14 @@ class GooglePlacesMapper {
      * @param {Object} place - A Google place object
      * @return The corresponding Getaway landmark
      */
-    retrieveLandmark(place) {
-        if(place) {
+    retrieveLandmark(placeId, place) {
+        if(placeId && place) {
             const name = place.name;
             const photoUrls = this.retrievePhotoUrls(place);
             const locationName = this.retrieveLocationName(place);
             const rating = place.rating;
             const geoCoords = this.retrieveDestiGeoCoordinates(place);
-            return new Landmark(name, locationName, geoCoords, photoUrls, rating);
+            return new Landmark(placeId, name, locationName, geoCoords, photoUrls, rating);
         }
     }
 
