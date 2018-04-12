@@ -50,10 +50,11 @@ function mapResultsToProps(results) {
 
 class DestinationPanel extends Component {
     render() {
-        if (!this.props.elements) return "Loading destination ...";
-        const destinationName = this.props.elements.name;
-        const destiLatitude = this.props.elements.latitude ? parseFloat(this.props.elements.latitude.value) : null;
-        const destiLongitude = this.props.elements.latitude ? parseFloat(this.props.elements.longitude.value) : null;
+        const destination = this.props.elements;
+        if (!destination) return "Loading destination ...";
+        const destinationName = destination.name;
+        const destiLatitude = destination.latitude ? parseFloat(destination.latitude.value) : null;
+        const destiLongitude = destination.latitude ? parseFloat(destination.longitude.value) : null;
         const destiGeoCoords = {
             lat: destiLatitude,
             long:destiLongitude
@@ -66,15 +67,15 @@ class DestinationPanel extends Component {
                 <section className="getawayMain">
                     <Header/>
                     <Banner destinationName={destinationName}
-                            destinationCountry={this.props.elements.country}/>
-                    <DestinationDetails area={this.props.elements.area}
-                                        elevation={this.props.elements.elevation}
-                                        populationCount={this.props.elements.populationCount}
-                                        populationDate={this.props.elements.populationDate}
-                                        headline={this.props.elements.headline}
-                                        outline={this.props.elements.outline}
-                                        latitude={this.props.elements.latitude}
-                                        longitude={this.props.elements.longitude}/>
+                            destinationCountry={destination.country}/>
+                    <DestinationDetails area={destination.area}
+                                        elevation={destination.elevation}
+                                        populationCount={destination.populationCount}
+                                        populationDate={destination.populationDate}
+                                        headline={destination.headline}
+                                        outline={destination.outline}
+                                        latitude={destination.latitude}
+                                        longitude={destination.longitude}/>
                     <DestiLandmarkContainer destiUUID={destiUUID} destiGeoCoords={destiGeoCoords} />
                     <Footer/>
                 </section>
