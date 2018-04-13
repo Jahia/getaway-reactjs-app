@@ -6,9 +6,12 @@ class ReviewCards extends Component {
     render() {
         const reviews = this.props.reviews;
         if(reviews) {
+            const max = this.props.max;
+            const reviewsToDisplay = max ? reviews.slice(0, max) : reviews;
+
             return (
                 <div className="review-comments-container">
-                    {reviews.map(review => (<ReviewCard review={review}/>))}
+                    {reviewsToDisplay.map(review => (<ReviewCard review={review}/>))}
                 </div>
             );
         }

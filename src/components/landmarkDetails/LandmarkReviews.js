@@ -11,7 +11,7 @@ class LandmarkReviews extends Component {
             <section className="landmarkReviewsSection">
                 <h2>Reviews</h2>
                 <GlobalRating rating={globalRating}/>
-                <ReviewCards reviews={reviews}/>
+                <ReviewCards max="2" reviews={reviews}/>
             </section>
         );
     }
