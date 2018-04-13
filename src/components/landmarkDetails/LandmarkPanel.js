@@ -4,7 +4,7 @@ import LandmarkMap from "../landmarks/LandmarkMap"
 import Footer from "../generic/Footer";
 import Header from "../generic/Header";
 import LandmarkReviews from "./LandmarkReviews";
-import MoreReviews from "./MoreReviews";
+import LandmarkInfo from "../landmarkDetails/LandmarkInfo"
 
 class LandmarkPanel extends Component {
 
@@ -15,6 +15,7 @@ class LandmarkPanel extends Component {
         return (
             <div>
                 <LandmarkMap centerGeoCoords={geoCoords} landmarks={landmarks}/>
+                <LandmarkInfo landmarkName={landmark.name} locationName={landmark.locationName}/>
                 <LandmarkReviews globalRating={landmark.rating} reviews={landmark.reviews}/>
             </div>
         );
@@ -30,7 +31,6 @@ class LandmarkPanel extends Component {
                     <LandmarkContainer landmarkPlaceId={landmarkPlaceId} onlyMainFields={false}
                                        render={this.renderLandmarkDetails}
                                        key={landmarkPlaceId}/>
-                    <MoreReviews/>
                     <Footer/>
                 </section>
             );

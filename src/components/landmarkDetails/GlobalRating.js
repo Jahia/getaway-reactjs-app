@@ -9,7 +9,6 @@ class GlobalRating extends Component {
             return (
                 <div className="review-main">
                     <SimpleRating value={rating}/>
-                    <div className="rt-revq">TO BE MAPPED</div>
                 </div>
             );
         }

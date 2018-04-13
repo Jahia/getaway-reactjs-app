@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import ReviewCards from "../landmarkDetails/ReviewCards"
 import GlobalRating from "../landmarkDetails/GlobalRating"
+import MoreReviews from "./MoreReviews";
+
 
 class LandmarkReviews extends Component {
 
@@ -12,6 +14,7 @@ class LandmarkReviews extends Component {
                 <h2>Reviews</h2>
                 <GlobalRating rating={globalRating}/>
                 <ReviewCards max="2" reviews={reviews}/>
+                <MoreReviews/>
             </section>
         );
     }
