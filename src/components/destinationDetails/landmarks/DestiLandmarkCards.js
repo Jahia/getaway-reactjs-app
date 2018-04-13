@@ -7,10 +7,9 @@ class DestiLandmarkCards extends Component {
     /**
      * Renders a landmark card
      * @param {String} landmarkPlaceId - The Get away landmark that needs to be rendered
-     * @param {Number} i - The index of the landmark card in the list
      * @return {Object} The landmark card rendered
      */
-    renderLandmark(landmark, i) {
+    renderLandmark(landmark) {
         if(landmark) {
             return (<LandmarkCard landmark={landmark} key={landmark.name} />)
         }
