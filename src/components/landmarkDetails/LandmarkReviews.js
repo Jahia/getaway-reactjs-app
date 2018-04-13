@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import ReviewCards from "../landmarkDetails/ReviewCards"
 import GlobalRating from "../landmarkDetails/GlobalRating"
-import MoreReviews from "./MoreReviews";
 
 
 class LandmarkReviews extends Component {
@@ -10,12 +9,14 @@ class LandmarkReviews extends Component {
         const globalRating = this.props.globalRating;
         const reviews = this.props.reviews;
         return (
-            <section className="landmarkReviewsSection">
-                <h2>Reviews</h2>
-                <GlobalRating rating={globalRating}/>
-                <ReviewCards max="2" reviews={reviews}/>
-                <MoreReviews/>
-            </section>
+            <div>
+                <section className="landmarkReviewsSection">
+                    <h2>Reviews</h2>
+                    <GlobalRating rating={globalRating}/>
+                    <ReviewCards max="4" reviews={reviews}/>
+                </section>
+                <div className="reviews-separator"></div>
+            </div>
         );
     }
 }

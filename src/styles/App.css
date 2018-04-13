@@ -1235,19 +1235,13 @@ section.landmarkReviewsSection .review-main .rt-revq {
     padding-top: 4px;
 }
 
-.more-reviews-btn {
+.reviews-separator {
     width: 100%;
     float: left;
     text-align: center;
     padding-bottom: 30px;
+    height: 27px;
 }
-
-.more-reviews-btn a {
-    color: #2196F3;
-    text-decoration: none;
-    font-size: 14px;
-}
-
 
 
 /* ERROR PAGE */
