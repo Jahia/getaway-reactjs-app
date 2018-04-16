@@ -11,7 +11,7 @@ class ReviewCards extends Component {
 
             return (
                 <div className="review-comments-container">
-                    {reviewsToDisplay.map(review => (<ReviewCard review={review}/>))}
+                    {reviewsToDisplay.map((review, index) => (<ReviewCard review={review} key={index}/>))}
                 </div>
             );
         }
