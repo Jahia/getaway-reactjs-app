@@ -20,7 +20,6 @@ class LandmarkInfo extends Component {
                 .then(function(response) {
                     const wikiMapper = new WikipediaMapper();
                     const extract = wikiMapper.retrieveExtract(response);
-
                     this.setState({landmarkDesc: extract});
 
                 }.bind(this))

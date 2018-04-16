@@ -7,6 +7,7 @@ const GetawayConstants = {
         + "&libraries=places"; },
     WIKIPEDIA_API_URL: "https://en.wikipedia.org/w/api.php",
     WIKIPEDIA_CONSTRAINED_DOMAIN: "*",
+    WIKIPEDIA_EXTRACT_MAX_LENGTH: 200,
     URL_PARAM_SEP: "&"
 };
 

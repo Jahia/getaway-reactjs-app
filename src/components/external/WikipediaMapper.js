@@ -5,8 +5,11 @@ class WikipediaMapper {
         if(response && response.query) {
             const pages = response.query.pages;
             const firstPage = this.retrieveFirstPage(pages);
+            let extract = firstPage.extract;
+            // if the extract is somehow empty
+            extract = (extract === "...") ? null : extract;
 
-            return firstPage.extract;
+            return extract;
         }
 
         return null;

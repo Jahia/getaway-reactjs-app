@@ -2,6 +2,10 @@ import GetawayConstants from "../../utils/GetawayConstants";
 
 class WikipediaApi {
 
+    /**
+     * Constructor. It sets the default params.
+     * To allow setting custom params please implement another constructor.
+     */
     constructor() {
         this.format = "json";
         this.action = "query";
@@ -43,6 +47,9 @@ class WikipediaApi {
 
             // to allow CORS, Wikipedia needs this param to be given. It can constrained to our domain
             request += GetawayConstants.URL_PARAM_SEP + "origin=" + GetawayConstants.WIKIPEDIA_CONSTRAINED_DOMAIN;
+
+            // set the max length of the extract to retrieve
+            request += GetawayConstants.URL_PARAM_SEP + "exchars=" + GetawayConstants.WIKIPEDIA_EXTRACT_MAX_LENGTH;
 
             request += GetawayConstants.URL_PARAM_SEP + "titles=" + title;
         }
