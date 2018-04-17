@@ -20,7 +20,7 @@ query LandmarkQuery($query: String!, $limit: Int){
 }`;
 
 function mapPropsToOptions(props) {
-    var query = "SELECT * FROM [gant:destination] as destination WHERE isdescendantnode('/sites/"
+    let query = "SELECT * FROM [gant:destination] as destination WHERE isdescendantnode('/sites/"
         + GetawayConstants.dxSiteKey + "/contents') AND destination.landmarks is not null";
 
     // the flag highlighted relates to the destinations
