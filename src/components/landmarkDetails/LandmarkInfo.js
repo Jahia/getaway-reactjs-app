@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import WikipediaApi from "../external/WikipediaApi";
 import WikipediaMapper from "../external/WikipediaMapper";
+import GetawayConstants from "../../utils/GetawayConstants";
 
 class LandmarkInfo extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            landmarkDesc: null
+            pageInfo: null,
         }
     }
 
@@ -19,12 +20,14 @@ class LandmarkInfo extends Component {
             wikiApi.getPageExtract(landmarkName)
                 .then(function(response) {
                     const wikiMapper = new WikipediaMapper();
-                    const extract = wikiMapper.retrieveExtract(response);
-                    this.setState({landmarkDesc: extract});
+                    const pageInfo = wikiMapper.retrievePageInfo(response);
+                    this.setState({
+                        pageInfo: pageInfo
+                    });
 
                 }.bind(this))
                 .catch(function(error) {
-                    console.log("There was an error while calling the Wikipedia API:" + error.toString());
+                    console.info("There was an error while calling the Wikipedia API:" + error.toString());
                 });
         }
     }
@@ -35,8 +38,13 @@ class LandmarkInfo extends Component {
 
         // at least the name should be available
         if(landmarkName) {
-            const desc = this.state.landmarkDesc;
-            const renderedDescription = desc ? <p>{desc}</p> : null;
+            const pageInfo = this.state.pageInfo;
+
+            let renderedDesc = null;
+            if(pageInfo && pageInfo.extract && pageInfo.pageId) {
+                const pageUrl = GetawayConstants.WIKIPEDIA_PAGE_URL() + pageInfo.pageId;
+                renderedDesc = <p>{pageInfo.extract}<span><a href={pageUrl}>Wikipedia</a></span></p>;
+            }
 
             return (
                 <section className="landmarkInfoSection">
@@ -44,7 +52,7 @@ class LandmarkInfo extends Component {
                         <h1>{landmarkName}</h1>
                         <h2>{locationName}</h2>
                     </div>
-                    {renderedDescription}
+                    {renderedDesc}
                 </section>
             );
         }

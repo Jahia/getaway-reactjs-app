@@ -33,7 +33,7 @@ class WikipediaApi {
     buildPageRQ(title) {
         let request = null;
         if(title) {
-            request =  GetawayConstants.WIKIPEDIA_API_URL+ "?"
+            request =  GetawayConstants.WIKIPEDIA_API_URL() + "?"
                 + "format=" + this.format + GetawayConstants.URL_PARAM_SEP
                 + "action=" + this.action + GetawayConstants.URL_PARAM_SEP
                 + "prop=" + this.prop;

@@ -1075,6 +1075,11 @@ section.footerMain {
 
 }
 
+.landmarkInfoSection span a {
+    margin-left: 6px;
+    color: #1E88E5;
+}
+
 .landmark-title h1 {
     font-size: 30px;
     color: rgba(0, 0, 0, 0.84);
