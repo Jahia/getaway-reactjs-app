@@ -13,14 +13,12 @@ class DestinationCard extends Component {
         }
         const photoNode = destination.photo.files[0];
         const name = destination.name;
+        const systemName = destination.systemName;
         const country = destination.country;
 
-        // TODO review this (hardcoded DX hostname)
-        const photo = photoNode ?
-            GetawayConstants.dxHost + "/files/live" + photoNode.path
-            : null;
+        const photo = photoNode ? GetawayConstants.dxHost + "/files/live" + photoNode.path : null;
         return (
-            <Link to={`/destination/${destination.id}`}>
+            <Link to={`/destination/${systemName}`}>
                 <div className="destination-card">
                     <img className="destination-photo" src={photo}/>
                     <div className="destination-name">{name}</div>

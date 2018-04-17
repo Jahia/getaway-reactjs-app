@@ -12,6 +12,7 @@ query DestinationQuery($query: String!, $limit: Int, $language: String) {
       nodes {
         id:uuid
         name:displayName(language: $language)
+        systemName: name
         country
         photo: property(name: "photos") {
           files:refNodes {

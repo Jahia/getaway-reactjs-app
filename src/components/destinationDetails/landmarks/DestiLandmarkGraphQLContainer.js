@@ -17,7 +17,7 @@ query LandmarkQuery($query: String!){
 }`;
 
 function mapPropsToOptions(props) {
-    const query = "SELECT * FROM [gant:destination] WHERE [jcr:uuid]='" + props.destiUUID + "'";
+    const query = "SELECT * FROM [gant:destination] WHERE [j:nodename]='" + props.destiName + "'";
 
     // no limit given as only one destination will be retrieved
     let options = {
