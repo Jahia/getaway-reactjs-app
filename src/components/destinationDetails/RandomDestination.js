@@ -9,7 +9,7 @@ query DestinationsQuery($query: String!) {
   jcr(workspace:LIVE) {
     nodesByQuery(query: $query) {
       nodes {
-        id:uuid
+        name
       }
     }
   }
@@ -30,7 +30,7 @@ function mapResultsToProps(results) {
         && results.destination.jcr.nodesByQuery && results.destination.jcr.nodesByQuery.nodes) {
         const randomDest = results.destination.jcr.nodesByQuery.nodes;
         const randomIdx = Math.floor(Math.random() * Math.floor(randomDest.length));
-        return {randomDest: randomDest[randomIdx].id};
+        return {randomDest: randomDest[randomIdx].name};
     }
     return null;
 }
