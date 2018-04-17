@@ -29,6 +29,7 @@ class WikipediaApi {
         });
     }
 
+
     buildPageRQ(title) {
         let request = null;
         if(title) {

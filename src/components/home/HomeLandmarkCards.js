@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import LandmarkCardContainer from "../landmarks/LandmarkCardContainer";
 import withPlacesApi from "../external/withPlacesApi";
+import GetawayConstants from "../../utils/GetawayConstants";
 
 const GQL_QUERY = gql`
 query LandmarkQuery($query: String!, $limit: Int){
@@ -19,8 +20,8 @@ query LandmarkQuery($query: String!, $limit: Int){
 }`;
 
 function mapPropsToOptions(props) {
-    var query = "SELECT * FROM [gant:destination] as destination WHERE isdescendantnode('/sites/digitall/contents') AND " +
-        "destination.landmarks is not null";
+    var query = "SELECT * FROM [gant:destination] as destination WHERE isdescendantnode('/sites/"
+        + GetawayConstants.dxSiteKey + "/contents') AND destination.landmarks is not null";
 
     // the flag highlighted relates to the destinations
     if (props.fromHighlightedDesti) query += " and [highlight] = 'true'";

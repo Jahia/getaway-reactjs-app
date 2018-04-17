@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import DestinationCard from "./DestinationCard";
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
+import GetawayConstants from "../../../utils/GetawayConstants";
 
 const GQL_QUERY = gql`
 query DestinationQuery($query: String!, $limit: Int, $language: String) {
@@ -23,7 +24,7 @@ query DestinationQuery($query: String!, $limit: Int, $language: String) {
 }`;
 
 function mapPropsToOptions(props) {
-    let query = "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents')";
+    let query = "select * from [gant:destination] where isdescendantnode('/sites/" + GetawayConstants.dxSiteKey + "/contents')";
     if (props.onlyHighlighted) query += " and [highlight] = 'true'";
     let options = {
         skip: false,

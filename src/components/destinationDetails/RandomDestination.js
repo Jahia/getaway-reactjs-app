@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {graphql} from 'react-apollo'
 import gql from "graphql-tag";
 import {Redirect} from 'react-router-dom'
+import GetawayConstants from "../../utils/GetawayConstants";
 
 const GQL_QUERY = gql`
 query DestinationsQuery($query: String!) {
@@ -15,7 +16,7 @@ query DestinationsQuery($query: String!) {
 }`;
 
 function mapPropsToOptions(props) {
-    const query = "select * from [gant:destination] where isdescendantnode('/sites/digitall/contents')";
+    const query = "select * from [gant:destination] where isdescendantnode('/sites/" + GetawayConstants.dxSiteKey + "/contents')";
     return {
         skip: false,
         variables: {
