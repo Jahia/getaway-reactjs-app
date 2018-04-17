@@ -5,7 +5,7 @@ import Banner from "../generic/Banner";
 import Header from "../generic/Header";
 import Footer from "../generic/Footer";
 import DestinationDetails from "./DestinationDetails";
-import {DestiLandmarkContainer} from "./landmarks";
+import DestiLandmarkRESTContainer from "./landmarks/DestiLandmarkRESTContainer";
 import {graphql} from "react-apollo";
 import gql from "graphql-tag";
 import GetawayConstants from "../../utils/GetawayConstants";
@@ -26,6 +26,7 @@ query DestinationDetailsQuery($query: String!, $limit: Int, $language: String) {
               outline:property(name: "outline", language: $language) {value}
               latitude:property(name: "j:latitude") {value}
               longitude:property(name: "j:longitude") {value}
+              landmarkPlaceIds: property(name: "landmarks") {values}
             }
         }
     }
@@ -64,8 +65,8 @@ function mapResultsToProps(results) {
 }
 
 class DestinationPanel extends Component {
-    render() {
 
+    render() {
         const destination = this.props.destination;
         if (!destination) return "Loading destination ...";
 
@@ -77,6 +78,7 @@ class DestinationPanel extends Component {
             lat: destiLatitude,
             long:destiLongitude
         }
+        const landmarkPlaceIds = destination.landmarkPlaceIds ? destination.landmarkPlaceIds.values : null;
 
         if (destiName && destiSystemName) {
             return (
@@ -92,7 +94,7 @@ class DestinationPanel extends Component {
                                         outline={destination.outline}
                                         latitude={destination.latitude}
                                         longitude={destination.longitude}/>
-                    <DestiLandmarkContainer destiName={destiSystemName} destiGeoCoords={destiGeoCoords} />
+                    <DestiLandmarkRESTContainer max="5" placeIds={landmarkPlaceIds} destiGeoCoords={destiGeoCoords}/>
                     <Footer/>
                 </section>
             )

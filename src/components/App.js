@@ -15,7 +15,7 @@ class App extends Component {
                     <Route exact path="/" component={HomePanel}/>
                     <Route exact path="/random/destination/" component={RandomDestination}/>
                     <Route exact path="/destination/:destinationName" component={DestinationPanel}/>
-                    <Route exact path="/landmark/:landmarkName" component={LandmarkPanel}/>
+                    <Route exact path="/landmark/:externalId" component={LandmarkPanel}/>
                 </Switch>
             </component>
         );
