@@ -27,6 +27,11 @@ query DestinationDetailsQuery($query: String!, $limit: Int, $language: String) {
               latitude:property(name: "j:latitude") {value}
               longitude:property(name: "j:longitude") {value}
               landmarkPlaceIds: property(name: "landmarks") {values}
+              headerPhoto: property(name: "headerPhoto") {
+                  refNode {
+                    url:nodeUrl
+                  }
+                }
             }
         }
     }
@@ -66,6 +71,14 @@ function mapResultsToProps(results) {
 
 class DestinationPanel extends Component {
 
+    retrieveHeaderPhotoUrl(headerPhoto) {
+        if(headerPhoto && headerPhoto.refNode) {
+            return GetawayConstants.dxHost + headerPhoto.refNode.url;
+        }
+
+        return null;
+    }
+
     render() {
         const destination = this.props.destination;
         if (!destination) return "Loading destination ...";
@@ -79,13 +92,15 @@ class DestinationPanel extends Component {
             long:destiLongitude
         }
         const landmarkPlaceIds = destination.landmarkPlaceIds ? destination.landmarkPlaceIds.values : null;
+        const headerPhotoUrl = this.retrieveHeaderPhotoUrl(destination.headerPhoto);
 
         if (destiName && destiSystemName) {
             return (
                 <section className="getawayMain">
                     <Header/>
                     <Banner destinationName={destiName}
-                            destinationCountry={destination.country}/>
+                            destinationCountry={destination.country}
+                            headerPhoto={headerPhotoUrl}/>
                     <DestinationDetails area={destination.area}
                                         elevation={destination.elevation}
                                         populationCount={destination.populationCount}
