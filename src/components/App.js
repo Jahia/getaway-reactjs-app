@@ -5,6 +5,7 @@ import DestinationPanel from "./destinationDetails/DestinationPanel";
 import RandomDestination from "./destinationDetails/RandomDestination";
 import HomePanel from "./home/HomePanel";
 import LandmarkPanel from "./landmarkDetails/LandmarkPanel";
+import NotFoundPanel from "./NotFoundPanel";
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
                     <Route exact path="/random/destination/" component={RandomDestination}/>
                     <Route exact path="/destination/:destinationName" component={DestinationPanel}/>
                     <Route exact path="/landmark/:externalId" component={LandmarkPanel}/>
+                    <Route exact path="*" component={NotFoundPanel}/>
                 </Switch>
             </component>
         );
