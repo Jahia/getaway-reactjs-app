@@ -16,6 +16,8 @@ class GooglePlacesMapper {
             const geoCoords = this.retrieveDestiGeoCoordinates(place);
             return new Landmark(placeId, name, locationName, geoCoords, photoUrls, rating);
         }
+
+        return null;
     }
 
     /**
