@@ -11,7 +11,7 @@ class DestiLandmarkCards extends Component {
      */
     renderLandmark(landmark) {
         if(landmark) {
-            return (<LandmarkCard landmark={landmark} key={landmark.name} />)
+            return (<LandmarkCard landmark={landmark} shouldHideName={true} key={landmark.name} />)
         }
 
         return null;

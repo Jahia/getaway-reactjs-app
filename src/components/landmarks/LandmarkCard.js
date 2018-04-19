@@ -5,6 +5,7 @@ import SimpleRating from "./SimpleRating";
 
 class LandmarkCard extends Component {
     render() {
+        const shouldHideName = this.props.shouldHideName;
         const landmark = this.props.landmark;
         const photoUrls = landmark.photoUrls;
         const name = landmark.name;
@@ -17,7 +18,7 @@ class LandmarkCard extends Component {
                 <div className = "landmark-card">
                     <img className = "landmark-photo" src = {photoUrls[0]}/>
                     <div className = "landmark-name">{name}</div>
-                    <div className = "landmark-destination">{locationName}</div>
+                    {!shouldHideName && <div className = "landmark-destination">{locationName}</div>}
                     <SimpleRating value = {rating} />
                 </div>
             </Link>
