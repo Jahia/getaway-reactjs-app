@@ -14,16 +14,16 @@ class Banner extends Component {
     }
 
     render() {
-        const destination = this.props.destiName;
-        const country = this.props.destiCountry;
+        const destiName = this.props.destinationName;
+        const destiCountry = this.props.destinationCountry;
         const inlineStyle = this.buildInlineStyle();
 
-        if (destination && country) {
+        if (destiName && destiCountry) {
             return (
                 <section style={inlineStyle} className = "topSectionDest">
                     <div className = "header-shadow-overlay"></div>
-                    <h1>{destination}</h1>
-                    <h3>{country}</h3>
+                    <h1>{destiName}</h1>
+                    <h3>{destiCountry}</h3>
                 </section>
             );
         } else {

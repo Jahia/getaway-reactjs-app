@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom";
-
+import logo from "../../images/logo.svg"
 /* import '../../styles/Header.css'; TODO review this */
 
 class Header extends Component {
@@ -9,7 +9,7 @@ class Header extends Component {
             <nav className="headerMain">
                 <div className="logo-container">
                     <Link to={`/`}>
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/346954/getaway.svg" alt="GetAway logo"/>
+                        <img src={logo} alt="GetAway logo"/>
                     </Link>
                 </div>
             </nav>
