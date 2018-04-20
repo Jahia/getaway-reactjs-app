@@ -30,9 +30,9 @@ class DestiLandmarkRESTContainer extends Component {
                         const googlePlacesMapper = new GooglePlacesMapper();
                         return googlePlacesMapper.retrieveLandmark(placeId, place);
                     })
-                    .catch((err) => {
+                    .catch((error) => {
                         console.log("There was an error calling the Google Places API on the following placeId: "
-                            + placeId + "/ Error message: " + err.message);
+                            + placeId + " / Error: " + error);
                     });
             });
         }

@@ -11,7 +11,8 @@ const GetawayConstants = {
     WIKIPEDIA_API_URL: function() {return this.WIKIPEDIA_DOMAIN_URL + "/w/api.php";},
     WIKIPEDIA_CONSTRAINED_DOMAIN: "*",
     WIKIPEDIA_EXTRACT_MAX_LENGTH: 200,
-    URL_PARAM_SEP: "&"
+    URL_PARAM_SEP: "&",
+    ERROR_PAGE_URL: "/error"
 };
 
 export default GetawayConstants

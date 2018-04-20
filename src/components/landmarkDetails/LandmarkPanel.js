@@ -30,7 +30,9 @@ class LandmarkPanel extends Component {
                     <Header/>
                     <LandmarkContainer landmarkPlaceId={landmarkPlaceId} onlyMainFields={false}
                                        render={this.renderLandmarkDetails}
-                                       key={landmarkPlaceId}/>
+                                       key={landmarkPlaceId}
+                                       redirectOnEmptyOrError={true}
+                    />
                     <Footer/>
                 </section>
             );
