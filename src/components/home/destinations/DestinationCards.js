@@ -21,8 +21,8 @@ query DestinationQuery($query: String!, $limit: Int, $language: String) {
           }
         }
         photos: property(name: "photos") {
-          files:refNodes {
-            path
+          refNodes {
+            url:nodeUrl
           }
         }
       }

@@ -12,10 +12,10 @@ class DXMapper {
     }
 
     retrieveFirstPhoto(destination) {
-        if(destination.photos && destination.photos.files && destination.photos.files.length > 0) {
-            const photoNode = destination.photos.files[0];
-            const photo = photoNode ? GetawayConstants.dxHost + "/files/live" + photoNode.path : null;
-            return photo;
+        if(destination.photos && destination.photos.refNodes && destination.photos.refNodes.length > 0
+            && destination.photos.refNodes[0]) {
+            const firstPhotoUrl = destination.photos.refNodes[0].url;
+            return firstPhotoUrl ? GetawayConstants.dxHost + firstPhotoUrl : null;
         }
 
         return null;
