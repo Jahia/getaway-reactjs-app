@@ -8,9 +8,14 @@ import GetawayConstants from "../../utils/GetawayConstants";
 
 class DestinationPanelView extends Component {
 
-    retrieveHeaderPhotoUrl(headerPhoto) {
+    retrieveHeaderPhotoUrl(destination) {
+        const headerPhoto = destination.headerPhoto;
         if(headerPhoto && headerPhoto.refNode) {
             return GetawayConstants.dxHost + headerPhoto.refNode.url;
+        } else if(destination.photos && destination.photos.files && destination.photos.files.length > 0) {
+            const photoNode = destination.photos.files[0];
+            const photo = photoNode ? GetawayConstants.dxHost + "/files/live" + photoNode.path : null;
+            return photo;
         }
 
         return null;
@@ -29,7 +34,7 @@ class DestinationPanelView extends Component {
                 long:destiLongitude
             }
             const landmarkPlaceIds = destination.landmarkPlaceIds ? destination.landmarkPlaceIds.values : null;
-            const headerPhotoUrl = this.retrieveHeaderPhotoUrl(destination.headerPhoto);
+            const headerPhotoUrl = this.retrieveHeaderPhotoUrl(destination);
 
             if (destiName && destiSystemName) {
                 return (
