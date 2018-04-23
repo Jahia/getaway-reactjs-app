@@ -4,22 +4,9 @@ import Header from "../generic/Header";
 import Footer from "../generic/Footer";
 import DestinationDetails from "./DestinationDetails";
 import DestiLandmarkRESTContainer from "./landmarks/DestiLandmarkRESTContainer";
-import GetawayConstants from "../../utils/GetawayConstants";
+import DXMapper from "../external/DXMapper";
 
 class DestinationPanelView extends Component {
-
-    retrieveHeaderPhotoUrl(destination) {
-        const headerPhoto = destination.headerPhoto;
-        if(headerPhoto && headerPhoto.refNode) {
-            return GetawayConstants.dxHost + headerPhoto.refNode.url;
-        } else if(destination.photos && destination.photos.files && destination.photos.files.length > 0) {
-            const photoNode = destination.photos.files[0];
-            const photo = photoNode ? GetawayConstants.dxHost + "/files/live" + photoNode.path : null;
-            return photo;
-        }
-
-        return null;
-    }
 
     render() {
 
@@ -34,7 +21,8 @@ class DestinationPanelView extends Component {
                 long:destiLongitude
             }
             const landmarkPlaceIds = destination.landmarkPlaceIds ? destination.landmarkPlaceIds.values : null;
-            const headerPhotoUrl = this.retrieveHeaderPhotoUrl(destination);
+            const dxMapper = new DXMapper();
+            const headerPhotoUrl = dxMapper.retrieveHeaderPhotoUrl(destination);
 
             if (destiName && destiSystemName) {
                 return (

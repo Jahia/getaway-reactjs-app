@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import GetawayConstants from '../../../utils/GetawayConstants'
+import DXMapper from "../../external/DXMapper";
 
 /* import '../styles/DestinationCard.css';  TODO review this */
 
@@ -11,16 +12,16 @@ class DestinationCard extends Component {
             console.log("The destination object isn't correctly set");
             return
         }
-        const photoNode = destination.photo.files[0];
         const name = destination.name;
         const systemName = destination.systemName;
         const country = destination.country;
 
-        const photo = photoNode ? GetawayConstants.dxHost + "/files/live" + photoNode.path : null;
+        const dxMapper = new DXMapper();
+        const headerPhoto = dxMapper.retrieveHeaderPhotoUrl(destination);
         return (
             <Link to={`/destination/${systemName}`}>
                 <div className="destination-card">
-                    <img className="destination-photo" src={photo}/>
+                    <img className="destination-photo" src={headerPhoto}/>
                     <div className="destination-name">{name}</div>
                     <div className="destination-country">{country}</div>
                 </div>

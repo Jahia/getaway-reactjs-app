@@ -4,6 +4,7 @@ import DestinationCard from "./DestinationCard";
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import GetawayConstants from "../../../utils/GetawayConstants";
+import DXMapper from "../../external/DXMapper";
 
 const GQL_QUERY = gql`
 query DestinationQuery($query: String!, $limit: Int, $language: String) {
@@ -14,7 +15,12 @@ query DestinationQuery($query: String!, $limit: Int, $language: String) {
         name:displayName(language: $language)
         systemName: name
         country
-        photo: property(name: "photos") {
+        headerPhoto: property(name: "headerPhoto") {
+          refNode {
+            url:nodeUrl
+          }
+        }
+        photos: property(name: "photos") {
           files:refNodes {
             path
           }
