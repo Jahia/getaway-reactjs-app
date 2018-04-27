@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import styled from "styled-components";
-import topSectionImg from "../../images/rio-de-janeiro.jpg"
+import topSectionImg from "../../../images/rio-de-janeiro.jpg"
 
-const TopSectionWrapper = styled.section`
+
+export const BannerTopSectionWrapper = styled.section`
     background: url(${topSectionImg});
     width: 100%;
     height: 340px;
@@ -41,7 +40,7 @@ const TopSectionWrapper = styled.section`
     }
 `;
 
-const HeaderShadowOverlayWrapper = styled.div`
+export const BannerShadowOverlayWrapper = styled.div`
     background: linear-gradient(113deg, rgba(249, 123, 92, 0.64) 6%,rgba(176, 77, 230, 0.64) 97%);
     height: 340px;
     width: 100%;
@@ -60,7 +59,7 @@ const HeaderShadowOverlayWrapper = styled.div`
     }
 `;
 
-const CtaContainerWrapper = styled.div`
+export const BannerCtaWrapper = styled.div`
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -86,7 +85,7 @@ const CtaContainerWrapper = styled.div`
     }
 `;
 
-const TopSectionDestWrapper = styled.section`
+export const BannerTopSectionDestWrapper = styled.section`
     width: 100%;
     height: 340px;
     background-repeat: no-repeat;
@@ -140,7 +139,7 @@ const TopSectionDestWrapper = styled.section`
     }
 `;
 
-const HeaderDestShadowOverlayWrapper = styled.div`
+export const BannerDestShadowOverlayWrapper = styled.div`
     background: linear-gradient(113deg, rgba(249, 123, 92, 0.64) 6%,rgba(176, 77, 230, 0.64) 97%);
     height: 340px;
     width: 100%;
@@ -156,44 +155,36 @@ const HeaderDestShadowOverlayWrapper = styled.div`
     }
 `;
 
+export const FooterMainWrapper = styled.section`
+    background: #220B38;
+    width: 100%;
+    height: 120px;
+    float: left;
+`;
 
+export const TopBarWrapper = styled.div`
+    background: linear-gradient(113deg, rgb(249, 123, 92) 6%,rgb(176, 77, 230) 97%);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+`;
 
-class Banner extends Component {
+export const HeaderWrapper = styled.nav`
+    position: relative;
+`;
 
-    buildInlineStyle() {
-        const headerPhoto = this.props.headerPhoto;
-        if(headerPhoto) {
-            return { backgroundImage: "url(" + headerPhoto+ ")" };
-        }
-
-        return null;
+export const LogoWrapper = styled.div`
+    height: 68px;
+    background: #220B38;
+    @media screen and (max-width: 840px) {
+        height: 58px;
     }
-
-    render() {
-        const destiName = this.props.destinationName;
-        const destiCountry = this.props.destinationCountry;
-        const inlineStyle = this.buildInlineStyle();
-
-        if (destiName && destiCountry) {
-            return (
-                <TopSectionDestWrapper style={inlineStyle}>
-                    <HeaderDestShadowOverlayWrapper/>
-                    <h1>{destiName}</h1>
-                    <h3>{destiCountry}</h3>
-                </TopSectionDestWrapper>
-            );
-        } else {
-            return (
-                <TopSectionWrapper style={inlineStyle}>
-                    <HeaderShadowOverlayWrapper/>
-                    <h1>Find your next vacation idea among these places handpicked just for you!</h1>
-                    <CtaContainerWrapper>
-                        <Link to = {`/random/destination`}>Take me somewhere!</Link>
-                    </CtaContainerWrapper>
-                </TopSectionWrapper>
-            );
+    img {
+        height: 36px;
+        padding: 16px;
+        @media screen and (max-width: 840px) {
+            height: 30px;
+            padding: 14px 16px;
         }
     }
-}
-
-export default Banner
+`;

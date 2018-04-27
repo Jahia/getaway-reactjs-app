@@ -1,11 +1,7 @@
 import React, {Component} from 'react'
-/* import '../../styles/PageComponents/HomePanel.css'; TODO review this */
-/* import '../../styles/style-home.css'; */
-import Banner from "../generic/Banner";
-import Header from "../generic/Header";
-import MainDestinationCards from "./destinations/MainDestinationCards";
 import HomeLandmarkCards from "./HomeLandmarkCards";
-import Footer from "../generic/Footer";
+import {MainDestinationCards} from "./destinations";
+import {Banner, Footer, Header} from "../shared/generic";
 
 class HomePanel extends Component {
     render() {

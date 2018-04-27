@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import withPlacesApi from "../external/withPlacesApi"
-import GooglePlacesMapper from "../external/GooglePlacesMapper";
+import GooglePlacesMapper from "../../external/GooglePlacesMapper";
 import ContainerResultHandler from "../generic/ContainerResultHandler"
+import {withPlacesApi} from "../../external";
 
 /**
  * Container that is used to retrieve a Landmark's details.

@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import gql from "graphql-tag";
 import {Query} from "react-apollo";
 import {Redirect} from 'react-router';
-import GetawayConstants from "../../utils/GetawayConstants";
 import DestinationPanelView from "./DestinationPanelView"
-import ContainerResultHandler from "../generic/ContainerResultHandler"
+import {ContainerResultHandler} from "../shared/generic";
+import GetawayConstants from "../../utils/GetawayConstants";
+
 
 const GQL_QUERY = gql`
 query DestinationDetailsQuery($query: String!, $limit: Int, $language: String) {

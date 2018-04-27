@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
-import LandmarkContainer from "../landmarks/LandmarkContainer"
-import LandmarkMap from "../landmarks/LandmarkMap"
-import Footer from "../generic/Footer";
-import Header from "../generic/Header";
 import LandmarkReviews from "./LandmarkReviews";
-import LandmarkInfo from "../landmarkDetails/LandmarkInfo"
+import LandmarkInfo from "./LandmarkInfo";
+import {LandmarkContainer, LandmarkMap} from "../shared/landmarks";
+import {Footer, Header} from "../shared/generic";
 
 class LandmarkPanel extends Component {
 

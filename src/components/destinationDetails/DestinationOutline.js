@@ -1,23 +1,6 @@
 import React, {Component} from 'react'
-import styled from "styled-components";
 import Readmore from "./Readmore";
-
-const MainOutlineWrapper = styled.section`
-    max-width: 1080px;
-    margin: 0 auto;
-`;
-
-const OutlineWrapper = styled.section`
-    padding: 16px;
-    margin: 20px auto;
-    max-width: 760px; 
-    margin-bottom: 30px;
-    font-size: 18px;
-    line-height: 31px;
-    p {
-        margin-bottom: 20px;
-    }
-`;
+import {MainOutlineWrapper, OutlineWrapper} from "./style";
 
 class DestinationOutline extends Component {
 

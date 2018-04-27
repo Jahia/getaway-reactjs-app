@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom'
+import {DestinationPanel, RandomDestination} from "./destinationDetails/";
+import {HomePanel} from "./home";
+import {LandmarkPanel} from "./landmarkDetails";
+import {NotFoundPanel} from "./shared";
 import '../styles/App.css';
-import RandomDestination from "./destinationDetails/RandomDestination";
-import HomePanel from "./home/HomePanel";
-import LandmarkPanel from "./landmarkDetails/LandmarkPanel";
-import NotFoundPanel from "./NotFoundPanel";
-import DestinationPanelContainer from "./destinationDetails/DestinationPanelContainer";
 
 class App extends Component {
 
@@ -14,7 +13,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/" component={HomePanel}/>
                     <Route exact path="/random/destination/" component={RandomDestination}/>
-                    <Route exact path="/destination/:destinationName" component={DestinationPanelContainer}/>
+                    <Route exact path="/destination/:destinationName" component={DestinationPanel}/>
                     <Route exact path="/landmark/:externalId" component={LandmarkPanel}/>
                     <Route exact path="*" component={NotFoundPanel}/>
                     <Route exact path="/error" component={NotFoundPanel}/>

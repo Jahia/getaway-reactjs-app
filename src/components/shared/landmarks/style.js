@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
 import styled from "styled-components";
-import SimpleRating from "./SimpleRating";
 
-const LandmarkCardWrapper = styled.div`
+
+export const LandmarkCardWrapper = styled.div`
     display: inline-block;
     width: ${props => props.isHighlighted ? 'calc(25% - 35px)' : 'calc(20% - 35px)'};
     box-sizing: border-box;
@@ -41,50 +39,29 @@ const LandmarkCardWrapper = styled.div`
     }
 `;
 
-const LandmarkPhoto = styled.img`
+export const LandmarkPhoto = styled.img`
     object-fit: cover;
     height: ${props => props.isHighlighted ? '152px' : '120px'};
     width: ${props => props.isHighlighted ? '152px' : '120px'};
     border-radius: 50%;
 `;
 
-const LandmarkNameWrapper = styled.div`
+export const LandmarkNameWrapper = styled.div`
     color: #220B38;
     font-size: 18px;
     font-weight: 600;
 `;
 
-const LandmarkLocationWrapper = styled.div`
+export const LandmarkLocationWrapper = styled.div`
     text-transform: uppercase;
     color: #777;
     font-size: 14px;
     font-weight: 600;
 `;
 
-class LandmarkCard extends Component {
-    render() {
-        const isHighlighted = this.props.isHighlighted;
-        const landmark = this.props.landmark;
-        const photoUrls = landmark.photoUrls;
-        const name = landmark.name;
-        const locationName = landmark.locationName;
-        const rating = landmark.rating;
-
-        if(landmark && name && locationName && photoUrls && photoUrls.length > 0) {
-            return (
-            <Link to={`/landmark/${landmark.externalId}`}>
-                <LandmarkCardWrapper isHighlighted={isHighlighted}>
-                    <LandmarkPhoto src = {photoUrls[0]} isHighlighted={isHighlighted}/>
-                    <LandmarkNameWrapper>{name}</LandmarkNameWrapper>
-                    {isHighlighted && <LandmarkLocationWrapper>{locationName}</LandmarkLocationWrapper>}
-                    <SimpleRating value = {rating} />
-                </LandmarkCardWrapper>
-            </Link>
-            )
-        } else {
-            console.log("The landmark object isn't correctly set");
-        }
-    }
-}
-
-export default LandmarkCard
+export const MapWrapper = styled.div.attrs({
+    id: 'mapDest'
+})`
+    height: 300px;
+    width: 100%;
+`;

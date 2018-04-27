@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-/* import '../styles/LandmarkCard.css'; TODO review this */
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import styled from "styled-components";
-import LandmarkCardContainer from "../landmarks/LandmarkCardContainer";
-import withPlacesApi from "../external/withPlacesApi";
+import {LandmarkCardContainer} from "../shared/landmarks";
 import GetawayConstants from "../../utils/GetawayConstants";
+import {withPlacesApi} from "../external";
 
 const GQL_QUERY = gql`
 query LandmarkQuery($query: String!, $limit: Int){

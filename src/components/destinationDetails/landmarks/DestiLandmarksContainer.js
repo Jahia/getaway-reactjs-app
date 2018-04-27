@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import GooglePlacesMapper from "../../external/GooglePlacesMapper";
-import DestiLandmarkView from "../../destinationDetails/landmarks/DestiLandmarkView";
-import withPlacesApi from "../../external/withPlacesApi";
+import DestiLandmarkView from "./DestiLandmarkView";
+import {withPlacesApi} from "../../external";
 
 
-class DestiLandmarkRESTContainer extends Component {
+class DestiLandmarksContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -87,4 +87,4 @@ class DestiLandmarkRESTContainer extends Component {
     }
 }
 
-export default withPlacesApi(DestiLandmarkRESTContainer)
+export default withPlacesApi(DestiLandmarksContainer)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router';
-import GetawayConstants from "../../utils/GetawayConstants";
+import GetawayConstants from "../../../utils/GetawayConstants";
 
 /**
  * Helps rendering the results retrieved from external APIs thanks to a container.

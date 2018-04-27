@@ -1,12 +1,6 @@
 import React, {Component} from 'react'
-import styled from "styled-components";
+import {ReviewerPhotoWrapper} from "./style";
 
-const ReviewerPhotoWrapper = styled.div`
-    img {
-        width: 52px;
-        height: 52px;
-    }
-`;
 
 class ReviewerPhoto extends Component {
 

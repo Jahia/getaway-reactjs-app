@@ -1,11 +1,6 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
 import styled from "styled-components";
-import Header from "./generic/Header";
-import Footer from "./generic/Footer";
-import errorPhoto from "./../images/404-getaway.svg"
 
-const ErrorWrapper = styled.section`
+export const ErrorWrapper = styled.section`
     text-align: center;
     margin-bottom: 52px;
     min-height: calc(100% - 240px);
@@ -60,7 +55,7 @@ const ErrorWrapper = styled.section`
     }
 `;
 
-const ErrorSeparatorWrapper = styled.div`
+export const ErrorSeparatorWrapper = styled.div`
     background: #f1f1f1;
     width: 100%;
     height: 4px;
@@ -68,25 +63,3 @@ const ErrorSeparatorWrapper = styled.div`
     margin-top: -54px;
     left: 0;
 `;
-
-class NotFoundPanel extends Component {
-
-    render() {
-        return (
-            <section className="getawayMain">
-                <Header/>
-                <ErrorWrapper>
-                    <h1>404</h1>
-                    <h2>Ooops...</h2>
-                    <img src={errorPhoto} alt="error"/>
-                    <ErrorSeparatorWrapper/>
-                    <h3>Sorry, it seems that something went terribly wrong!</h3>
-                    <Link to="/">Take me back home</Link>
-                </ErrorWrapper>
-                <Footer/>
-            </section>
-        );
-    }
-}
-
-export default NotFoundPanel;

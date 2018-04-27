@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import LandmarkMap from "../../landmarks/LandmarkMap";
 import DestiLandmarkCards from "./DestiLandmarkCards"
+import {LandmarkMap} from "../../shared/landmarks";
 
 class DestiLandmarkView extends Component {
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import styled from "styled-components";
-import SimpleRating from "../landmarks/SimpleRating";
+import {SimpleRating} from "../shared/landmarks";
 
 const ReviewMainWrapper = styled.div`
     text-align: center;

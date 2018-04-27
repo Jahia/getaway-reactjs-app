@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
-import Banner from "../generic/Banner";
-import Header from "../generic/Header";
-import Footer from "../generic/Footer";
 import DestinationDetails from "./DestinationDetails";
-import DestiLandmarkRESTContainer from "./landmarks/DestiLandmarkRESTContainer";
+import {DestiLandmarksContainer} from "./landmarks"
 import DXMapper from "../external/DXMapper";
+import {Banner, Footer, Header} from "../shared/generic";
 
 class DestinationPanelView extends Component {
 
@@ -39,7 +37,7 @@ class DestinationPanelView extends Component {
                                             outline={destination.outline}
                                             latitude={destination.latitude}
                                             longitude={destination.longitude}/>
-                        <DestiLandmarkRESTContainer max="5" placeIds={landmarkPlaceIds} destiGeoCoords={destiGeoCoords}/>
+                        <DestiLandmarksContainer max="5" placeIds={landmarkPlaceIds} destiGeoCoords={destiGeoCoords}/>
                         <Footer/>
                     </section>
                 );
