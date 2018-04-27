@@ -88,3 +88,14 @@ export const ReviewsSeparatorWrapper = styled.div`
     padding-bottom: 30px;
     height: 27px;
 `;
+
+export const ReviewMainWrapper = styled.div`
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 15px;
+`;
+
+export const RtRevqWrapper = styled.div`
+    color: #878787;
+    font-size: 16px;
+`;

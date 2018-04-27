@@ -1,17 +1,7 @@
 import React, {Component} from 'react'
-import styled from "styled-components";
 import {SimpleRating} from "../shared/landmarks";
+import {ReviewMainWrapper, RtRevqWrapper} from "./style";
 
-const ReviewMainWrapper = styled.div`
-    text-align: center;
-    margin-top: 8px;
-    margin-bottom: 15px;
-`;
-
-const RtRevqWrapper = styled.div`
-    color: #878787;
-    font-size: 16px;
-`;
 
 class GlobalRating extends Component {
 
