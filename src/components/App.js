@@ -11,7 +11,6 @@ class App extends Component {
 
     render() {
         return (
-            <component>
                 <Switch>
                     <Route exact path="/" component={HomePanel}/>
                     <Route exact path="/random/destination/" component={RandomDestination}/>
@@ -20,7 +19,6 @@ class App extends Component {
                     <Route exact path="*" component={NotFoundPanel}/>
                     <Route exact path="/error" component={NotFoundPanel}/>
                 </Switch>
-            </component>
         );
     }
 }

@@ -5,7 +5,7 @@ import LandmarkCard from "../landmarks/LandmarkCard"
 class LandmarkCardContainer extends Component {
 
     renderLandmarkDetails(landmark) {
-        return (<LandmarkCard landmark={landmark} key={landmark.name} />)
+        return (<LandmarkCard landmark={landmark} isHighlighted={true} key={landmark.name} />)
     }
 
     render() {

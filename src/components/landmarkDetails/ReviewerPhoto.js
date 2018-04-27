@@ -1,4 +1,12 @@
 import React, {Component} from 'react'
+import styled from "styled-components";
+
+const ReviewerPhotoWrapper = styled.div`
+    img {
+        width: 52px;
+        height: 52px;
+    }
+`;
 
 class ReviewerPhoto extends Component {
 
@@ -6,9 +14,9 @@ class ReviewerPhoto extends Component {
         const photoUrl = this.props.photoUrl;
         if(photoUrl) {
             return(
-                <div className="reviewer-photo">
+                <ReviewerPhotoWrapper>
                     <img src={photoUrl} alt="User photo"/>
-                </div>
+                </ReviewerPhotoWrapper>
             );
         }
     }

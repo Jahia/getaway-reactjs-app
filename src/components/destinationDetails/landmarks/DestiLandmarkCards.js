@@ -1,6 +1,26 @@
 import React, { Component } from 'react'
+import styled from "styled-components";
 import LandmarkCard from "../../landmarks/LandmarkCard";
 
+
+const DestinationLandmarksWrapper = styled.section`
+    max-width: 1080px;
+    margin: 0 auto;
+    margin-top: 30px;
+    
+    h2 {
+        font-size: 18px;
+        opacity: .67;
+        font-weight: 500;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        border-bottom: 2px dotted #ccc;
+        @media screen and (max-width: 1080px) {
+            margin: 16px 16px 8px 16px;
+        }
+    }
+}
+`;
 
 class DestiLandmarkCards extends Component {
 
@@ -11,7 +31,7 @@ class DestiLandmarkCards extends Component {
      */
     renderLandmark(landmark) {
         if(landmark) {
-            return (<LandmarkCard landmark={landmark} shouldHideName={true} key={landmark.name} />)
+            return (<LandmarkCard landmark={landmark} key={landmark.name} />)
         }
 
         return null;
@@ -21,12 +41,12 @@ class DestiLandmarkCards extends Component {
         const landmarks = this.props.landmarks;
         if(landmarks) {
             return (
-                <section className="destinationLandmarks">
+                <DestinationLandmarksWrapper>
                     <h2>Landmarks</h2>
                     <div className="landmark-card-container">
                         {landmarks.map(landmark => (this.renderLandmark(landmark)))}
                     </div>
-                </section>
+                </DestinationLandmarksWrapper>
             );
         }
 

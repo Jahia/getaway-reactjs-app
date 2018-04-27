@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
-/* import '../styles/Footer.css'; TODO review this */
+import styled from "styled-components";
+
+const FooterMainWrapper = styled.section`
+    background: #220B38;
+    width: 100%;
+    height: 120px;
+    float: left;
+`;
+
+const TopBarWrapper = styled.div`
+    background: linear-gradient(113deg, rgb(249, 123, 92) 6%,rgb(176, 77, 230) 97%);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+`;
 
 class Footer extends Component {
     render() {
         return (
-            <section className="footerMain">
-                <div className="top-bar"></div>
-            </section>
+            <FooterMainWrapper>
+                <TopBarWrapper/>
+            </FooterMainWrapper>
         )
     }
 }

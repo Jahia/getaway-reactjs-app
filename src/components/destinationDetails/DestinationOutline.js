@@ -1,15 +1,25 @@
 import React, {Component} from 'react'
+import styled from "styled-components";
+import Readmore from "./Readmore";
+
+const MainOutlineWrapper = styled.section`
+    max-width: 1080px;
+    margin: 0 auto;
+`;
+
+const OutlineWrapper = styled.section`
+    padding: 16px;
+    margin: 20px auto;
+    max-width: 760px; 
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 31px;
+    p {
+        margin-bottom: 20px;
+    }
+`;
 
 class DestinationOutline extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {expanded: false}
-    }
-
-    readMore() {
-        this.setState({expanded: true})
-    }
 
     createOutlineInnerHTML() {
         return {__html: this.props.outline.value};
@@ -17,16 +27,13 @@ class DestinationOutline extends Component {
 
     render() {
         if (!this.props.outline) return null;
+        const outlineValue = this.createOutlineInnerHTML();
         return (
-            <section className="outlineMain">
-                <section className="outline-container wrap">
-                    <div className={'read-more' + (this.state.expanded ? ' expanded' : '')} onClick={this.readMore.bind(this)}>
-                        <article className="outline-text" dangerouslySetInnerHTML={this.createOutlineInnerHTML()}>
-                        </article>
-                        <span className="trigger">Read more</span>
-                    </div>
-                </section>
-            </section>
+            <MainOutlineWrapper>
+                <OutlineWrapper>
+                    <Readmore outlineValue={outlineValue} />
+                </OutlineWrapper>
+            </MainOutlineWrapper>
         )
     }
 }

@@ -1,4 +1,11 @@
 import React, { Component } from 'react'
+import styled from "styled-components";
+
+const ReviewTime = styled.span`
+    color: #999;
+    font-size: 13px;
+    padding-left: 6px;
+`;
 
 class ReviewRating extends Component {
     render() {
@@ -10,7 +17,7 @@ class ReviewRating extends Component {
                     <span className="rt-bg">
                         <span data-rating={value}></span>
                     </span>
-                    <span className="review-time">{timeDescription}</span>
+                    <ReviewTime>{timeDescription}</ReviewTime>
                 </div>
             )
         } else {

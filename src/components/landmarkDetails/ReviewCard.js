@@ -1,6 +1,43 @@
 import React, {Component} from 'react'
+import styled from "styled-components";
 import ReviewRating from "../landmarkDetails/ReviewRating"
 import ReviewerPhoto from "../landmarkDetails/ReviewerPhoto"
+
+const ReviewCommentCardWrapper = styled.div`
+    width: 50%;
+    box-sizing: border-box;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    @media screen and (max-width: 680px) {
+        width: 100%;
+        float: none;
+    }
+`;
+
+const ReviewerReviewWrapper = styled.div`
+        margin-left: 12px;
+`;
+
+const ReviewerNameWrapper = styled.div`
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: -2px;
+`;
+
+const ReviewTextWrapper = styled.div`
+    p {
+        color: #222;
+        font-size: 13px;
+        line-height: 18px;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: pre-wrap;
+        padding-top: 4px;
+    }
+`;
+
 
 class ReviewCard extends Component {
 
@@ -8,18 +45,18 @@ class ReviewCard extends Component {
         const review = this.props.review;
         if(review) {
             return (
-                <div className="review-comment-card">
+                <ReviewCommentCardWrapper>
                     <ReviewerPhoto photoUrl={review.profilePhotoUrl}/>
-                    <div className="reviewer-review">
-                        <div className="reviewer-name">{review.authorName}</div>
+                    <ReviewerReviewWrapper>
+                        <ReviewerNameWrapper>{review.authorName}</ReviewerNameWrapper>
                         <div>
                            <ReviewRating value={review.rating} timeDesc={review.timeDesc}/>
                         </div>
-                        <div className="review-text">
+                        <ReviewTextWrapper>
                             <p>{review.value}</p>
-                        </div>
-                    </div>
-                </div>
+                        </ReviewTextWrapper>
+                    </ReviewerReviewWrapper>
+                </ReviewCommentCardWrapper>
             );
         }
     }

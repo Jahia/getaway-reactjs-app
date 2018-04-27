@@ -40,7 +40,7 @@ class RandomDestination extends Component {
     render() {
         const randomDest = this.props.randomDest;
         return (
-            <component>
+            <div>
                 {
                     randomDest ?
                         (<Redirect to={"/destination/"+this.props.randomDest}/>) :
@@ -48,7 +48,7 @@ class RandomDestination extends Component {
                 }
 
                 )
-            </component>
+            </div>
         )
     }
 }

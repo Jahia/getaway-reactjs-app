@@ -1,5 +1,17 @@
 import React, {Component} from 'react'
+import styled from "styled-components";
 import SimpleRating from "../landmarks/SimpleRating";
+
+const ReviewMainWrapper = styled.div`
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 15px;
+`;
+
+const RtRevqWrapper = styled.div`
+    color: #878787;
+    font-size: 16px;
+`;
 
 class GlobalRating extends Component {
 
@@ -7,10 +19,10 @@ class GlobalRating extends Component {
         const rating = this.props.rating;
         if(rating) {
             return (
-                <div className="review-main">
-                    <SimpleRating value={rating}/>
-                    <div className="rt-revq">Global Rating</div>
-                </div>
+                <ReviewMainWrapper>
+                    <SimpleRating value={rating} primaryValue={true}/>
+                    <RtRevqWrapper>Global Rating</RtRevqWrapper>
+                </ReviewMainWrapper>
             );
         }
 

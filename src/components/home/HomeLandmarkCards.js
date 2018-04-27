@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 /* import '../styles/LandmarkCard.css'; TODO review this */
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
+import styled from "styled-components";
 import LandmarkCardContainer from "../landmarks/LandmarkCardContainer";
 import withPlacesApi from "../external/withPlacesApi";
 import GetawayConstants from "../../utils/GetawayConstants";
@@ -43,6 +44,22 @@ function mapResultsToProps(results) {
     return null;
 }
 
+const MainLandmarksWrapper = styled.section`
+    max-width: 1080px;
+    margin: 0 auto;
+    h2 {
+        font-size: 18px;
+        opacity: .67;
+        font-weight: 500;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        border-bottom: 2px dotted #ccc;
+        @media screen and (max-width: 1080px) {
+            margin: 16px 16px 8px 16px;
+        }
+    }
+`;
+
 class LandmarkCards extends Component {
 
     /**
@@ -64,12 +81,12 @@ class LandmarkCards extends Component {
         const destinations = this.props.elements;
         if(destinations) {
             return (
-                <section className="landmarksMain">
+                <MainLandmarksWrapper>
                     <h2>Highlighted Landmarks</h2>
                     <div className="landmark-card-container">
                         { destinations.map(destination => (this.renderLandmark(destination)))}
                     </div>
-                </section>
+                </MainLandmarksWrapper>
             );
         }
 

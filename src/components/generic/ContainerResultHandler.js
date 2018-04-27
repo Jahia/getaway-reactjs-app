@@ -50,8 +50,6 @@ class ContainerResultHandler extends Component {
         } else {
             return this.renderResults(results)
         }
-
-        return null;
     }
 }
 
