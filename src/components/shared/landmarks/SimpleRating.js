@@ -1,6 +1,43 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
 
+
+class SimpleRating extends Component {
+
+    renderRatingValue(value) {
+        if(value) {
+            // should the value be displayed at the top
+            const displayPrimaryValue = this.props.primaryValue;
+            if(displayPrimaryValue) {
+                return (<PrimaryRtValueWrapper>{value}</PrimaryRtValueWrapper>);
+            } else {
+                return (<RtValueWrapper>{value}</RtValueWrapper>);
+            }
+        }
+
+        return null;
+    }
+
+    render() {
+        const value = this.props.value;
+        if(value) {
+            return (
+                <div className = "landmark-rating">
+                    {this.renderRatingValue(value)}
+                    <RtBackgroundWrapper>
+                        <span data-rating = {value}></span>
+                    </RtBackgroundWrapper>
+                </div>
+            )
+        } else {
+            return "Not rated yet";
+        }
+    }
+}
+
+export default SimpleRating
+
+
 const RtValueWrapper = styled.span`
     color: #ffbc00;
     font-size: 14px;
@@ -114,38 +151,3 @@ const RtBackgroundWrapper = styled.span`
         }
     }
 `;
-
-class SimpleRating extends Component {
-
-    renderRatingValue(value) {
-        if(value) {
-            // should the value be displayed at the top
-            const displayPrimaryValue = this.props.primaryValue;
-            if(displayPrimaryValue) {
-                return (<PrimaryRtValueWrapper>{value}</PrimaryRtValueWrapper>);
-            } else {
-                return (<RtValueWrapper>{value}</RtValueWrapper>);
-            }
-        }
-
-        return null;
-    }
-
-    render() {
-        const value = this.props.value;
-        if(value) {
-            return (
-                <div className = "landmark-rating">
-                    {this.renderRatingValue(value)}
-                    <RtBackgroundWrapper>
-                        <span data-rating = {value}></span>
-                    </RtBackgroundWrapper>
-                </div>
-            )
-        } else {
-            return "Not rated yet";
-        }
-    }
-}
-
-export default SimpleRating
