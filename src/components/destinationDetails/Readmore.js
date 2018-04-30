@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import {
-    ExpandedTriggerWrapper,
-    OutlineExpandedTextWrapper,
     OutlineTextWrapper,
     ReadmoreWrapper,
     TriggerWrapper
@@ -22,22 +20,12 @@ class Readmore extends Component {
         const expanded = this.state.expanded;
         const outlineValue = this.props.outlineValue;
         if(outlineValue) {
-            const onClickFunc = this.readMore.bind(this);
-            if(expanded) {
-                return (
-                    <ReadmoreWrapper onClick={onClickFunc}>
-                        <OutlineExpandedTextWrapper dangerouslySetInnerHTML={outlineValue} />
-                        <ExpandedTriggerWrapper>Read more</ExpandedTriggerWrapper>
-                    </ReadmoreWrapper>
-                );
-            } else {
-                return (
-                    <ReadmoreWrapper onClick={onClickFunc}>
-                        <OutlineTextWrapper dangerouslySetInnerHTML={outlineValue}/>
-                        <TriggerWrapper>Read more</TriggerWrapper>
-                    </ReadmoreWrapper>
-                );
-            }
+            return (
+                <ReadmoreWrapper onClick={this.readMore.bind(this)}>
+                    <OutlineTextWrapper expanded={expanded} dangerouslySetInnerHTML={outlineValue} />
+                    <TriggerWrapper expanded={expanded}>Read more</TriggerWrapper>
+                </ReadmoreWrapper>
+            );
         }
 
         return null;

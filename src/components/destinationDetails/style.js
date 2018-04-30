@@ -114,6 +114,7 @@ export const ReadmoreWrapper = styled.div`
 `;
 
 export const TriggerWrapper = styled.span`
+    ${props => !props.expanded ? `
     display: block;
     position: absolute;
     bottom: -8px;
@@ -125,14 +126,13 @@ export const TriggerWrapper = styled.span`
     border-radius: 50px;
     font-size: 16px;
     font-weight: 500;
-`;
-
-export const ExpandedTriggerWrapper = styled.span`
-    opacity: 0;
+    ` : `opacity: 0;
     visibility: hidden;
+    `}
 `;
 
 export const OutlineTextWrapper = styled.article`
+    ${props => !props.expanded ? `
     position: relative;
     overflow: hidden;
     max-height: 240px;
@@ -145,14 +145,12 @@ export const OutlineTextWrapper = styled.article`
         bottom: 0;
         width: 100%;
         height: 78.4px;
-        transition: opactiy 500ms ease, visibility 500ms ease;
-    }
-`;
-
-export const OutlineExpandedTextWrapper = styled.div`
+        transition: opacity 500ms ease, visibility 500ms ease;
+    }` : `
     max-height: 6000px;
     &::before {
         opacity: 0;
         visibility: hidden;
     }
+    `}
 `;
