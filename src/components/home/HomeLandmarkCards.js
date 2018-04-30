@@ -43,22 +43,6 @@ function mapResultsToProps(results) {
     return null;
 }
 
-const MainLandmarksWrapper = styled.section`
-    max-width: 1080px;
-    margin: 0 auto;
-    h2 {
-        font-size: 18px;
-        opacity: .67;
-        font-weight: 500;
-        margin-top: 16px;
-        margin-bottom: 8px;
-        border-bottom: 2px dotted #ccc;
-        @media screen and (max-width: 1080px) {
-            margin: 16px 16px 8px 16px;
-        }
-    }
-`;
-
 class LandmarkCards extends Component {
 
     /**
@@ -98,3 +82,20 @@ export default graphql(GQL_QUERY, {
     props: mapResultsToProps,
     options: mapPropsToOptions
 })(withPlacesApi(LandmarkCards));
+
+
+const MainLandmarksWrapper = styled.section`
+    max-width: 1080px;
+    margin: 0 auto;
+    h2 {
+        font-size: 18px;
+        opacity: .67;
+        font-weight: 500;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        border-bottom: 2px dotted #ccc;
+        @media screen and (max-width: 1080px) {
+            margin: 16px 16px 8px 16px;
+        }
+    }
+`;
