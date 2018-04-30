@@ -193,20 +193,24 @@ class LandmarkMap extends Component {
             const googleMaps = window.google.maps;
 
             const locations = landmarks.map(landmark => {
-                if(landmark)
-                return this.buildGoogleLocation(landmark.geoCoords)
+                if(landmark) {
+                    return this.buildGoogleLocation(landmark.geoCoords)
+                }
+                return null;
             });
+
             console.log("google landmark locations: " + JSON.stringify(locations))
             // Markers (landmarks)
-            locations.map(function (location) {
+            for(let i in locations) {
+                let location = locations[i];
                 if(location) {
-                    return new googleMaps.Marker({
+                    new googleMaps.Marker({
                         position: location,
                         map: map,
                         icon: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/346954/place_marker.png'
                     });
                 }
-            });
+            }
         }
     }
 
