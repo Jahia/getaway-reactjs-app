@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import {Redirect} from 'react-router-dom'
 import GetawayConstants from "../../utils/GetawayConstants";
 
+
 const GQL_QUERY = gql`
 query DestinationsQuery($query: String!) {
   jcr(workspace:LIVE) {

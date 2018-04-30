@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
-import {LandmarkReviewsWrapper, ReviewsSeparatorWrapper} from "./style";
 import {ReviewCards} from "./reviews";
 import GlobalRating from "./GlobalRating";
-
+import styled from "styled-components";
 
 class LandmarkReviews extends Component {
 
@@ -23,3 +22,28 @@ class LandmarkReviews extends Component {
 }
 
 export default LandmarkReviews
+
+
+const LandmarkReviewsWrapper = styled.section`
+    max-width: 1080px;
+    margin: 0 auto;
+    h2 {
+        font-size: 18px;
+        opacity: .67;
+        font-weight: 500;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        border-bottom: 2px dotted #ccc;
+        @media screen and (max-width: 1080px) {
+            margin: 16px 16px 8px 16px;
+        }
+    }
+`;
+
+const ReviewsSeparatorWrapper = styled.div`
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding-bottom: 30px;
+    height: 27px;
+`;

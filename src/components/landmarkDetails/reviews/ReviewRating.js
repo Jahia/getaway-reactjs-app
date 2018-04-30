@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {ReviewTime} from "./style";
-
+import styled from "styled-components";
 
 class ReviewRating extends Component {
     render() {
@@ -22,3 +21,10 @@ class ReviewRating extends Component {
 }
 
 export default ReviewRating
+
+
+const ReviewTime = styled.span`
+    color: #999;
+    font-size: 13px;
+    padding-left: 6px;
+`;

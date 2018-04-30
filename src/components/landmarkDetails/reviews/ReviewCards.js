@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ReviewCard from "./ReviewCard";
-import {ReviewCommentsWrapper} from "./style";
+import styled from "styled-components";
 
 class ReviewCards extends Component {
 
@@ -22,3 +22,8 @@ class ReviewCards extends Component {
 }
 
 export default (ReviewCards)
+
+
+const ReviewCommentsWrapper = styled.div`
+    margin-bottom: 30px;
+`;

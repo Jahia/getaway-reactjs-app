@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {ReviewCommentCardWrapper, ReviewerNameWrapper, ReviewerReviewWrapper, ReviewTextWrapper} from "./style";
+import styled from "styled-components";
 import ReviewerPhoto from "./ReviewerPhoto";
 import ReviewRating from "./ReviewRating";
 
@@ -27,3 +27,39 @@ class ReviewCard extends Component {
 }
 
 export default (ReviewCard)
+
+
+const ReviewCommentCardWrapper = styled.div`
+    width: 50%;
+    box-sizing: border-box;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    @media screen and (max-width: 680px) {
+        width: 100%;
+        float: none;
+    }
+`;
+
+const ReviewerReviewWrapper = styled.div`
+        margin-left: 12px;
+`;
+
+const ReviewerNameWrapper = styled.div`
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: -2px;
+`;
+
+const ReviewTextWrapper = styled.div`
+    p {
+        color: #222;
+        font-size: 13px;
+        line-height: 18px;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: pre-wrap;
+        padding-top: 4px;
+    }
+`;

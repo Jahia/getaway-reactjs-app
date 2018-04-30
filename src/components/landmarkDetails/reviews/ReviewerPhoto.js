@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {ReviewerPhotoWrapper} from "./style";
-
+import styled from "styled-components";
 
 class ReviewerPhoto extends Component {
 
@@ -17,3 +16,12 @@ class ReviewerPhoto extends Component {
 }
 
 export default (ReviewerPhoto)
+
+
+const ReviewerPhotoWrapper = styled.div`
+    img {
+        width: 52px;
+        height: 52px;
+    }
+`;
+

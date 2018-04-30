@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import {MapWrapper} from "./style";
-
+import styled from "styled-components";
 
 class LandmarkMap extends Component {
 
@@ -253,3 +252,11 @@ class LandmarkMap extends Component {
 }
 
 export default (LandmarkMap)
+
+
+const MapWrapper = styled.div.attrs({
+    id: 'mapDest'
+})`
+    height: 300px;
+    width: 100%;
+`;
