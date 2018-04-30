@@ -3,6 +3,7 @@ import LandmarkReviews from "./LandmarkReviews";
 import LandmarkInfo from "./LandmarkInfo";
 import {LandmarkContainer, LandmarkMap} from "../shared/landmarks";
 import {Footer, Header} from "../shared/generic";
+import {MainPanel} from "../style"
 
 class LandmarkPanel extends Component {
 
@@ -24,7 +25,7 @@ class LandmarkPanel extends Component {
 
         if(landmarkPlaceId) {
             return (
-                <section className="getawayMain">
+                <MainPanel>
                     <Header/>
                     <LandmarkContainer landmarkPlaceId={landmarkPlaceId} onlyMainFields={false}
                                        render={this.renderLandmarkDetails}
@@ -32,7 +33,7 @@ class LandmarkPanel extends Component {
                                        redirectOnEmptyOrError={true}
                     />
                     <Footer/>
-                </section>
+                </MainPanel>
             );
         }
     }

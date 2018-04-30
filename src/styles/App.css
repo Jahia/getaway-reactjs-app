@@ -15,11 +15,3 @@ html {
 body {
     font-family: 'Mukta Mahee', sans-serif;
 }
-
-/* Main container */
-
-.getawayMain {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}

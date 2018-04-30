@@ -16,7 +16,7 @@ class GooglePlacesApi {
         if(placesService) {
             return new Promise(function(resolve, reject) {
                 placesService.getDetails(request, function(place, status) {
-                    if(status == googleMaps.places.PlacesServiceStatus.OK) {
+                    if(status === googleMaps.places.PlacesServiceStatus.OK) {
                         resolve(place);
                     } else {
                         reject(status);

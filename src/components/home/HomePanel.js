@@ -2,20 +2,21 @@ import React, {Component} from 'react'
 import HomeLandmarkCards from "./HomeLandmarkCards";
 import {MainDestinationCards} from "./destinations";
 import {Banner, Footer, Header} from "../shared/generic";
+import {MainPanel} from "../style"
 
 class HomePanel extends Component {
     render() {
         return (
-                <section className="getawayMain">
-                    <Header/>
-                    <Banner/>
-                    <MainDestinationCards/>
-                    { /* fromHighlightedDesti=false as landmarks to display
+            <MainPanel>
+                <Header/>
+                <Banner/>
+                <MainDestinationCards/>
+                { /* fromHighlightedDesti=false as landmarks to display
                      should not necessarily be landmarks taken from the displayed highlighted destinations */
-                    }
-                    <HomeLandmarkCards max = "4" fromHighlightedDesti = {false} />
-                    <Footer/>
-                </section>
+                }
+                <HomeLandmarkCards max = "4" fromHighlightedDesti = {false} />
+                <Footer/>
+            </MainPanel>
         )
     }
 }

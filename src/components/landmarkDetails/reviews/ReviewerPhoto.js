@@ -9,7 +9,7 @@ class ReviewerPhoto extends Component {
         if(photoUrl) {
             return(
                 <ReviewerPhotoWrapper>
-                    <img src={photoUrl} alt="User photo"/>
+                    <img src={photoUrl} alt="User"/>
                 </ReviewerPhotoWrapper>
             );
         }

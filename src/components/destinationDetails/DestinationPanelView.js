@@ -3,6 +3,7 @@ import DestinationDetails from "./DestinationDetails";
 import {DestiLandmarksContainer} from "./landmarks"
 import DXMapper from "../external/DXMapper";
 import {Banner, Footer, Header} from "../shared/generic";
+import {MainPanel} from "../style"
 
 class DestinationPanelView extends Component {
 
@@ -24,7 +25,7 @@ class DestinationPanelView extends Component {
 
             if (destiName && destiSystemName) {
                 return (
-                    <section className="getawayMain">
+                    <MainPanel>
                         <Header/>
                         <Banner destinationName={destiName}
                                 destinationCountry={destination.country}
@@ -39,7 +40,7 @@ class DestinationPanelView extends Component {
                                             longitude={destination.longitude}/>
                         <DestiLandmarksContainer max="5" placeIds={landmarkPlaceIds} destiGeoCoords={destiGeoCoords}/>
                         <Footer/>
-                    </section>
+                    </MainPanel>
                 );
             }
         }
