@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import DestinationDetails from "./DestinationDetails";
-import {DestiLandmarksContainer} from "./landmarks"
+import {DestiLandmarksContainer} from "./landmarks";
 import DXMapper from "../external/DXMapper";
 import {Banner, Footer, Header} from "../shared/generic";
-import {MainPanel} from "../style"
+import {MainPanel} from "../style";
 
 class DestinationPanelView extends Component {
 

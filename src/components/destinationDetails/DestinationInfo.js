@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import LocalTime from "./LocalTime"
+import React, {Component} from 'react';
+import LocalTime from "./LocalTime";
 import styled from "styled-components";
 
 

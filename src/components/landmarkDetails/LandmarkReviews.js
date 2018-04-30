@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {ReviewCards} from "./reviews";
 import GlobalRating from "./GlobalRating";
 import styled from "styled-components";

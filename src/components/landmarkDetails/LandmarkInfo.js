@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import WikipediaApi from "../external/WikipediaApi";
 import WikipediaMapper from "../external/WikipediaMapper";
 import GetawayConstants from "../../utils/GetawayConstants";

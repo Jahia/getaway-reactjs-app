@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import gql from "graphql-tag";
 import {Query} from "react-apollo";
 import {Redirect} from 'react-router';
-import DestinationPanelView from "./DestinationPanelView"
+import DestinationPanelView from "./DestinationPanelView";
 import {ContainerResultHandler} from "../shared/generic";
 import GetawayConstants from "../../utils/GetawayConstants";
 

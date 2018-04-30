@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom';
 import {DestinationPanel, RandomDestination} from "./destinationDetails/";
 import {HomePanel} from "./home";
 import {LandmarkPanel} from "./landmarkDetails";

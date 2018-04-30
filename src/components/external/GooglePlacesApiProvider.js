@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import scriptLoader from "react-async-script-loader";
-import GetawayConstants from "../../utils/GetawayConstants"
+import GetawayConstants from "../../utils/GetawayConstants";
 import PropTypes from 'prop-types';
 
 /**

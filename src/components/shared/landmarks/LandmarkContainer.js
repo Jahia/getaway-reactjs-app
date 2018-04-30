@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import GooglePlacesMapper from "../../external/GooglePlacesMapper";
-import ContainerResultHandler from "../generic/ContainerResultHandler"
+import ContainerResultHandler from "../generic/ContainerResultHandler";
 import {withPlacesApi} from "../../external";
 
 /**

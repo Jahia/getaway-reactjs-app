@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
-import topSectionImg from "../../../images/rio-de-janeiro.jpg"
-
+import topSectionImg from "../../../images/rio-de-janeiro.jpg";
 
 class Banner extends Component {
 
