@@ -12,7 +12,6 @@ class NotFoundPanel extends Component {
     render() {
         return (
             <MainPanel>
-                <Header/>
                 <ErrorWrapper>
                     <h1>404</h1>
                     <h2>Ooops...</h2>

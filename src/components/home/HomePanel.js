@@ -7,8 +7,7 @@ import {MainPanel} from "../style"
 class HomePanel extends Component {
     render() {
         return (
-            <MainPanel>
-                <Header/>
+            <span>
                 <Banner/>
                 <MainDestinationCards/>
                 { /* fromHighlightedDesti=false as landmarks to display
@@ -16,7 +15,7 @@ class HomePanel extends Component {
                 }
                 <HomeLandmarkCards max = "4" fromHighlightedDesti = {false} />
                 <Footer/>
-            </MainPanel>
+            </span>
         )
     }
 }

@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import DXMapper from "../../external/DXMapper";
 import styled from "styled-components";
 
 
 class DestinationCard extends Component {
     render() {
-        const destination = this.props.destination;
+        let     element         =   null;
+        const   destination     =   this.props.destination;
         if (!destination) {
             console.log("The destination object isn't correctly set");
             return
@@ -17,19 +18,34 @@ class DestinationCard extends Component {
 
         const dxMapper = new DXMapper();
         const headerPhoto = dxMapper.retrieveHeaderPhotoUrl(destination);
+
+        const goToDestination = () => {
+            const { top, right, bottom, left, width, height } = element.getBoundingClientRect();
+            this.props.history.push({
+                pathname: `/destination/${systemName}`,
+                state: {
+                    to: 'modal',
+                    meta: {
+                        from: { top, right, bottom, left, width, height },
+                    },
+                }
+
+            });
+        };
+
         return (
-            <Link to={`/destination/${systemName}`}>
-                <DestinationCardWrapper>
+            <span ref={(el) => { element = el; }}>
+                <DestinationCardWrapper onClick={goToDestination}>
                     <DestinationPhoto src={headerPhoto}/>
                     <DestinationNameWrapper>{name}</DestinationNameWrapper>
                     <DestinationCountryWrapper>{country}</DestinationCountryWrapper>
                 </DestinationCardWrapper>
-            </Link>
+            </span>
         )
     }
 }
 
-export default DestinationCard
+export default withRouter(DestinationCard)
 
 
 const DestinationCardWrapper = styled.div`

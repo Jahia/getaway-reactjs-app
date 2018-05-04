@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from "styled-components";
+import { TransitionGroup, CSSTransition} from 'react-transition-group'
 import topSectionImg from "../../../images/rio-de-janeiro.jpg"
 
 
@@ -16,6 +17,7 @@ class Banner extends Component {
     }
 
     render() {
+        const   timeout         =   {enter: 450, exit: 400};
         const destiName = this.props.destinationName;
         const destiCountry = this.props.destinationCountry;
         const inlineStyle = this.buildInlineStyle();
@@ -23,7 +25,7 @@ class Banner extends Component {
         if (destiName && destiCountry) {
             return (
                 <BannerTopSectionDestWrapper style={inlineStyle}>
-                    <BannerDestShadowOverlayWrapper/>
+                    <BannerShadowOverlayWrapper/>
                     <h1>{destiName}</h1>
                     <h3>{destiCountry}</h3>
                 </BannerTopSectionDestWrapper>
@@ -32,10 +34,11 @@ class Banner extends Component {
             return (
                 <BannerTopSectionWrapper style={inlineStyle}>
                     <BannerShadowOverlayWrapper/>
-                    <h1>Find your next vacation idea among these places handpicked just for you!</h1>
-                    <BannerCtaWrapper>
-                        <Link to = {`/random/destination`}>Take me somewhere!</Link>
-                    </BannerCtaWrapper>
+                        <h1>Find your next vacation idea among these places handpicked just for you!</h1>
+                        <BannerCtaWrapper>
+                            <Link to = {`/random/destination`}>Take me somewhere!</Link>
+                        </BannerCtaWrapper>
+
                 </BannerTopSectionWrapper>
             );
         }
@@ -88,7 +91,7 @@ const BannerShadowOverlayWrapper = styled.div`
     height: 340px;
     width: 100%;
     position: absolute;
-    top: 68px;
+    
     @media screen and (max-width: 840px) {
         height: 300px;
         top: 58px;
@@ -187,7 +190,6 @@ const BannerDestShadowOverlayWrapper = styled.div`
     height: 340px;
     width: 100%;
     position: absolute;
-    top: 68px;
     opacity: 1;
     @media screen and (max-width: 840px) {
         height: 300px;

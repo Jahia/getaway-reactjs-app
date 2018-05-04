@@ -26,7 +26,6 @@ class LandmarkPanel extends Component {
         if(landmarkPlaceId) {
             return (
                 <MainPanel>
-                    <Header/>
                     <LandmarkContainer landmarkPlaceId={landmarkPlaceId} onlyMainFields={false}
                                        render={this.renderLandmarkDetails}
                                        key={landmarkPlaceId}

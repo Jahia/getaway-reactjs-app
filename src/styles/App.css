@@ -15,3 +15,34 @@ html {
 body {
     font-family: 'Mukta Mahee', sans-serif;
 }
+
+.modal-container {
+    position: fixed;
+    -webkit-transition: width 300ms, height 300ms, background-color 300ms, cubic-bezier(0.86, 0, 0.07, 1)500ms;
+    transition: width 300ms, height 300ms, background-color 300ms, cubic-bezier(0.86, 0, 0.07, 1)500ms;
+    overflow: scroll;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: white;
+    z-index: 1200;
+    overscroll-behavior: contain;
+
+}
+.modal-container.modal-enter-active {
+    top: 68px !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+
+.modal-container:empty{
+    display:none;
+}
+

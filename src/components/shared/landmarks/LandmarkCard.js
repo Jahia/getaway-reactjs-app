@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import SimpleRating from "./SimpleRating";
 import styled from "styled-components";
 
 
 class LandmarkCard extends Component {
     render() {
+        let     element         =   null;
         const isHighlighted = this.props.isHighlighted;
         const landmark = this.props.landmark;
         const photoUrls = landmark.photoUrls;
@@ -13,16 +14,30 @@ class LandmarkCard extends Component {
         const locationName = landmark.locationName;
         const rating = landmark.rating;
 
+        const goToDestination = () => {
+            const { top, right, bottom, left, width, height } = element.getBoundingClientRect();
+            this.props.history.push({
+                pathname: `/landmark/${landmark.externalId}`,
+                state: {
+                    to: 'modal',
+                    meta: {
+                        from: { top, right, bottom, left, width, height },
+                    },
+                }
+
+            });
+        };
+
         if(landmark && name && locationName && photoUrls && photoUrls.length > 0) {
             return (
-            <Link to={`/landmark/${landmark.externalId}`}>
+            <span ref={(el) => { element = el; }} onClick={goToDestination}>
                 <LandmarkCardWrapper isHighlighted={isHighlighted}>
                     <LandmarkPhoto src = {photoUrls[0]} isHighlighted={isHighlighted}/>
                     <LandmarkNameWrapper>{name}</LandmarkNameWrapper>
                     {isHighlighted && <LandmarkLocationWrapper>{locationName}</LandmarkLocationWrapper>}
                     <SimpleRating value = {rating} />
                 </LandmarkCardWrapper>
-            </Link>
+            </span>
             )
         } else {
             console.log("The landmark object isn't correctly set");
@@ -30,7 +45,7 @@ class LandmarkCard extends Component {
     }
 }
 
-export default LandmarkCard
+export default withRouter(LandmarkCard)
 
 
 const LandmarkCardWrapper = styled.div`
