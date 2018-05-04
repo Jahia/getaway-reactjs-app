@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import GooglePlacesMapper from "../../external/GooglePlacesMapper";
 import DestiLandmarkView from "./DestiLandmarkView";
 import {withPlacesApi} from "../../external";

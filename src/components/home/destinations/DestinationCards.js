@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import DestinationCard from "./DestinationCard";
-import {graphql} from 'react-apollo'
-import gql from 'graphql-tag'
+import {graphql} from 'react-apollo';
+import gql from 'graphql-tag';
 import GetawayConstants from "../../../utils/GetawayConstants";
 
 

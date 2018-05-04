@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import DestinationCards from "./DestinationCards";
 import styled from "styled-components";
 

@@ -1,5 +1,5 @@
 import {Component} from "react";
-import GetawayConstants from "../../utils/GetawayConstants"
+import GetawayConstants from "../../utils/GetawayConstants";
 
 class LocalTime extends Component {
 

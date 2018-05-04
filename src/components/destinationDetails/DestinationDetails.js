@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import DestinationInfo from "./DestinationInfo"
-import DestinationOutline from "./DestinationOutline"
+import React, {Component} from 'react';
+import DestinationInfo from "./DestinationInfo";
+import DestinationOutline from "./DestinationOutline";
 
 class DestinationDetails extends Component {
 

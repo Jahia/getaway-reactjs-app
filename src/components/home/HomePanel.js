@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import HomeLandmarkCards from "./HomeLandmarkCards";
 import {MainDestinationCards} from "./destinations";
 import {Banner, Footer, Header} from "../shared/generic";

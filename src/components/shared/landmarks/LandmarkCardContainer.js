@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import LandmarkContainer from "./LandmarkContainer"
-import LandmarkCard from "../landmarks/LandmarkCard"
+import React, { Component } from 'react';
+import LandmarkContainer from "./LandmarkContainer";
+import LandmarkCard from "../landmarks/LandmarkCard";
 
 class LandmarkCardContainer extends Component {
 
