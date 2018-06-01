@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import LandmarkReviews from "./LandmarkReviews";
 import LandmarkInfo from "./LandmarkInfo";
 import {LandmarkContainer, LandmarkMap} from "../shared/landmarks";
-import {Footer, Header} from "../shared/generic";
+import {Footer} from "../shared/generic";
 import {MainPanel} from "../style";
 
 class LandmarkPanel extends Component {

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import Header from "./generic/Header";
 import Footer from "./generic/Footer";
 import errorPhoto from "./../../images/404-getaway.svg";
 import {MainPanel} from "../style";

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {LandmarkCard} from "../../shared/landmarks";
 import styled from "styled-components";
 

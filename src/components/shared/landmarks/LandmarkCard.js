@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom'
 import SimpleRating from "./SimpleRating";
 import styled from "styled-components";
@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 class LandmarkCard extends Component {
     render() {
-        let     element         =   null;
         const isHighlighted = this.props.isHighlighted;
         const landmark = this.props.landmark;
         const photoUrls = landmark.photoUrls;
@@ -15,14 +14,10 @@ class LandmarkCard extends Component {
         const rating = landmark.rating;
 
         const goToDestination = () => {
-            const { top, right, bottom, left, width, height } = element.getBoundingClientRect();
             this.props.history.push({
                 pathname: `/landmark/${landmark.externalId}`,
                 state: {
-                    to: 'modal',
-                    meta: {
-                        from: { top, right, bottom, left, width, height },
-                    },
+                    to: 'modal'
                 }
 
             });
@@ -30,7 +25,7 @@ class LandmarkCard extends Component {
 
         if(landmark && name && locationName && photoUrls && photoUrls.length > 0) {
             return (
-            <span ref={(el) => { element = el; }} onClick={goToDestination}>
+            <span  onClick={goToDestination}>
                 <LandmarkCardWrapper isHighlighted={isHighlighted}>
                     <LandmarkPhoto src = {photoUrls[0]} isHighlighted={isHighlighted}/>
                     <LandmarkNameWrapper>{name}</LandmarkNameWrapper>

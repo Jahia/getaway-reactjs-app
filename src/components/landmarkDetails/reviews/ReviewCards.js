@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import ReviewCard from "./ReviewCard";
 import styled from "styled-components";
 

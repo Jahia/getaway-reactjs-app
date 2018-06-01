@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {graphql} from 'react-apollo'
 import gql from "graphql-tag";
-import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
 import GetawayConstants from "../../utils/GetawayConstants";
 
 
@@ -47,8 +47,6 @@ class RandomDestination extends Component {
                         (<Redirect to={"/destination/"+this.props.randomDest}/>) :
                         ("Finding the best destination for you ...")
                 }
-
-                )
             </div>
         )
     }

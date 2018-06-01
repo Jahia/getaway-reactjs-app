@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import styled from "styled-components";
 import ReviewerPhoto from "./ReviewerPhoto";
 import ReviewRating from "./ReviewRating";

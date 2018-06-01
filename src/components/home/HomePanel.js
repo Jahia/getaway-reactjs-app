@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import HomeLandmarkCards from "./HomeLandmarkCards";
 import {MainDestinationCards} from "./destinations";
-import {Banner, Footer, Header} from "../shared/generic";
-import {MainPanel} from "../style"
+import {Banner, Footer} from "../shared/generic";
 
 class HomePanel extends Component {
     render() {

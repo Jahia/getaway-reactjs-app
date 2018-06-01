@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import LocalTime from "./LocalTime";
 import styled from "styled-components";
 
-
 class DestinationInfo extends Component {
 
     render() {
@@ -23,6 +22,7 @@ class DestinationInfo extends Component {
                 <InfoElementWrapper>
                     <i className="material-icons">filter_tilt_shift</i><b>Area</b><span>{area}</span>
                 </InfoElementWrapper>
+
                 <InfoElementWrapper>
                     <i className="material-icons">terrain</i><b>Elevation</b><span>{elevation}</span>
                 </InfoElementWrapper>
@@ -34,6 +34,7 @@ class DestinationInfo extends Component {
                 <InfoElementWrapper>
                     <i className="material-icons">people</i><b>Population</b><span>{population}</span>
                 </InfoElementWrapper>
+
             </InfoContainerWrapper>
             <h2>{headline}</h2>
         </DestinationInfoWrapper>

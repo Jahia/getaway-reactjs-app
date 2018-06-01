@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
-import { TransitionGroup, CSSTransition} from 'react-transition-group'
-import topSectionImg from "../../../images/rio-de-janeiro.jpg"
+import Typist from 'react-typist';
+import topSectionImg from "../../../images/rio-de-janeiro.jpg";
 
 
 class Banner extends Component {
@@ -17,7 +17,6 @@ class Banner extends Component {
     }
 
     render() {
-        const   timeout         =   {enter: 450, exit: 400};
         const destiName = this.props.destinationName;
         const destiCountry = this.props.destinationCountry;
         const inlineStyle = this.buildInlineStyle();
@@ -25,20 +24,19 @@ class Banner extends Component {
         if (destiName && destiCountry) {
             return (
                 <BannerTopSectionDestWrapper style={inlineStyle}>
-                    <BannerShadowOverlayWrapper/>
-                    <h1>{destiName}</h1>
-                    <h3>{destiCountry}</h3>
+                    <BannerShadowOverlayWrapper1/>
+                        <h1><Typist avgTypingDelay={40} stdTypingDelay={1} startDelay={400} cursor={{hideWhenDone:true, hideWhenDoneDelay:0}}>{destiName}</Typist></h1>
+                        <h3><Typist avgTypingDelay={40} stdTypingDelay={1} startDelay={800} cursor={{hideWhenDone:true,hideWhenDoneDelay:0}}>{destiCountry}</Typist></h3>
                 </BannerTopSectionDestWrapper>
             );
         } else {
             return (
                 <BannerTopSectionWrapper style={inlineStyle}>
                     <BannerShadowOverlayWrapper/>
-                        <h1>Find your next vacation idea among these places handpicked just for you!</h1>
+                        <h1><Typist avgTypingDelay={40} startDelay={400} cursor={{hideWhenDone:true, hideWhenDoneDelay:0}}>Find your next vacation idea among these places handpicked just for you!</Typist></h1>
                         <BannerCtaWrapper>
                             <Link to = {`/random/destination`}>Take me somewhere!</Link>
-                        </BannerCtaWrapper>
-
+                    </BannerCtaWrapper>
                 </BannerTopSectionWrapper>
             );
         }
@@ -94,14 +92,32 @@ const BannerShadowOverlayWrapper = styled.div`
     
     @media screen and (max-width: 840px) {
         height: 300px;
-        top: 58px;
+        
     }
     @media screen and (max-width: 840px) {
         height: 300px;
-        top: 58px;
+        
     }
     @media screen and (max-width: 520px) {
         height: 270px;
+    }
+`;
+const BannerShadowOverlayWrapper1 = styled.div`
+    background: linear-gradient(113deg, rgba(249, 123, 92, 0.64) 6%,rgba(176, 77, 230, 0.64) 97%);
+    height: 340px;
+    width: 100%;
+    position: absolute;
+    
+    @media screen and (max-width: 840px) {
+        height: 300px;
+        
+    }
+    @media screen and (max-width: 840px) {
+        height: 300px;
+        
+    }
+    @media screen and (max-width: 520px) {
+        height: 200px;
     }
 `;
 
@@ -148,13 +164,13 @@ const BannerTopSectionDestWrapper = styled.section`
     h1 {
         color: rgba(255, 255, 255, 0.22);
         text-align: center;
-        top: 82px;
+        top: 24px;
         position: absolute;
         width: 100%;
         font-weight: 500;
         font-size: 150px;
         @media screen and (max-width: 840px) {
-            top: 120px;
+            top: 70px;
             font-size: 90px;
         }
         @media screen and (max-width: 700px) {
@@ -162,8 +178,9 @@ const BannerTopSectionDestWrapper = styled.section`
             box-sizing: border-box;
         }
         @media screen and (max-width: 520px) {
-            top: 70px;
+            top: 30px;
             padding: 0 16px;
+            font-size: 60px;
         }
     }
     h3 {
@@ -180,24 +197,7 @@ const BannerTopSectionDestWrapper = styled.section`
             top: 240px;
         }
         @media screen and (max-width: 520px) {
-            top: 180px;
+            top: 120px;
         }
     }
 `;
-
-const BannerDestShadowOverlayWrapper = styled.div`
-    background: linear-gradient(113deg, rgba(249, 123, 92, 0.64) 6%,rgba(176, 77, 230, 0.64) 97%);
-    height: 340px;
-    width: 100%;
-    position: absolute;
-    opacity: 1;
-    @media screen and (max-width: 840px) {
-        height: 300px;
-        top: 58px;
-    }
-    @media screen and (max-width: 520px) {
-        height: 200px;
-    }
-`;
-
-
