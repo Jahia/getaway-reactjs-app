@@ -28,6 +28,10 @@ const HeaderWrapper = styled.nav`
 const LogoWrapper = styled.div`
     height: 68px;
     background: #220B38;
+    position: fixed;
+    margin-bottom: 68px;
+    z-index: 1;
+    width: 100%;
     @media screen and (max-width: 840px) {
         height: 58px;
     }
