@@ -1,8 +1,44 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import Typist from 'react-typist';
 import topSectionImg from "../../../images/rio-de-janeiro.jpg";
+import {graphql} from 'react-apollo';
+import gql from "graphql-tag";
+import {withRouter} from 'react-router-dom';
+import GetawayConstants from "../../../utils/GetawayConstants";
+
+
+const GQL_QUERY = gql`
+query DestinationsQuery($query: String!) {
+  jcr(workspace:LIVE) {
+    nodesByQuery(query: $query) {
+      nodes {
+        name
+      }
+    }
+  }
+}`;
+
+function mapPropsToOptions(props) {
+    const query = "select * from [gant:destination] where isdescendantnode('/sites/" + GetawayConstants.dxSiteKey + "/contents')";
+    return {
+        skip: false,
+        variables: {
+            query: query,
+        }
+    }
+}
+
+function mapResultsToProps(results) {
+    if (results && results.destination && results.destination.jcr
+        && results.destination.jcr.nodesByQuery && results.destination.jcr.nodesByQuery.nodes) {
+        const randomDest = results.destination.jcr.nodesByQuery.nodes;
+        const randomIdx = Math.floor(Math.random() * Math.floor(randomDest.length));
+        return {randomDest: randomDest[randomIdx].name};
+    }
+    return null;
+}
+
 
 
 class Banner extends Component {
@@ -20,6 +56,15 @@ class Banner extends Component {
         const destiName = this.props.destinationName;
         const destiCountry = this.props.destinationCountry;
         const inlineStyle = this.buildInlineStyle();
+        const goToDestination = () => {
+            this.props.history.push({
+                pathname: `/destination/${this.props.randomDest}`,
+                state: {
+                    to: 'modal'
+                }
+
+            });
+        };
 
         if (destiName && destiCountry) {
             return (
@@ -34,8 +79,8 @@ class Banner extends Component {
                 <BannerTopSectionWrapper style={inlineStyle}>
                     <BannerShadowOverlayWrapper/>
                         <h1><Typist avgTypingDelay={40} startDelay={400} cursor={{hideWhenDone:true, hideWhenDoneDelay:0}}>Find your next vacation idea among these places handpicked just for you!</Typist></h1>
-                        <BannerCtaWrapper>
-                            <Link to = {`/random/destination`}>Take me somewhere!</Link>
+                        <BannerCtaWrapper >
+                            <a onClick={goToDestination} >Take me somewhere!</a>
                     </BannerCtaWrapper>
                 </BannerTopSectionWrapper>
             );
@@ -43,7 +88,11 @@ class Banner extends Component {
     }
 }
 
-export default Banner
+export default withRouter(graphql(GQL_QUERY, {
+    name: 'destination',
+    props: mapResultsToProps,
+    options: mapPropsToOptions
+})(Banner))
 
 
 const BannerTopSectionWrapper = styled.section`
@@ -138,6 +187,7 @@ const BannerCtaWrapper = styled.div`
         padding: 5px 16px;
         border-radius: 50px;
         text-decoration: none;
+        cursor:pointer;
         font-weight: 500;
         @media screen and (max-width: 520px) {
             background: white;

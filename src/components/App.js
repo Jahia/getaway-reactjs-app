@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter, Route, Switch} from 'react-router-dom';
 import { TransitionGroup, CSSTransition as OriginalCSSTransition } from 'react-transition-group';
-import {DestinationPanel, RandomDestination} from "./destinationDetails/";
+import {DestinationPanel} from "./destinationDetails/";
 import {HomePanel} from "./home";
 import {LandmarkPanel} from "./landmarkDetails";
 import {NotFoundPanel} from "./shared";
@@ -22,7 +22,7 @@ class App extends Component {
     render() {
         const   { location }    =   this.props;
         const   currentKey      =   location.pathname.split('/')[1] || '/';
-        const   timeout         =   {enter: 500, exit: 1000};
+        const   timeout         =   {enter: 0, exit: 1000};
         const   modal           =   location.state && location.state.to === 'modal';
         return (
             <Layout>
@@ -30,7 +30,6 @@ class App extends Component {
                 <div className="view-container">
                     <Switch location={modal ? this.previousView : location}>
                         <Route exact path="/" component={HomePanel}/>
-                        <Route exact path="/random/destination/" component={RandomDestination}/>
                         {!modal &&
                             <Route path="*" component={NotFoundPanel} />
                         }
