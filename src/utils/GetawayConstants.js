@@ -1,5 +1,6 @@
 const GetawayConstants = {
     dxHost: "http://localhost:8080",
+    unomiHost: "http://localhost:8181",
     dxSiteKey: "digitall",
     googlePlacesApiKey: "AIzaSyBVs-p_AiWF1fOcqBXr5mXqxX5oNcGT6H4",
     googleMapsApiKey: "AIzaSyAJB4T6gOzkGQBR_NRWNON44SyCKLAb8C8",

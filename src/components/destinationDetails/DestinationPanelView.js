@@ -5,12 +5,27 @@ import DXMapper from "../external/DXMapper";
 import {Banner} from "../shared/generic";
 import {withRouter} from 'react-router-dom';
 import { Footer } from "./../shared/generic/index";
+import unomiTracker from 'unomi-analytics';
 
 class DestinationPanelView extends Component {
 
+    constructor(props) {
+        super(props);
+        // Adds optional data before sending page event
+        window.digitalData = {
+            "page": {
+                "pageInfo": {
+                    "tags": ["destination"],
+                },
+                "attributes": {},
+                "consentTypes": []
+            }
+        };
+        unomiTracker.page();
+    }
+
     render() {
         const   destination =   this.props.destination;
-
         if(destination) {
             const destiSystemName   =   destination.systemName;
             const destiName         =   destination.name;

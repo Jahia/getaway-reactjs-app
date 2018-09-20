@@ -10,6 +10,7 @@ import {HttpLink} from 'apollo-link-http';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import GoogleApi from "./components/external/GooglePlacesApi";
 import GooglePlacesApiProvider from "./components/external/GooglePlacesApiProvider";
+import unomiTracker from 'unomi-analytics';
 
 const httpLink = new HttpLink({
     uri: GetawayConstants.dxHost + '/modules/graphql'
@@ -22,8 +23,26 @@ const client = new ApolloClient({
 
 const placesApi = new GoogleApi();
 
+unomiTracker.initialize({
+    'Apache Unomi': {
+        scope: 'getaway',
+        url: GetawayConstants.unomiHost
+    }
+});
+
+unomiTracker.ready(function() {
+    console.log("Unomi context loaded - profile id : "+window.cxs.profileId + ", sessionId="+window.cxs.sessionId);
+});
+
+const onRouteChange = (location)=> {
+    // Generic handler for route change, exclude destination which has dedicated event handling - otherwise directly send a page() event
+    if (!location.pathname.startsWith("/destination")) {
+        unomiTracker.page()
+    }
+};
+
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter ref={(router) => {onRouteChange(router.history.location); router.history.listen(onRouteChange);}}>
         <GooglePlacesApiProvider placesApi={placesApi}>
             <ApolloProvider client={client}>
                 <App/>
