@@ -6,6 +6,7 @@ import {Banner} from "../shared/generic";
 import {withRouter} from 'react-router-dom';
 import { Footer } from "./../shared/generic/index";
 import unomiTracker from 'unomi-analytics';
+import GetawayConstants from '../../utils/GetawayConstants';
 
 class DestinationPanelView extends Component {
 
@@ -15,11 +16,17 @@ class DestinationPanelView extends Component {
         window.digitalData = {
             "page": {
                 "pageInfo": {
+                    "destinationURL" : window.location.href,
+                    "pageID" : "",
+                    "pageName" : "",
+                    "pagePath" : window.pathname,
+                    "referringURL" : window.origin,
                     "tags": ["destination"],
                 },
                 "attributes": {},
                 "consentTypes": []
-            }
+            },
+            "scope" : GetawayConstants.dxSiteKey
         };
         unomiTracker.page();
     }

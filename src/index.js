@@ -25,7 +25,7 @@ const placesApi = new GoogleApi();
 
 unomiTracker.initialize({
     'Apache Unomi': {
-        scope: 'getaway',
+        scope: GetawayConstants.dxSiteKey,
         url: GetawayConstants.unomiHost
     }
 });
