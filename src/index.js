@@ -13,7 +13,10 @@ import GooglePlacesApiProvider from "./components/external/GooglePlacesApiProvid
 import unomiTracker from 'unomi-analytics';
 
 const httpLink = new HttpLink({
-    uri: GetawayConstants.dxHost + '/modules/graphql'
+    uri: GetawayConstants.dxHost + '/modules/graphql',
+    headers: {
+        'Authorization': `Bearer ${GetawayConstants.dxToken}`
+    }
 });
 
 const client = new ApolloClient({
