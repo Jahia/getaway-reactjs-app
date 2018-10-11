@@ -6,8 +6,7 @@ import styled from "styled-components";
 
 class DestinationCard extends Component {
     render() {
-        let     element         =   null;
-        const   destination     =   this.props.destination;
+        const destination = this.props.destination;
         if (!destination) {
             console.log("The destination object isn't correctly set");
             return
@@ -20,21 +19,13 @@ class DestinationCard extends Component {
         const headerPhoto = dxMapper.retrieveHeaderPhotoUrl(destination);
 
         const goToDestination = () => {
-            const { top, right, bottom, left, width, height } = element.getBoundingClientRect();
             this.props.history.push({
-                pathname: `/destination/${systemName}`,
-                state: {
-                    to: 'modal',
-                    meta: {
-                        from: { top, right, bottom, left, width, height },
-                    },
-                }
-
+                pathname: `/destination/${systemName}`
             });
         };
 
         return (
-            <span ref={(el) => { element = el; }}>
+            <span>
                 <DestinationCardWrapper onClick={goToDestination}>
                     <DestinationPhoto src={headerPhoto}/>
                     <DestinationNameWrapper>{name}</DestinationNameWrapper>

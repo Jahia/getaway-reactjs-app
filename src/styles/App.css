@@ -1,4 +1,3 @@
-
 /* ======= Reset ======= */
 
 * {
@@ -15,24 +14,28 @@ html {
 body {
     font-family: 'Mukta Mahee', sans-serif;
 }
-.modal-container:empty{
+
+.panel-scrollable-container {
+    overflow: scroll;
+    overscroll-behavior: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.panel-container:empty {
     display:none;
 }
-.modal-container {
+.panel-container {
     position: fixed;
-    overflow: scroll;
-    top: 68px !important;
     right: 0;
     bottom: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background: white;
-    z-index: 1200;
-    overscroll-behavior: contain;
-
 }
-.modal-container.modal-enter-active {
+
+.panel-container.panel-enter-active {
     -webkit-animation: rotateSlideIn 1s both ease;
     animation: rotateSlideIn 1s both ease;
     right: 0 !important;
@@ -41,36 +44,26 @@ body {
     width: 100vw !important;
     height: 100vh !important;
 }
-.modal-container.modal-exit-active {
+.panel-container.panel-exit-active {
     -webkit-transform-origin: 0% 0%;
     transform-origin: 0% 0%;
     -webkit-animation: rotateSlideOut 2s both ease-in;
     animation: rotateSlideOut 2s both ease;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
 }
 
-
 @media screen and (max-width: 840px) {
-    .modal-container {
+    .panel-container {
         position: fixed;
         overflow: scroll;
-        top: 58px !important;
         right: 0;
         bottom: 0;
         left: 0;
         height: 100vh;
         width: 100vw;
         background: white;
-        z-index: 1200;
         overscroll-behavior: contain;
-
     }
 }
-
 
 /* slide */
 
@@ -96,21 +89,4 @@ body {
     0%, 25% { opacity: 1; -webkit-transform: translateZ(-500px) translateX(200%); transform: translateZ(-500px) translateX(200%); }
     75% { opacity: 1; -webkit-transform: translateZ(-500px); transform: translateZ(-500px); }
     100% { opacity: 1; -webkit-transform: translateZ(0) translateX(0); transform: translateZ(0) translateX(0); }
-}
-
-/* fall */
-
-@-webkit-keyframes rotateFall {
-    0% { -webkit-transform: rotateZ(0deg); }
-    20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
-    40% { -webkit-transform: rotateZ(17deg); }
-    60% { -webkit-transform: rotateZ(16deg); }
-    100% { -webkit-transform: translateY(100%) rotateZ(17deg); }
-}
-@keyframes rotateFall {
-    0% { -webkit-transform: rotateZ(0deg); transform: rotateZ(0deg); }
-    20% { -webkit-transform: rotateZ(10deg); transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; }
-    40% { -webkit-transform: rotateZ(17deg); transform: rotateZ(17deg); }
-    60% { -webkit-transform: rotateZ(16deg); transform: rotateZ(16deg); }
-    100% { -webkit-transform: translateY(100%) rotateZ(17deg); transform: translateY(100%) rotateZ(17deg); }
 }

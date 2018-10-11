@@ -5,7 +5,7 @@ import topSectionImg from "../../../images/rio-de-janeiro.jpg";
 import {graphql} from 'react-apollo';
 import gql from "graphql-tag";
 import {withRouter} from 'react-router-dom';
-import GetawayConstants from "../../../utils/GetawayConstants";
+import GetawayConfigs from "../../../utils/GetawayConfigs";
 
 
 const GQL_QUERY = gql`
@@ -20,7 +20,7 @@ query DestinationsQuery($query: String!) {
 }`;
 
 function mapPropsToOptions(props) {
-    const query = "select * from [gant:destination] where isdescendantnode('/sites/" + GetawayConstants.dxSiteKey + "/contents')";
+    const query = "select * from [gant:destination] where isdescendantnode('/sites/" + GetawayConfigs.dxSiteKey + "/contents')";
     return {
         skip: false,
         variables: {
@@ -58,11 +58,7 @@ class Banner extends Component {
         const inlineStyle = this.buildInlineStyle();
         const goToDestination = () => {
             this.props.history.push({
-                pathname: `/destination/${this.props.randomDest}`,
-                state: {
-                    to: 'modal'
-                }
-
+                pathname: `/destination/${this.props.randomDest}`
             });
         };
 
@@ -137,7 +133,6 @@ const BannerShadowOverlayWrapper = styled.div`
     background: linear-gradient(113deg, rgba(249, 123, 92, 0.64) 6%,rgba(176, 77, 230, 0.64) 97%);
     height: 340px;
     width: 100%;
-    position: absolute;
     
     @media screen and (max-width: 840px) {
         height: 300px;
@@ -155,7 +150,6 @@ const BannerShadowOverlayWrapper1 = styled.div`
     background: linear-gradient(113deg, rgba(249, 123, 92, 0.64) 6%,rgba(176, 77, 230, 0.64) 97%);
     height: 340px;
     width: 100%;
-    position: absolute;
     
     @media screen and (max-width: 840px) {
         height: 300px;

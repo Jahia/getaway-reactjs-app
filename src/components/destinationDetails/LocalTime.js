@@ -1,5 +1,5 @@
 import {Component} from "react";
-import GetawayConstants from "../../utils/GetawayConstants";
+import GetawayConfigs from "../../utils/GetawayConfigs";
 
 class LocalTime extends Component {
 
@@ -40,7 +40,7 @@ class LocalTime extends Component {
         const timestamp = targetDate.getTime() / 1000 + targetDate.getTimezoneOffset() * 60;
 
         const apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp
-            + '&key=' + GetawayConstants.googleMapsApiKey;
+            + '&key=' + GetawayConfigs.googleMapsApiKey;
 
         // Create new XMLHttpRequest object
         const xhr = new XMLHttpRequest();

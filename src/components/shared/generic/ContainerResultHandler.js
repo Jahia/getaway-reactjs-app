@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
-import GetawayConstants from "../../../utils/GetawayConstants";
+import GetawayConfigs from "../../../utils/GetawayConfigs";
 
 /**
  * Helps rendering the results retrieved from external APIs thanks to a container.
@@ -23,7 +23,7 @@ class ContainerResultHandler extends Component {
 
     renderOnError(redirectOnEmptyOrError) {
         if(redirectOnEmptyOrError) {
-            return <Redirect to={GetawayConstants.ERROR_PAGE_URL}/>
+            return <Redirect to={GetawayConfigs.ERROR_PAGE_URL}/>
         }
 
         return null;

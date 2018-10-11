@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {withRouter, Route, Switch} from 'react-router-dom';
-import { TransitionGroup, CSSTransition as OriginalCSSTransition } from 'react-transition-group';
+import {TransitionGroup, CSSTransition as OriginalCSSTransition} from 'react-transition-group';
 import {DestinationPanel} from "./destinationDetails/";
 import {HomePanel} from "./home";
 import {LandmarkPanel} from "./landmarkDetails";
 import {NotFoundPanel} from "./shared";
 import Layout from './Layout';
 import '../styles/App.css';
+
 
 class CSSTransition extends OriginalCSSTransition {
     onEntered = () => {
@@ -15,45 +16,30 @@ class CSSTransition extends OriginalCSSTransition {
 }
 
 class App extends Component {
-    componentWillReceiveProps(nextProps) {
-        this.previousView = this.props.location;
-    }
 
     render() {
-        const   { location }    =   this.props;
-        const   currentKey      =   location.pathname.split('/')[1] || '/';
-        const   timeout         =   {enter: 0, exit: 1000};
-        const   modal           =   location.state && location.state.to === 'modal';
+        const {location} = this.props;
+        const currentKey = location.pathname.split('/')[1] || '/';
+        const timeout = {enter: 0, exit: 1000};
+
         return (
-            <Layout>
-
-                <div className="view-container">
-                    <Switch location={modal ? this.previousView : location}>
-                        <Route exact path="/" component={HomePanel}/>
-                        {!modal &&
-                            <Route path="*" component={NotFoundPanel} />
-                        }
-                    </Switch>
-                </div>
-
-                <TransitionGroup>
-                    <CSSTransition
-                        timeout={timeout}
-                        classNames="modal"
-                        key={currentKey}
-                        mountOnEnter
-                        appear>
-                            <div className="modal-container" >
-                                <Switch location={location}>
-                                    <Route exact path="/destination/:destinationName" component={DestinationPanel} modal={modal}/>
-                                    <Route exact path="/landmark/:externalId" component={LandmarkPanel}/>
-                                </Switch>
-                            </div>
-                    </CSSTransition>
-                </TransitionGroup>
-            </Layout>
+            <TransitionGroup>
+                <CSSTransition timeout={timeout} classNames="panel" key={currentKey} mountOnEnter appear>
+                   <div className="panel-container">
+                       <Layout>
+                           <Switch location={location}>
+                               <Route exact path="/" component={HomePanel}/>
+                               <Route exact path="/destination/:destinationName" component={DestinationPanel}/>
+                               <Route exact path="/landmark/:externalId" component={LandmarkPanel}/>
+                               <Route path="*" component={NotFoundPanel}/>
+                           </Switch>
+                       </Layout>
+                    </div>
+                </CSSTransition>
+            </TransitionGroup>
         );
     }
+
 }
 
 export default withRouter(App);

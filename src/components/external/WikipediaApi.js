@@ -1,4 +1,4 @@
-import GetawayConstants from "../../utils/GetawayConstants";
+import GetawayConfigs from "../../utils/GetawayConfigs";
 
 class WikipediaApi {
 
@@ -33,26 +33,26 @@ class WikipediaApi {
     buildPageRQ(title) {
         let request = null;
         if(title) {
-            request =  GetawayConstants.WIKIPEDIA_API_URL() + "?"
-                + "format=" + this.format + GetawayConstants.URL_PARAM_SEP
-                + "action=" + this.action + GetawayConstants.URL_PARAM_SEP
+            request =  GetawayConfigs.WIKIPEDIA_API_URL() + "?"
+                + "format=" + this.format + GetawayConfigs.URL_PARAM_SEP
+                + "action=" + this.action + GetawayConfigs.URL_PARAM_SEP
                 + "prop=" + this.prop;
 
             if(this.onlyBeforeFirstSection) {
-                request += GetawayConstants.URL_PARAM_SEP + "exintro=";
+                request += GetawayConfigs.URL_PARAM_SEP + "exintro=";
             }
 
             if(this.extractPlainText) {
-                request += GetawayConstants.URL_PARAM_SEP + "explaintext=";
+                request += GetawayConfigs.URL_PARAM_SEP + "explaintext=";
             }
 
             // to allow CORS, Wikipedia needs this param to be given. It can constrained to our domain
-            request += GetawayConstants.URL_PARAM_SEP + "origin=" + GetawayConstants.WIKIPEDIA_CONSTRAINED_DOMAIN;
+            request += GetawayConfigs.URL_PARAM_SEP + "origin=" + GetawayConfigs.WIKIPEDIA_CONSTRAINED_DOMAIN;
 
             // set the max length of the extract to retrieve
-            request += GetawayConstants.URL_PARAM_SEP + "exchars=" + GetawayConstants.WIKIPEDIA_EXTRACT_MAX_LENGTH;
+            request += GetawayConfigs.URL_PARAM_SEP + "exchars=" + GetawayConfigs.WIKIPEDIA_EXTRACT_MAX_LENGTH;
 
-            request += GetawayConstants.URL_PARAM_SEP + "titles=" + title;
+            request += GetawayConfigs.URL_PARAM_SEP + "titles=" + title;
         }
 
         return request;

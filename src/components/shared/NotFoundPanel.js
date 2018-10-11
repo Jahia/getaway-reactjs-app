@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import Footer from "./generic/Footer";
 import errorPhoto from "./../../images/404-getaway.svg";
-import {MainPanel} from "../style";
 import styled from "styled-components";
 
 
@@ -10,17 +8,14 @@ class NotFoundPanel extends Component {
 
     render() {
         return (
-            <MainPanel>
-                <ErrorWrapper>
-                    <h1>404</h1>
-                    <h2>Ooops...</h2>
-                    <img src={errorPhoto} alt="error"/>
-                    <ErrorSeparatorWrapper/>
-                    <h3>Sorry, it seems that something went terribly wrong!</h3>
-                    <Link to="/">Take me back home</Link>
-                </ErrorWrapper>
-                <Footer/>
-            </MainPanel>
+            <ErrorWrapper>
+                <h1>404</h1>
+                <h2>Ooops...</h2>
+                <img src={errorPhoto} alt="error"/>
+                <ErrorSeparatorWrapper/>
+                <h3>Sorry, it seems that something went terribly wrong!</h3>
+                <Link to="/">Take me back home</Link>
+            </ErrorWrapper>
         );
     }
 }

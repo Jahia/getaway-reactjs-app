@@ -4,7 +4,7 @@ import {Query} from "react-apollo";
 import {Redirect} from 'react-router';
 import DestinationPanelView from "./DestinationPanelView";
 import {ContainerResultHandler} from "../shared/generic";
-import GetawayConstants from "../../utils/GetawayConstants";
+import GetawayConfigs from "../../utils/GetawayConfigs";
 
 
 const GQL_QUERY = gql`
@@ -46,7 +46,7 @@ function mapPropsToOptions(props) {
     if(destiName) {
         // search the destination based on desti' system name
         let query = "select * from [gant:destination] " +
-            "where isdescendantnode('/sites/" + GetawayConstants.dxSiteKey + "/contents') and [j:nodename]='" + destiName + "'";
+            "where isdescendantnode('/sites/" + GetawayConfigs.dxSiteKey + "/contents') and [j:nodename]='" + destiName + "'";
 
         options = {
             skip: false,
@@ -77,7 +77,7 @@ class DestinationPanelContainer extends Component {
     }
     render() {
         const options = mapPropsToOptions(this.props);
-        if(options == null) return <Redirect to={GetawayConstants.ERROR_PAGE_URL}/>;
+        if(options == null) return <Redirect to={GetawayConfigs.ERROR_PAGE_URL}/>;
 
         return (
             <Query query={GQL_QUERY} variables={options.variables} skip={options.skip}>

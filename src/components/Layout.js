@@ -1,11 +1,14 @@
 import React from 'react';
-import {Header} from "./shared/generic/index";
+import {Footer, Header} from "./shared/generic/index";
 import {MainPanel} from "./style";
 
-const Layout = ({ children }) => (
+const Layout = ({children}) => (
     <MainPanel>
         <Header/>
-        {children}
+        <div className="panel-scrollable-container">
+            {children}
+            <Footer/>
+        </div>
     </MainPanel>
 )
 

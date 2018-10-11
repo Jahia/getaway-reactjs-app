@@ -16,10 +16,6 @@ class LandmarkCard extends Component {
         const goToDestination = () => {
             this.props.history.push({
                 pathname: `/landmark/${landmark.externalId}`,
-                state: {
-                    to: 'modal'
-                }
-
             });
         };
 

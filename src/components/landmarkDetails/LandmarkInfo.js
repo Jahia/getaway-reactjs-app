@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import WikipediaApi from "../external/WikipediaApi";
 import WikipediaMapper from "../external/WikipediaMapper";
-import GetawayConstants from "../../utils/GetawayConstants";
+import GetawayConfigs from "../../utils/GetawayConfigs";
 import styled from "styled-components";
 
 class LandmarkInfo extends Component {
@@ -43,7 +43,7 @@ class LandmarkInfo extends Component {
 
             let renderedDesc = null;
             if(pageInfo && pageInfo.extract && pageInfo.pageId) {
-                const pageUrl = GetawayConstants.WIKIPEDIA_PAGE_URL() + pageInfo.pageId;
+                const pageUrl = GetawayConfigs.WIKIPEDIA_PAGE_URL() + pageInfo.pageId;
                 renderedDesc = <p>{pageInfo.extract}<span><a href={pageUrl}>Wikipedia</a></span></p>;
             }
 

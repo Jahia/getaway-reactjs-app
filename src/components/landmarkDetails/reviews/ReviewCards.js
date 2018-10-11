@@ -26,4 +26,5 @@ export default (ReviewCards)
 
 const ReviewCommentsWrapper = styled.div`
     margin-bottom: 30px;
+    display:inline-block;
 `;

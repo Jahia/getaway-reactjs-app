@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import LandmarkReviews from "./LandmarkReviews";
 import LandmarkInfo from "./LandmarkInfo";
 import {LandmarkContainer, LandmarkMap} from "../shared/landmarks";
-import {Footer} from "../shared/generic";
-import {MainPanel} from "../style";
+
 
 class LandmarkPanel extends Component {
 
@@ -25,14 +24,11 @@ class LandmarkPanel extends Component {
 
         if(landmarkPlaceId) {
             return (
-                <MainPanel>
-                    <LandmarkContainer landmarkPlaceId={landmarkPlaceId} onlyMainFields={false}
-                                       render={this.renderLandmarkDetails}
-                                       key={landmarkPlaceId}
-                                       redirectOnEmptyOrError={true}
-                    />
-                    <Footer/>
-                </MainPanel>
+                <LandmarkContainer landmarkPlaceId={landmarkPlaceId} onlyMainFields={false}
+                                   render={this.renderLandmarkDetails}
+                                   key={landmarkPlaceId}
+                                   redirectOnEmptyOrError={true}
+                />
             );
         }
     }

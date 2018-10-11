@@ -4,6 +4,7 @@ import {BrowserRouter} from 'react-router-dom';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import GetawayConstants from './utils/GetawayConstants';
+import GetawayConfigs from "./utils/GetawayConfigs";
 import {ApolloProvider} from 'react-apollo';
 import {ApolloClient} from 'apollo-client';
 import {HttpLink} from 'apollo-link-http';
@@ -28,8 +29,8 @@ const placesApi = new GoogleApi();
 
 unomiTracker.initialize({
     'Apache Unomi': {
-        scope: GetawayConstants.dxSiteKey,
-        url: GetawayConstants.unomiHost
+        scope: GetawayConfigs.dxSiteKey,
+        url: GetawayConfigs.unomiHost
     }
 });
 
