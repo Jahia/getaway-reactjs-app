@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import GetawayConstants from './utils/GetawayConstants';
 import GetawayConfigs from "./utils/GetawayConfigs";
 import {ApolloProvider} from 'react-apollo';
 import {ApolloClient} from 'apollo-client';
@@ -14,9 +13,9 @@ import GooglePlacesApiProvider from "./components/external/GooglePlacesApiProvid
 import unomiTracker from 'unomi-analytics';
 
 const httpLink = new HttpLink({
-    uri: GetawayConstants.dxHost + '/modules/graphql',
+    uri: GetawayConfigs.dxHost + '/modules/graphql',
     headers: {
-        'Authorization': `Bearer ${GetawayConstants.dxToken}`
+        'Authorization': `Bearer ${GetawayConfigs.dxToken}`
     }
 });
 
@@ -35,7 +34,7 @@ unomiTracker.initialize({
 });
 
 unomiTracker.ready(function() {
-    console.log("Unomi context loaded - profile id : "+window.cxs.profileId + ", sessionId="+window.cxs.sessionId);
+    console.log("Unomi context loaded - profile id : " + window.cxs.profileId + ", sessionId=" + window.cxs.sessionId);
 });
 
 const onRouteChange = (location)=> {
