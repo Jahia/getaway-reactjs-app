@@ -31,7 +31,7 @@ class LocalTime extends Component {
 
 
         // lat & lng of destination
-        const loc = this.props.latitude.value + ',' + this.props.longitude.value;
+        const loc = this.props.latitude + ',' + this.props.longitude;
 
         // Current date/time of user computer
         const targetDate = new Date();

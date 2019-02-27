@@ -33,35 +33,26 @@ class DestinationPanelView extends Component {
     render() {
         const destination = this.props.destination;
         if (destination) {
-            const destiSystemName = destination.systemName;
-            const destiName = destination.name;
-            const destiLatitude = destination.latitude ? parseFloat(destination.latitude.value) : null;
-            const destiLongitude = destination.latitude ? parseFloat(destination.longitude.value) : null;
-            const destiGeoCoords = {
-                lat: destiLatitude,
-                long: destiLongitude
-            }
-            const landmarkPlaceIds = destination.landmarkPlaceIds ? destination.landmarkPlaceIds.values : null;
             const dxMapper = new DXMapper();
             const headerPhotoUrl = dxMapper.retrieveHeaderPhotoUrl(destination);
 
 
-            if (destiName && destiSystemName) {
+            if (destination.name && destination.systemName) {
                 return (
                     <span>
-                        <Banner destinationName={destiName}
+                        <Banner destinationName={destination.name}
                                 destinationCountry={destination.country}
                                 headerPhoto={headerPhotoUrl}/>
 
-                        <DestinationDetails area={destination.area}
-                                            elevation={destination.elevation}
-                                            populationCount={destination.populationCount}
-                                            populationDate={destination.populationDate}
+                        <DestinationDetails area={destination.info.area}
+                                            elevation={destination.info.elevation}
+                                            populationCount={destination.info.populationCount}
+                                            populationDate={destination.info.populationDate}
                                             headline={destination.headline}
                                             outline={destination.outline}
-                                            latitude={destination.latitude}
-                                            longitude={destination.longitude}/>
-                        <DestiLandmarksContainer max="5" placeIds={landmarkPlaceIds} destiGeoCoords={destiGeoCoords}/>
+                                            latitude={destination.geoTag.latitude}
+                                            longitude={destination.geoTag.longitude}/>
+                        <DestiLandmarksContainer max="5" placeIds={destination.landmarkPlaceIds} destiGeoCoords={destination.geoTag}/>
                     </span>
                 )
             }

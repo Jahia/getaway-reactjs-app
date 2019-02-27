@@ -5,38 +5,52 @@ import gql from 'graphql-tag';
 import GetawayConfigs from "../../../utils/GetawayConfigs";
 
 
+// const GQL_QUERY = gql`
+// query DestinationQuery($query: String!, $limit: Int, $language: String) {
+//   jcr(workspace:LIVE) {
+//     nodesByQuery(query: $query, limit: $limit) {
+//       nodes {
+//         id:uuid
+//         name:displayName(language: $language)
+//         systemName: name
+//         country
+//         headerPhoto: property(name: "headerPhoto") {
+//           refNode {
+//             url:nodeUrl
+//           }
+//         }
+//         photos: property(name: "photos") {
+//           refNodes {
+//             url:nodeUrl
+//           }
+//         }
+//       }
+//     }
+//   }
+// }`;
+
 const GQL_QUERY = gql`
-query DestinationQuery($query: String!, $limit: Int, $language: String) {
-  jcr(workspace:LIVE) {
-    nodesByQuery(query: $query, limit: $limit) {
-      nodes {
-        id:uuid
-        name:displayName(language: $language)
-        systemName: name
-        country
-        headerPhoto: property(name: "headerPhoto") {
-          refNode {
-            url:nodeUrl
-          }
+    query DestinationQuery($language: String) {
+        allDestination(language: $language) {
+            id:uuid
+            systemName
+            name
+            country
+            headerPhoto {
+                path
+                url
+            }
+            photos {
+                path
+                url
+            }
         }
-        photos: property(name: "photos") {
-          refNodes {
-            url:nodeUrl
-          }
-        }
-      }
-    }
-  }
-}`;
+    }`;
 
 function mapPropsToOptions(props) {
-    let query = "select * from [gant:destination] where isdescendantnode('/sites/" + GetawayConfigs.dxSiteKey + "/contents')";
-    if (props.onlyHighlighted) query += " and [highlight] = 'true'";
     let options = {
         skip: false,
         variables: {
-            query: query,
-            limit: props.max,
             language: "en"
         }
     };
@@ -45,9 +59,8 @@ function mapPropsToOptions(props) {
 }
 
 function mapResultsToProps(results) {
-    if (results && results.destinations && results.destinations.jcr
-        && results.destinations.jcr.nodesByQuery && results.destinations.jcr.nodesByQuery.nodes)
-        return {elements: results.destinations.jcr.nodesByQuery.nodes};
+    if (results && results.destinations && results.destinations.allDestination)
+        return {elements: results.destinations.allDestination};
     return null;
 }
 

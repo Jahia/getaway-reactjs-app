@@ -3,38 +3,27 @@ import {withRouter} from 'react-router-dom'
 import SimpleRating from "./SimpleRating";
 import styled from "styled-components";
 
-
-class LandmarkCard extends Component {
-    render() {
-        const isHighlighted = this.props.isHighlighted;
-        const landmark = this.props.landmark;
-        const photoUrls = landmark.photoUrls;
-        const name = landmark.name;
-        const locationName = landmark.locationName;
-        const rating = landmark.rating;
-
-        const goToDestination = () => {
-            this.props.history.push({
-                pathname: `/landmark/${landmark.externalId}`,
-            });
-        };
-
-        if(landmark && name && locationName && photoUrls && photoUrls.length > 0) {
-            return (
-            <span  onClick={goToDestination}>
+const LandmarkCard = ({history, landmark, isHighlighted}) => {
+    function goToDestination() {
+        history.push({
+            pathname: `/landmark/${landmark.externalId}`,
+        });
+    }
+    if (!landmark || !(landmark.photoUrls.length > 0)) {
+        console.log("The landmark object isn't correctly set");
+        return null;
+    }
+    return (
+        <span  onClick={goToDestination}>
                 <LandmarkCardWrapper isHighlighted={isHighlighted}>
-                    <LandmarkPhoto src = {photoUrls[0]} isHighlighted={isHighlighted}/>
-                    <LandmarkNameWrapper>{name}</LandmarkNameWrapper>
-                    {isHighlighted && <LandmarkLocationWrapper>{locationName}</LandmarkLocationWrapper>}
-                    <SimpleRating value = {rating} />
+                    <LandmarkPhoto src = {landmark.photoUrls[0]} isHighlighted={isHighlighted}/>
+                    <LandmarkNameWrapper>{landmark.name}</LandmarkNameWrapper>
+                    {isHighlighted && <LandmarkLocationWrapper>{landmark.locationName}</LandmarkLocationWrapper>}
+                    <SimpleRating value = {landmark.rating} />
                 </LandmarkCardWrapper>
             </span>
-            )
-        } else {
-            console.log("The landmark object isn't correctly set");
-        }
-    }
-}
+    )
+};
 
 export default withRouter(LandmarkCard)
 

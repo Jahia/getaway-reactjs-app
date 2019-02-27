@@ -42,7 +42,7 @@ class LandmarkInfo extends Component {
             const pageInfo = this.state.pageInfo;
 
             let renderedDesc = null;
-            if(pageInfo && pageInfo.extract && pageInfo.pageId) {
+            if(pageInfo && pageInfo.pageId) {
                 const pageUrl = GetawayConfigs.WIKIPEDIA_PAGE_URL() + pageInfo.pageId;
                 renderedDesc = <p>{pageInfo.extract}<span><a href={pageUrl}>Wikipedia</a></span></p>;
             }
@@ -51,7 +51,7 @@ class LandmarkInfo extends Component {
                 <LandmarkInfoWrapper>
                     <LandmarkTitleWrapper>
                         <h1>{landmarkName}</h1>
-                        <h2>{locationName}</h2>
+                        {locationName && <h2>{locationName}</h2>}
                     </LandmarkTitleWrapper>
                     {renderedDesc}
                 </LandmarkInfoWrapper>

@@ -5,7 +5,7 @@ import styled from "styled-components";
 class DestinationOutline extends Component {
 
     createOutlineInnerHTML() {
-        return {__html: this.props.outline.value};
+        return {__html: this.props.outline};
     }
 
     render() {

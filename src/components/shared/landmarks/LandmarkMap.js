@@ -180,10 +180,12 @@ class LandmarkMap extends Component {
     }
 
     buildGoogleLocation(geoCoords) {
-        if(geoCoords && geoCoords.lat && geoCoords.long) {
-            return {lat: geoCoords.lat, lng: geoCoords.long}
+        if(geoCoords) {
+            return {
+                lat: geoCoords.lat || geoCoords.latitude,
+                lng: geoCoords.long || geoCoords.longitude
+            }
         }
-
         return null;
     }
 
@@ -199,7 +201,7 @@ class LandmarkMap extends Component {
                 return null;
             });
 
-            console.log("google landmark locations: " + JSON.stringify(locations))
+            console.log("google landmark locations: " + JSON.stringify(locations));
             // Markers (landmarks)
             for(let i in locations) {
                 let location = locations[i];
@@ -220,7 +222,7 @@ class LandmarkMap extends Component {
 
             // Latitude and Longitude coordinates of destination
             const destination = this.buildGoogleLocation(centerGeoCoords);
-            console.log("google desti locations: " + JSON.stringify(destination))
+            console.log("google desti locations: " + JSON.stringify(destination));
 
             const googleMaps = window.google.maps;
             const styledMapType = this.buildStyledMap();

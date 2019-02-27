@@ -5,15 +5,15 @@ import styled from "styled-components";
 class DestinationInfo extends Component {
 
     render() {
-        const area = this.props.area ? this.props.area.value + " km²" : "N/A";
-        const elevation = this.props.elevation ? this.props.elevation.value + " m" : "N/A";
+        const area = this.props.area ? this.props.area + " km²" : "N/A";
+        const elevation = this.props.elevation ? this.props.elevation + " m" : "N/A";
         let population = "N/A";
         if(this.props.populationCount) {
-            const populationCount = this.props.populationCount.value;
+            const populationCount = this.props.populationCount;
             population = populationCount > 1000000 ? (populationCount/1000000 + " million") : populationCount;
-            if (this.props.populationDate) population += " (" + this.props.populationDate.value + ")"
+            if (this.props.populationDate) population += " (" + this.props.populationDate + ")"
         }
-        const headline = this.props.headline ? "\"" + this.props.headline.value + "\"" : "";
+        const headline = this.props.headline ? "\"" + this.props.headline + "\"" : "";
 
         return (
         /* Destination info */
