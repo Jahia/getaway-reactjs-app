@@ -8,35 +8,42 @@ import {withRouter} from 'react-router-dom';
 import GetawayConfigs from "../../../utils/GetawayConfigs";
 
 
-const GQL_QUERY = gql`
-query DestinationsQuery($query: String!) {
-  jcr(workspace:LIVE) {
-    nodesByQuery(query: $query) {
-      nodes {
-        name
-      }
-    }
-  }
-}`;
+// const GQL_QUERY = gql`
+// query DestinationsQuery($query: String!) {
+//   jcr(workspace:LIVE) {
+//     nodesByQuery(query: $query) {
+//       nodes {
+//         name
+//       }
+//     }
+//   }
+// }`;
 
-function mapPropsToOptions(props) {
-    const query = "select * from [gant:destination] where isdescendantnode('/sites/" + GetawayConfigs.dxSiteKey + "/contents')";
+const GQL_QUERY = gql`
+    query DestinationsQuery {
+        allDestination {
+            systemName
+        }
+    }`;
+
+function mapPropsToOptions() {
     return {
         skip: false,
-        variables: {
-            query: query,
-        }
+        variables: {}
     }
 }
 
 function mapResultsToProps(results) {
-    if (results && results.destination && results.destination.jcr
-        && results.destination.jcr.nodesByQuery && results.destination.jcr.nodesByQuery.nodes) {
-        const randomDest = results.destination.jcr.nodesByQuery.nodes;
-        const randomIdx = Math.floor(Math.random() * Math.floor(randomDest.length));
-        return {randomDest: randomDest[randomIdx].name};
+    if (results && results.destination) {
+        let destinations = results.destination.allDestination;
+        return destinations && destinations.length > 0 ? selectRandomDestination(destinations) : null;
     }
     return null;
+
+    function selectRandomDestination(destinations) {
+        const randomIdx = Math.floor(Math.random() * Math.floor(destinations.length));
+        return {randomDest: destinations[randomIdx].systemName}
+    }
 }
 
 

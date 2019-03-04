@@ -6,40 +6,38 @@ import {LandmarkCardContainer} from "../shared/landmarks";
 import GetawayConfigs from "../../utils/GetawayConfigs";
 import {withPlacesApi} from "../external";
 
+// const GQL_QUERY = gql`
+// query LandmarkQuery($query: String!, $limit: Int){
+//   jcr(workspace:LIVE) {
+//     nodesByQuery(query: $query, limit: $limit) {
+//       nodes {
+//         landmarkPlaceIds: property(name: "landmarks") {
+//           values
+//         }
+//       }
+//     }
+//   }
+// }`;
+
 const GQL_QUERY = gql`
-query LandmarkQuery($query: String!, $limit: Int){
-  jcr(workspace:LIVE) {
-    nodesByQuery(query: $query, limit: $limit) {
-      nodes {
-        landmarkPlaceIds: property(name: "landmarks") {
-          values
+    query LandmarkQuery {
+        allDestination {
+            landmarks
         }
-      }
-    }
-  }
-}`;
+    }`;
 
 function mapPropsToOptions(props) {
-    let query = "SELECT * FROM [gant:destination] as destination WHERE isdescendantnode('/sites/"
-        + GetawayConfigs.dxSiteKey + "/contents') AND destination.landmarks is not null";
-
-    // the flag highlighted relates to the destinations
-    if (props.fromHighlightedDesti) query += " and [highlight] = 'true'";
-    let options = {
+    return {
         skip: false,
-        variables: {
-            query: query,
-            limit: props.max,
-        }
+        variables: {}
     };
-    console.log("Options: " + JSON.stringify(options));
-    return options
 }
 
 function mapResultsToProps(results) {
-    if (results && results.destinations && results.destinations.jcr
-        && results.destinations.jcr.nodesByQuery && results.destinations.jcr.nodesByQuery.nodes)
-        return {elements: results.destinations.jcr.nodesByQuery.nodes};
+    if (results && results.destinations && results.destinations.allDestination && results.destinations.allDestination.length > 0) {
+        let destinations = results.destinations.allDestination.filter(destination => destination.landmarks && destination.landmarks.length > 0);
+        return {elements: destinations};
+    }
     return null;
 }
 
@@ -49,15 +47,8 @@ class LandmarkCards extends Component {
      * Renders a landmark card
      * @param {Object} destination - The destination object from which the first landmark will be rendered
      */
-    renderLandmark(destination) {
-        if(destination) {
-            const landmarkPlaceIds = destination.landmarkPlaceIds;
-            if(landmarkPlaceIds && landmarkPlaceIds.values && landmarkPlaceIds.values.length > 0) {
-                // container as it will make some external calls
-                const landmarkPlaceId = landmarkPlaceIds.values[0];
-                return (<LandmarkCardContainer landmarkPlaceId={landmarkPlaceId} key={landmarkPlaceId} />);
-            }
-        }
+    renderLandmark(landmarks) {
+        return (<LandmarkCardContainer landmarkPlaceId={landmarks[0]} key={landmarks[0]} />);
     }
 
     render() {
@@ -67,7 +58,7 @@ class LandmarkCards extends Component {
                 <MainLandmarksWrapper>
                     <h2>Highlighted Landmarks</h2>
                     <div className="landmark-card-container">
-                        { destinations.map(destination => (this.renderLandmark(destination)))}
+                        { destinations.map(destination => (this.renderLandmark(destination.landmarks)))}
                     </div>
                 </MainLandmarksWrapper>
             );
