@@ -7,6 +7,7 @@
     "apollo-client": "^2.2.8",
     "apollo-client-preset": "^1.0.8",
     "apollo-link-rest": "^0.2.2",
+    "cloudinary-react": "^1.1.0",
     "graphql": "^0.12.3",
     "graphql-tag": "^2.8.0",
     "prop-types": "^15.6.1",

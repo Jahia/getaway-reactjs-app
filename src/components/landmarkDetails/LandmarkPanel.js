@@ -12,7 +12,7 @@ class LandmarkPanel extends Component {
         const landmarks = [landmark];
         return (
             <div>
-                <LandmarkMap centerGeoCoords={geoCoords} landmarks={landmarks}/>
+                <LandmarkMap centerGeoCoords={geoCoords} landmarks={landmarks} zoomLevel={16}/>
                 <LandmarkInfo landmarkName={landmark.name} locationName={landmark.locationName}/>
                 <LandmarkReviews globalRating={landmark.rating} reviews={landmark.reviews}/>
             </div>

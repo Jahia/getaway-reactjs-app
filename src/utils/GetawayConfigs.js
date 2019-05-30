@@ -1,8 +1,8 @@
 const GetawayConfigs = {
     dxHost: "http://localhost:8080",
     unomiHost: "http://localhost:8181",
-    dxSiteKey: "getaway",
-    dxToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vamFoaWEuY29tIiwic3ViIjoiYXBpIHZlcmlmaWNhdGlvbiIsInJlZmVyZXIiOlsiaHR0cDovLzEyNy4wLjAuMSIsImh0dHA6Ly9sb2NhbGhvc3QiXSwiaXNzIjoiZHgiLCJzY29wZXMiOlsiZ2V0YXdheSJdLCJpYXQiOjE1Mzg0NjU3NjQsImp0aSI6ImJiNjUyYmI2LTVlOGUtNGRmZC1hYjI3LWRlYzY4NWQxZmVmYiJ9.YolJyuSXGlvIN9_hL4eH6D9_oFHKwt005y3vfCuR2ZU",
+    dxSiteKey: "digitall",
+    dxToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vamFoaWEuY29tIiwic3ViIjoiYXBpIHZlcmlmaWNhdGlvbiIsImlzcyI6ImR4Iiwic2NvcGVzIjpbImdldGF3YXkiXSwiaWF0IjoxNTU5MjMwODQ0LCJqdGkiOiI2NTRkYjgwOC1mMTY1LTQ2ZTMtYWM2Yi0zNDM3N2RjNjJhNmUifQ.YmViHIRef_lZ5hemehmiKAaL9XVBWOQnEpvw-p-xiso",
     googlePlacesApiKey: "AIzaSyBVs-p_AiWF1fOcqBXr5mXqxX5oNcGT6H4",
     googleMapsApiKey: "AIzaSyAJB4T6gOzkGQBR_NRWNON44SyCKLAb8C8",
     /** The URL from where the Google API library can be retrieved */

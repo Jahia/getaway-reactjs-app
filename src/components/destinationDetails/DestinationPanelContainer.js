@@ -60,10 +60,10 @@ const GQL_QUERY = gql`
                 populationDate
             }
             headerPhoto {
-                url
+                path
             }
             photos {
-                url
+                path
             }
         }
     }`;

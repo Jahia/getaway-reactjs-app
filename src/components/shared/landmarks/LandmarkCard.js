@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom'
-import SimpleRating from "./SimpleRating";
-import styled from "styled-components";
+import React from 'react';
+import {withRouter} from 'react-router-dom';
+import SimpleRating from './SimpleRating';
+import styled from 'styled-components';
 
 const LandmarkCard = ({history, landmark, isHighlighted}) => {
     function goToDestination() {
         history.push({
-            pathname: `/landmark/${landmark.externalId}`,
+            pathname: `/landmark/${landmark.externalId}`
         });
     }
+
     if (!landmark || !(landmark.photoUrls.length > 0)) {
-        console.log("The landmark object isn't correctly set");
+        console.log('The landmark object isn\'t correctly set');
         return null;
     }
     return (
-        <span  onClick={goToDestination}>
+        <span onClick={goToDestination}>
                 <LandmarkCardWrapper isHighlighted={isHighlighted}>
-                    <LandmarkPhoto src = {landmark.photoUrls[0]} isHighlighted={isHighlighted}/>
+                    <LandmarkPhoto src={landmark.photoUrls[0]} isHighlighted={isHighlighted}/>
                     <LandmarkNameWrapper>{landmark.name}</LandmarkNameWrapper>
                     {isHighlighted && <LandmarkLocationWrapper>{landmark.locationName}</LandmarkLocationWrapper>}
-                    <SimpleRating value = {landmark.rating} />
+                    <SimpleRating value={landmark.rating}/>
                 </LandmarkCardWrapper>
             </span>
-    )
+    );
 };
 
-export default withRouter(LandmarkCard)
-
+export default withRouter(LandmarkCard);
 
 const LandmarkCardWrapper = styled.div`
     display: inline-block;
@@ -77,6 +77,9 @@ const LandmarkNameWrapper = styled.div`
     color: #220B38;
     font-size: 18px;
     font-weight: 600;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 const LandmarkLocationWrapper = styled.div`

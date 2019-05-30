@@ -5,7 +5,7 @@ import topSectionImg from "../../../images/rio-de-janeiro.jpg";
 import {graphql} from 'react-apollo';
 import gql from "graphql-tag";
 import {withRouter} from 'react-router-dom';
-import GetawayConfigs from "../../../utils/GetawayConfigs";
+import cloudinary from 'cloudinary-core';
 
 
 // const GQL_QUERY = gql`
@@ -52,8 +52,11 @@ class Banner extends Component {
 
     buildInlineStyle() {
         const headerPhoto = this.props.headerPhoto;
+        console.log("Header photo "+headerPhoto);
         if(headerPhoto) {
-            return { backgroundImage: "url(" + headerPhoto+ ")" };
+
+            const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'cedric-mailleux'});
+            return { backgroundImage: "url(" + cloudinaryCore.url(headerPhoto,{gravity: "auto", height: 340, width: 1440, crop: "lfill"})+ ")" };
         }
 
         return null;
@@ -203,7 +206,6 @@ const BannerTopSectionDestWrapper = styled.section`
     height: 340px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 -80px;
     margin-bottom: 8px;
     @media screen and (max-width: 840px) {
         height: 300px;

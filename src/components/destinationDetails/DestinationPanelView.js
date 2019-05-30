@@ -34,6 +34,7 @@ class DestinationPanelView extends Component {
         const destination = this.props.destination;
         if (destination) {
             const dxMapper = new DXMapper();
+            console.log("destination " + destination)
             const headerPhotoUrl = dxMapper.retrieveHeaderPhotoUrl(destination);
 
 

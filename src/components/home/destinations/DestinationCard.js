@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import DXMapper from "../../external/DXMapper";
 import styled from "styled-components";
+import {Image,Transformation} from 'cloudinary-react';
 
 
 class DestinationCard extends Component {
@@ -27,7 +28,9 @@ class DestinationCard extends Component {
         return (
             <span>
                 <DestinationCardWrapper onClick={goToDestination}>
-                    <DestinationPhoto src={headerPhoto}/>
+                    <Image publicId={headerPhoto}>
+                        <Transformation effect="art:linen" height="200" width="200" crop="thumb" />
+                    </Image>
                     <DestinationNameWrapper>{name}</DestinationNameWrapper>
                     <DestinationCountryWrapper>{country}</DestinationCountryWrapper>
                 </DestinationCardWrapper>
@@ -100,12 +103,6 @@ const DestinationCardWrapper = styled.div`
             display: none;
         }
     }
-`;
-
-const DestinationPhoto = styled.img`
-    object-fit: cover;
-    height: 200px;
-    width: 200px;
 `;
 
 

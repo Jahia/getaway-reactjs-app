@@ -229,7 +229,7 @@ class LandmarkMap extends Component {
 
             // Map config
             const map = new googleMaps.Map(document.getElementById('mapDest'), {
-                zoom: 11,
+                zoom: this.props.zoomLevel !== undefined ? this.props.zoomLevel : 15,
                 center: destination,
                 mapTypeControlOptions: {
                     mapTypeIds: ['satellite', 'styled_map']
