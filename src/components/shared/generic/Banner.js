@@ -41,7 +41,7 @@ function mapResultsToProps(results) {
     return null;
 
     function selectRandomDestination(destinations) {
-        const randomIdx = Math.floor(Math.random() * Math.floor(destinations.length));
+        const randomIdx = Math.floor(Math.random() * destinations.length);
         return {randomDest: destinations[randomIdx].systemName}
     }
 }

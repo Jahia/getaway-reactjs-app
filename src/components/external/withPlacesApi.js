@@ -6,9 +6,9 @@ const withPlacesApi = (ComponentToWrap) => {
         // let’s define what’s needed from the `context`
         static contextTypes = {
             placesApi: PropTypes.object.isRequired,
-        }
+        };
         render() {
-            const {placesApi} = this.context
+            const {placesApi} = this.context;
             // what we do is basically rendering `ComponentToWrap`
             // with an added `withPlacesApi` prop, like a hook
             return (
@@ -16,5 +16,5 @@ const withPlacesApi = (ComponentToWrap) => {
             )
         }
     }
-}
+};
 export default withPlacesApi

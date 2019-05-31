@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import DestinationCard from "./DestinationCard";
+import React, {Component} from 'react';
+import DestinationCard from './DestinationCard';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
-import GetawayConfigs from "../../../utils/GetawayConfigs";
-
 
 // const GQL_QUERY = gql`
 // query DestinationQuery($query: String!, $limit: Int, $language: String) {
@@ -36,6 +34,7 @@ const GQL_QUERY = gql`
             systemName
             name
             country
+            highlight
             headerPhoto {
                 path
                 url
@@ -51,11 +50,10 @@ function mapPropsToOptions(props) {
     let options = {
         skip: false,
         variables: {
-            language: "en"
+            language: 'en'
         }
     };
-    console.log("Options: " + JSON.stringify(options));
-    return options
+    return options;
 }
 
 function mapResultsToProps(results) {
@@ -77,16 +75,21 @@ class DestinationCards extends Component {
     }
 
     render() {
-        const destinations = this.props.elements;
-        if(destinations) {
+        var destinations;
+        if (this.props.elements && this.props.onlyHighlighted) {
+            destinations = this.props.elements.filter(destination => (destination.highlight));
+        } else {
+            destinations = this.props.elements;
+        }
+        if (destinations) {
             return (
                 <div className="destination-card-container">
-                    { destinations.map(destination => (this.renderDestination(destination)))}
+                    {destinations.map(destination => (this.renderDestination(destination)))}
                 </div>
             );
         }
 
-        return "Loading destinations ...";
+        return 'Loading destinations ...';
     }
 }
 
@@ -94,4 +97,4 @@ export default graphql(GQL_QUERY, {
     name: 'destinations',
     props: mapResultsToProps,
     options: mapPropsToOptions
-})(DestinationCards)
+})(DestinationCards);
