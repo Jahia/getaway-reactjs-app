@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from "styled-components";
 import Typist from 'react-typist';
 import topSectionImg from "../../../images/rio-de-janeiro.jpg";
@@ -47,16 +47,21 @@ function mapResultsToProps(results) {
 }
 
 
-
 class Banner extends Component {
 
     buildInlineStyle() {
         const headerPhoto = this.props.headerPhoto;
-        console.log("Header photo "+headerPhoto);
-        if(headerPhoto) {
+        if (headerPhoto) {
 
-            const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'cedric-mailleux'});
-            return { backgroundImage: "url(" + cloudinaryCore.url(headerPhoto,{gravity: "auto", height: 340, width: 1440, crop: "lfill"})+ ")" };
+            const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: headerPhoto.cloudspace});
+            return {
+                backgroundImage: "url(" + cloudinaryCore.url(headerPhoto.path, {
+                    gravity: "auto",
+                    height: 340,
+                    width: 1440,
+                    crop: "lfill"
+                }) + ")"
+            };
         }
 
         return null;
@@ -76,17 +81,21 @@ class Banner extends Component {
             return (
                 <BannerTopSectionDestWrapper style={inlineStyle}>
                     <BannerShadowOverlayWrapper1/>
-                        <h1><Typist avgTypingDelay={40} stdTypingDelay={1} startDelay={400} cursor={{hideWhenDone:true, hideWhenDoneDelay:0}}>{destiName}</Typist></h1>
-                        <h3><Typist avgTypingDelay={40} stdTypingDelay={1} startDelay={800} cursor={{hideWhenDone:true,hideWhenDoneDelay:0}}>{destiCountry}</Typist></h3>
+                    <h1><Typist avgTypingDelay={40} stdTypingDelay={1} startDelay={400}
+                                cursor={{hideWhenDone: true, hideWhenDoneDelay: 0}}>{destiName}</Typist></h1>
+                    <h3><Typist avgTypingDelay={40} stdTypingDelay={1} startDelay={800}
+                                cursor={{hideWhenDone: true, hideWhenDoneDelay: 0}}>{destiCountry}</Typist></h3>
                 </BannerTopSectionDestWrapper>
             );
         } else {
             return (
                 <BannerTopSectionWrapper style={inlineStyle}>
                     <BannerShadowOverlayWrapper/>
-                        <h1><Typist avgTypingDelay={40} startDelay={400} cursor={{hideWhenDone:true, hideWhenDoneDelay:0}}>Find your next vacation idea among these places handpicked just for you!</Typist></h1>
-                        <BannerCtaWrapper >
-                            <a onClick={goToDestination} >Take me somewhere!</a>
+                    <h1><Typist avgTypingDelay={40} startDelay={400}
+                                cursor={{hideWhenDone: true, hideWhenDoneDelay: 0}}>Find your next vacation idea among
+                        these places handpicked just for you!</Typist></h1>
+                    <BannerCtaWrapper>
+                        <a onClick={goToDestination}>Take me somewhere!</a>
                     </BannerCtaWrapper>
                 </BannerTopSectionWrapper>
             );

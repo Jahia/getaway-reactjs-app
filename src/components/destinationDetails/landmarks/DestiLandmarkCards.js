@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {LandmarkCard} from "../../shared/landmarks";
 import styled from "styled-components";
 
@@ -11,8 +11,8 @@ class DestiLandmarkCards extends Component {
      * @return {Object} The landmark card rendered
      */
     renderLandmark(landmark) {
-        if(landmark) {
-            return (<LandmarkCard landmark={landmark} key={landmark.name} />)
+        if (landmark) {
+            return (<LandmarkCard landmark={landmark} key={landmark.name}/>)
         }
 
         return null;
@@ -20,7 +20,7 @@ class DestiLandmarkCards extends Component {
 
     render() {
         const landmarks = this.props.landmarks;
-        if(landmarks) {
+        if (landmarks) {
             return (
                 <DestinationLandmarksWrapper>
                     <h2>Landmarks</h2>

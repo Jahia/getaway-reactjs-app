@@ -61,9 +61,19 @@ const GQL_QUERY = gql`
             }
             headerPhoto {
                 path
+                cloudinary {
+                 url
+                 cloudspace
+                 path
+                }
             }
             photos {
                 path
+                cloudinary {
+                 url
+                 cloudspace
+                 path
+                }
             }
         }
     }`;
@@ -72,7 +82,7 @@ const GQL_QUERY = gql`
 function mapPropsToOptions(props) {
     const destiName = props.match.params.destinationName;
     let options = null;
-    if(destiName) {
+    if (destiName) {
         options = {
             skip: false,
             variables: {
@@ -98,9 +108,10 @@ class DestinationPanelContainer extends Component {
     renderDestination(destination) {
         return <DestinationPanelView destination={destination}/>
     }
+
     render() {
         const options = mapPropsToOptions(this.props);
-        if(options == null) return <Redirect to={GetawayConfigs.ERROR_PAGE_URL}/>;
+        if (options == null) return <Redirect to={GetawayConfigs.ERROR_PAGE_URL}/>;
 
         return (
             <Query query={GQL_QUERY} variables={options.variables} skip={options.skip}>

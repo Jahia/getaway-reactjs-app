@@ -38,10 +38,20 @@ const GQL_QUERY = gql`
             headerPhoto {
                 path
                 url
+                cloudinary {
+                 url
+                 cloudspace
+                 path
+                }
             }
             photos {
                 path
                 url
+                cloudinary {
+                 url
+                 cloudspace
+                 path
+                }
             }
         }
     }`;

@@ -34,8 +34,7 @@ class DestinationPanelView extends Component {
         const destination = this.props.destination;
         if (destination) {
             const dxMapper = new DXMapper();
-            console.log("destination " + destination)
-            const headerPhotoUrl = dxMapper.retrieveHeaderPhotoUrl(destination);
+            const headerPhotoUrl = dxMapper.retrieveHeaderPhoto(destination);
 
 
             if (destination.name && destination.systemName) {
@@ -53,7 +52,8 @@ class DestinationPanelView extends Component {
                                             outline={destination.outline}
                                             latitude={destination.geoTag.latitude}
                                             longitude={destination.geoTag.longitude}/>
-                        <DestiLandmarksContainer max="5" placeIds={destination.landmarkPlaceIds} destiGeoCoords={destination.geoTag}/>
+                        <DestiLandmarksContainer max="5" placeIds={destination.landmarkPlaceIds}
+                                                 destiGeoCoords={destination.geoTag}/>
                     </span>
                 )
             }

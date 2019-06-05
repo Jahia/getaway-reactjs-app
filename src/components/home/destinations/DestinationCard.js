@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import DXMapper from "../../external/DXMapper";
 import styled from "styled-components";
-import {Image,Transformation} from 'cloudinary-react';
+import {Image, Transformation} from 'cloudinary-react';
 
 
 class DestinationCard extends Component {
@@ -17,7 +17,7 @@ class DestinationCard extends Component {
         const country = destination.country;
 
         const dxMapper = new DXMapper();
-        const headerPhoto = dxMapper.retrieveHeaderPhotoUrl(destination);
+        const headerPhoto = dxMapper.retrieveHeaderPhoto(destination);
 
         const goToDestination = () => {
             this.props.history.push({
@@ -28,8 +28,8 @@ class DestinationCard extends Component {
         return (
             <span>
                 <DestinationCardWrapper onClick={goToDestination}>
-                    <Image publicId={headerPhoto}>
-                        <Transformation effect="art:linen" height="200" width="200" crop="thumb" />
+                    <Image cloudName={headerPhoto.cloudspace} publicId={headerPhoto.path}>
+                        <Transformation effect="art:linen" height="200" width="200" crop="thumb"/>
                     </Image>
                     <DestinationNameWrapper>{name}</DestinationNameWrapper>
                     <DestinationCountryWrapper>{country}</DestinationCountryWrapper>

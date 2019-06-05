@@ -7,7 +7,6 @@ import {LandmarkPanel} from "./landmarkDetails";
 import {NotFoundPanel} from "./shared";
 import Layout from './Layout';
 import '../styles/App.css';
-import {CloudinaryContext} from 'cloudinary-react';
 
 
 class CSSTransition extends OriginalCSSTransition {
@@ -24,7 +23,6 @@ class App extends Component {
         const timeout = {enter: 0, exit: 1000};
 
         return (
-            <CloudinaryContext cloudName='cedric-mailleux'>
             <TransitionGroup>
                 <CSSTransition timeout={timeout} classNames="panel" key={currentKey} mountOnEnter appear>
                    <div className="panel-container">
@@ -39,7 +37,6 @@ class App extends Component {
                     </div>
                 </CSSTransition>
             </TransitionGroup>
-            </CloudinaryContext>
         );
     }
 

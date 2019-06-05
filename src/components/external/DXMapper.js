@@ -1,9 +1,9 @@
 class DXMapper {
 
-    retrieveHeaderPhotoUrl(destination) {
+    retrieveHeaderPhoto(destination) {
         const headerPhoto = destination.headerPhoto;
-        if (headerPhoto) {
-            return '/digitall_images' + headerPhoto.path.substring(headerPhoto.path.indexOf('/images')+'/images'.length);
+        if (headerPhoto && headerPhoto.cloudinary) {
+            return headerPhoto.cloudinary;
         } else {
             return this.retrieveFirstPhoto(destination);
         }
@@ -11,10 +11,9 @@ class DXMapper {
 
     retrieveFirstPhoto(destination) {
         if (destination.photos && destination.photos.length > 0) {
-            const firstPhotoUrl = destination.photos[0].path;
-            return firstPhotoUrl ? '/digitall_images' + firstPhotoUrl.substring(firstPhotoUrl.indexOf('/images')+'/images'.length) : null;
+            const firstPhoto = destination.photos[0].cloudinary;
+            return firstPhoto ? firstPhoto : null;
         }
-
         return null;
     }
 }
