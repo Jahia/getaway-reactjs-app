@@ -62,7 +62,6 @@ const GQL_QUERY = gql`
             headerPhoto {
                 path
                 cloudinary {
-                 url
                  cloudspace
                  path
                 }
@@ -70,7 +69,6 @@ const GQL_QUERY = gql`
             photos {
                 path
                 cloudinary {
-                 url
                  cloudspace
                  path
                 }

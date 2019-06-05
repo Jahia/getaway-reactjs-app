@@ -39,7 +39,6 @@ const GQL_QUERY = gql`
                 path
                 url
                 cloudinary {
-                 url
                  cloudspace
                  path
                 }
@@ -48,7 +47,6 @@ const GQL_QUERY = gql`
                 path
                 url
                 cloudinary {
-                 url
                  cloudspace
                  path
                 }
