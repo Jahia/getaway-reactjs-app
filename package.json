@@ -21,7 +21,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-link": "^2.0.2",
     "react-router-page-transition": "^3.1.0",
-    "react-scripts": "1.1.1",
+    "react-scripts": "5.0.1",
     "react-transition-group": "^2.3.1",
     "react-typist": "^2.0.4",
     "styled-components": "^3.2.6",
